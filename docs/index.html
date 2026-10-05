@@ -99,11 +99,16 @@ fetch("events.json").then(r => r.json()).then(data => {
         <p>🚗 From Pasadena: <a href="${p.dirPasadena}" target="_blank">${esc(p.drivePasadena)}</a><br>
            🚗 From SLO: <a href="${p.dirSlo}" target="_blank">${esc(p.driveSlo)}</a><br>
            <small style="opacity:.7">OSRM free-flow estimate; links open live Google directions.</small></p>
-        ${p.liveStats ? "<p>📊 Live stats available</p>" : ""}
+        ${(p.video || p.audio || p.stats || p.liveStats) ? `<p>${
+            [p.video && `📺 <a href="${p.video}" target="_blank">${esc(p.videoLabel)}</a>`,
+             p.audio && `🎙️ <a href="${p.audio}" target="_blank">Listen</a>`,
+             p.stats ? `📊 <a href="${p.stats}" target="_blank">Live stats</a>` : p.liveStats ? "📊 Live stats available" : ""
+            ].filter(Boolean).join(" · ")}</p>` : ""}
         ${p.notes ? `<p>📝 ${esc(p.notes)}</p>` : ""}
         ${p.confirmed ? "" : `<p class="warn">⚠️ Home/away inferred (no @/Vs on poster) — confirm before traveling.</p>`}`;
       document.getElementById("d-foot").innerHTML = `
         <a href="${p.gcal}" target="_blank">➕ Google Calendar</a>
+        ${p.video ? `<a href="${p.video}" target="_blank">📺 Watch</a>` : ""}
         ${p.issue ? `<a href="${p.issue}" target="_blank">🔔 Reminder issue</a>` : ""}
         <button onclick="dlg.close()">Close</button>`;
       dlg.showModal();

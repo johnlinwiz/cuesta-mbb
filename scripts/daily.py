@@ -33,7 +33,13 @@ def reminder_body(e, days, mentions):
         extra = f" → leave by **{lb.strftime('%-I:%M %p')}**" if lb and d["minutes"] > 20 else ""
         lines.append(f"- 🚗 From {label}: [{fmt_dur(d['minutes'])}]({maps_dir(origin, e.venue)}) "
                      f"· {d['miles']} mi{extra}")
-    if e.live_stats:
+    if e.video:
+        lines.append(f"- 📺 **Watch live:** [{e.video_label}]({e.video})")
+    if e.audio:
+        lines.append(f"- 🎙️ Audio: {e.audio}")
+    if e.stats:
+        lines.append(f"- 📊 [Live stats / box score]({e.stats})")
+    elif e.live_stats:
         lines.append("- 📊 Live stats available")
     if not e.site_confirmed:
         lines.append("- ⚠️ Home/away inferred from poster — confirm before you go")

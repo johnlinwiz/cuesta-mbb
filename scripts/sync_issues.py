@@ -50,8 +50,15 @@ def body_for(e, sched):
         drive_row(e, "pasadena", "Pasadena"),
         drive_row(e, "slo", "SLO"),
     ]
-    if e.live_stats:
-        rows.append("| **Live stats** | 📊 Yes |")
+    if e.video:
+        rows.append(f"| **📺 Watch live** | [{e.video_label}]({e.video})"
+                    + (" <sub>(per-game link usually posted on game day)</sub>" if e.video_is_channel else "") + " |")
+    if e.audio:
+        rows.append(f"| **🎙️ Audio** | [{e.audio}]({e.audio}) |")
+    if e.stats:
+        rows.append(f"| **📊 Live stats** | [Live stats / box score]({e.stats}) |")
+    elif e.live_stats:
+        rows.append("| **📊 Live stats** | Yes (link not posted yet) |")
     if e.notes:
         rows.append(f"| **Note** | {e.notes} |")
     rows.append("")

@@ -53,8 +53,9 @@ def build_readme(sched, venues_cfg, drive, events, issues, today):
     out += [
         "🏠 home · 🚌 away · 🏆 tournament · `*` Western State Conference · "
         "`?` home/away inferred (poster had no `@`/`Vs`) · ✅ played  ",
-        "Drive times are OSRM free-flow estimates (no traffic; run a bit long vs Google) — "
-        "click one for live Google Maps directions. All times Pacific.",
+        "📺 host school's stream channel (the per-game link usually goes up on game day) · 📊 live stats. Drive times are OSRM "
+        "free-flow estimates (no traffic; run a bit long vs Google) — click one for live Google Maps "
+        "directions. All times Pacific.",
         "",
     ]
 
@@ -67,11 +68,20 @@ def build_readme(sched, venues_cfg, drive, events, issues, today):
                     "|---|---|---|---|---|---|---|---|"]
         done = "✅ " if e.end_date < today else ""
         game = f"{icon(e)} **{e.matchup}**{e.conf_star}"
+        watch = []
+        if e.video:
+            watch.append(f"[📺 watch]({e.video})" + ("" if e.video_is_channel else " (game)"))
+        if e.audio:
+            watch.append(f"[🎙️ audio]({e.audio})")
+        if e.stats:
+            watch.append(f"[📊 stats]({e.stats})")
+        elif e.live_stats:
+            watch.append("📊 stats")
+        if watch:
+            game += "<br>" + " · ".join(watch)
         extras = []
         if e.type == "scrimmage":
             extras.append("scrimmage")
-        if e.live_stats:
-            extras.append("live stats")
         if e.notes:
             extras.append(e.notes)
         if extras:
@@ -155,7 +165,8 @@ def build_calendar_md(sched, events, issues, today):
                     if n:
                         name = f"[{name}](https://github.com/{REPO}/issues/{n})"
                     done = "✅" if e.end_date < today else ""
-                    txt += f"<br>{done}{icon(e)} {t} {name}"
+                    live = f" [📺]({e.video})" if e.video else ""
+                    txt += f"<br>{done}{icon(e)} {t} {name}{live}"
                 cells.append(txt)
             out.append("| " + " | ".join(cells) + " |")
         out.append("")
@@ -201,6 +212,7 @@ def build_events_json(sched, events, issues):
                 "dirPasadena": maps_dir("pasadena", e.venue), "dirSlo": maps_dir("slo", e.venue),
                 "drivePasadena": e.drive_label("pasadena"), "driveSlo": e.drive_label("slo"),
                 "liveStats": e.live_stats, "notes": e.notes, "confirmed": e.site_confirmed,
+                "video": e.video, "videoLabel": e.video_label, "audio": e.audio, "stats": e.stats,
                 "gcal": e.gcal_link(),
                 "issue": f"https://github.com/{REPO}/issues/{issues[e.id]}" if e.id in issues else None,
             },

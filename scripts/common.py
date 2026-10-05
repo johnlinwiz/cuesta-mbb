@@ -56,9 +56,16 @@ class Event:
         self.site_confirmed = raw.get("site_confirmed", True)
         self.type = raw["type"]
         self.live_stats = raw.get("live_stats", False)
+        self.audio = raw.get("audio")   # streaming audio-only URL
+        self.stats = raw.get("stats")   # live-stats scoreboard URL
         self.notes = raw.get("notes", "")
         self.venue_key = raw["venue"]
         self.venue = venues[self.venue_key]
+        # Per-game stream link if posted; otherwise fall back to the host school's channel.
+        self.video = raw.get("video") or self.venue.get("stream")
+        self.video_is_channel = bool(self.video) and not raw.get("video")
+        self.video_label = ("Host channel: " + self.venue.get("stream_label", "")) if self.video_is_channel \
+            else "Game stream"
         self.drive = drive.get(self.venue_key, {})
         self.all_day = "time" not in raw
         if self.all_day:
@@ -134,7 +141,13 @@ class Event:
             f"Drive from Pasadena: {self.drive_label('pasadena')}",
             f"Drive from SLO: {self.drive_label('slo')}",
         ]
-        if self.live_stats:
+        if self.video:
+            lines.append(f"Watch live ({self.video_label}): {self.video}")
+        if self.audio:
+            lines.append(f"Listen live: {self.audio}")
+        if self.stats:
+            lines.append(f"Live stats: {self.stats}")
+        elif self.live_stats:
             lines.append("Live stats available")
         if self.notes:
             lines.append(f"Note: {self.notes}")

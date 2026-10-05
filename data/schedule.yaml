@@ -29,20 +29,20 @@ games:
 
   - {date: 2026-12-02, time: "18:00", opponent: Coalinga,           site: away, venue: coalinga,    type: non-conference}
   - {date: 2026-12-12, time: "15:00", opponent: Rio Hondo,          site: home, venue: cuesta,      type: non-conference}
-  - {date: 2026-12-15, time: "17:30", opponent: Bakersfield,        site: away, venue: bakersfield, type: non-conference}
+  - {date: 2026-12-15, time: "17:30", opponent: Bakersfield,        site: away, venue: bakersfield, type: non-conference, stats: "https://www.cuestaathletics.com/sports/mbkb/2026-27/boxscores/20261215_z1ox.xml"}
   - {date: 2026-12-18, end_date: 2026-12-20, opponent: San Joaquin Delta Tournament, site: neutral, venue: delta, type: tournament, notes: "Bracket/times TBA"}
-  - {date: 2026-12-29, time: "15:00", opponent: Santa Ana,          site: neutral, venue: hancock,   type: tournament, notes: "AHC Holiday Classic, day 1"}
-  - {date: 2026-12-30, time: "13:00", opponent: Palo Verde,         site: neutral, venue: hancock,   type: tournament, notes: "AHC Holiday Classic, day 2"}
+  - {date: 2026-12-29, time: "15:00", opponent: Santa Ana,          site: neutral, venue: hancock,   type: tournament, notes: "AHC Holiday Classic, day 1", stats: "https://www.cuestaathletics.com/sports/mbkb/2026-27/boxscores/20261229_do4v.xml"}
+  - {date: 2026-12-30, time: "13:00", opponent: Palo Verde,         site: neutral, venue: hancock,   type: tournament, notes: "AHC Holiday Classic, day 2", stats: "https://www.cuestaathletics.com/sports/mbkb/2026-27/boxscores/20261230_d1nc.xml"}
 
-  - {date: 2027-01-06, time: "19:00", opponent: Ventura,            site: away, venue: ventura,     type: conference, live_stats: true}
+  - {date: 2027-01-06, time: "19:00", opponent: Ventura,            site: away, venue: ventura,     type: conference, stats: "https://www.cuestaathletics.com/sports/mbkb/2026-27/boxscores/20270106_lsd5.xml"}
   - {date: 2027-01-09, time: "15:00", opponent: Santa Barbara,      site: home, venue: cuesta,      type: conference}
   - {date: 2027-01-13, time: "19:00", opponent: Moorpark,           site: home, venue: cuesta,      type: conference}
   - {date: 2027-01-16, time: "15:00", opponent: Oxnard,             site: away, venue: oxnard,      type: conference}
   - {date: 2027-01-23, time: "15:00", opponent: LA Pierce,          site: away, venue: pierce,      type: conference}
-  - {date: 2027-01-27, time: "19:00", opponent: Allan Hancock,      site: away, venue: hancock,     type: conference, live_stats: true}
+  - {date: 2027-01-27, time: "19:00", opponent: Allan Hancock,      site: away, venue: hancock,     type: conference, stats: "https://www.cuestaathletics.com/sports/mbkb/2026-27/boxscores/20270127_oe65.xml"}
   - {date: 2027-01-29, time: "19:00", opponent: Ventura,            site: home, venue: cuesta,      type: conference}
 
-  - {date: 2027-02-03, time: "19:00", opponent: Santa Barbara,      site: away, venue: robgym,      type: conference, live_stats: true, notes: "Played at Rob Gym (UCSB), not the SBCC campus"}
+  - {date: 2027-02-03, time: "19:00", opponent: Santa Barbara,      site: away, venue: robgym,      type: conference, notes: "Played at Rob Gym (UCSB), not the SBCC campus", stats: "https://www.cuestaathletics.com/sports/mbkb/2026-27/boxscores/20270203_xp35.xml"}
   - {date: 2027-02-05, time: "19:00", opponent: Moorpark,           site: away, venue: moorpark,    type: conference}
   - {date: 2027-02-10, time: "19:00", opponent: Oxnard,             site: home, venue: cuesta,      type: conference}
   - {date: 2027-02-17, time: "19:00", opponent: LA Pierce,          site: home, venue: cuesta,      type: conference}

@@ -3,6 +3,9 @@
 # (OSRM road routing) — re-run that script after editing coordinates.
 # Verified 2026-10-05: Stork Gym, Bob Burton Court, Ken Stanley Court, Rob Gym (SBCC home court), Hancock address.
 # Other gym names/street addresses are best-known, not verified against facilities pages.
+# stream = host school's streaming channel (verified resolving 2026-10-05). Per-game links
+# are usually posted on game day — put those in schedule.yaml as `video:` to override.
+# No known channel: West Valley, Gavilan, Coalinga, Bakersfield.
 
 origins:
   pasadena: {label: Pasadena, lat: 34.1477, lon: -118.1439}
@@ -15,12 +18,16 @@ venues:
     address: Cuesta College, Highway 1, San Luis Obispo, CA 93405
     lat: 35.3290
     lon: -120.7406
+    stream: https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ
+    stream_label: "YouTube · CuestaHDTV"
   porterville:
     name: Porterville College Gym
     city: Porterville, CA
     address: 100 E College Ave, Porterville, CA 93257
     lat: 36.0472
     lon: -119.0155
+    stream: https://www.youtube.com/@pirateathletics1149/streams
+    stream_label: "YouTube · Pirate Athletics"
   westvalley:
     name: West Valley College — Bob Burton Court
     city: Saratoga, CA
@@ -39,12 +46,16 @@ venues:
     address: 980 Fremont St, Monterey, CA 93940
     lat: 36.5909
     lon: -121.8848
+    stream: https://www.youtube.com/@MPCMensBasketball/streams
+    stream_label: "YouTube · MPC Men's Basketball"
   arc:
     name: American River College Gym
     city: Sacramento, CA
     address: 4700 College Oak Dr, Sacramento, CA 95841
     lat: 38.6488
     lon: -121.3465
+    stream: https://www.youtube.com/@arcbeavers
+    stream_label: "YouTube · ARC Athletics"
   coalinga:
     name: West Hills College Coalinga Gym
     city: Coalinga, CA
@@ -63,39 +74,53 @@ venues:
     address: 5151 Pacific Ave, Stockton, CA 95207
     lat: 37.9953
     lon: -121.3193
+    stream: https://www.youtube.com/@deltaathletics324
+    stream_label: "YouTube · Delta Athletics"
   hancock:
     name: Allan Hancock College Gym
     city: Santa Maria, CA
     address: 800 S College Dr, Santa Maria, CA 93454
     lat: 34.9433
     lon: -120.4231
+    stream: https://www.team1sports.com/college/?S=allanhancockcollege
+    stream_label: "Team1Sports / BlueFrame"
   ventura:
     name: Ventura College Gym
     city: Ventura, CA
     address: 4667 Telegraph Rd, Ventura, CA 93003
     lat: 34.2773
     lon: -119.2327
+    stream: https://www.youtube.com/channel/UCwtRPgwghVQtHQBZAsTmxdQ
+    stream_label: "YouTube · VC Pirate Athletics"
   robgym:
     name: Robertson Gymnasium ("Rob Gym"), UCSB
     city: Santa Barbara, CA
     address: Robertson Gymnasium, Ocean Rd, Santa Barbara, CA 93106
     lat: 34.4162
     lon: -119.8494
+    stream: https://www.team1sports.com/college/?S=sbcc
+    stream_label: "Team1Sports / BlueFrame (SBCC)"
   moorpark:
     name: Moorpark College Gym
     city: Moorpark, CA
     address: 7075 Campus Rd, Moorpark, CA 93021
     lat: 34.2996
     lon: -118.8367
+    stream: https://fan.hudl.com/usa/ca/moorpark/organization/8690/moorpark-college
+    stream_label: "Hudl · Moorpark College"
   oxnard:
     name: Oxnard College Gym
     city: Oxnard, CA
     address: 4000 S Rose Ave, Oxnard, CA 93033
     lat: 34.1657
     lon: -119.1555
+    stream: https://www.youtube.com/@occondors8165
+    stream_label: "YouTube · OC Condors"
   pierce:
     name: LA Pierce College — Ken Stanley Court
     city: Woodland Hills, CA
     address: 6201 Winnetka Ave, Woodland Hills, CA 91371
     lat: 34.1834
     lon: -118.5798
+    stream: https://www.youtube.com/@brahmasportsnetwork
+    stream_label: "YouTube · Brahma Sports Network"
