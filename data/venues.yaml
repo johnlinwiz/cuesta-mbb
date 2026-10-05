@@ -1,6 +1,8 @@
 # Venues for the Cuesta College MBB 2026-27 season.
 # lat/lon from OpenStreetMap Nominatim. `drive` is filled in by scripts/drive_times.py
 # (OSRM road routing) — re-run that script after editing coordinates.
+# Verified 2026-10-05: Stork Gym, Bob Burton Court, Ken Stanley Court, Rob Gym (SBCC home court), Hancock address.
+# Other gym names/street addresses are best-known, not verified against facilities pages.
 
 origins:
   pasadena: {label: Pasadena, lat: 34.1477, lon: -118.1439}
@@ -8,7 +10,7 @@ origins:
 
 venues:
   cuesta:
-    name: Cuesta College Gymnasium
+    name: Stork Gymnasium (Cuesta Gym)
     city: San Luis Obispo, CA
     address: Cuesta College, Highway 1, San Luis Obispo, CA 93405
     lat: 35.3290
@@ -20,7 +22,7 @@ venues:
     lat: 36.0472
     lon: -119.0155
   westvalley:
-    name: West Valley College Gym
+    name: West Valley College — Bob Burton Court
     city: Saratoga, CA
     address: 14000 Fruitvale Ave, Saratoga, CA 95070
     lat: 37.2638
@@ -92,7 +94,7 @@ venues:
     lat: 34.1657
     lon: -119.1555
   pierce:
-    name: Los Angeles Pierce College Gym
+    name: LA Pierce College — Ken Stanley Court
     city: Woodland Hills, CA
     address: 6201 Winnetka Ave, Woodland Hills, CA 91371
     lat: 34.1834

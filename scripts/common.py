@@ -76,9 +76,9 @@ class Event:
 
     @property
     def matchup(self):
-        if self.is_tournament:
+        if self.is_tournament and self.all_day:
             return self.opponent
-        return f"{'vs' if self.site == 'home' else '@'} {self.opponent}"
+        return f"{'@' if self.site == 'away' else 'vs'} {self.opponent}"
 
     @property
     def site_label(self):

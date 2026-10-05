@@ -19,7 +19,7 @@
 | Sun | Mon | Tue | Wed | Thu | Fri | Sat |
 |---|---|---|---|---|---|---|
 | 1 | 2 | 3<br>🚌 3pm @ Monterey Peninsula | 4 | 5 | 6 | 7<br>🏠 3pm vs Diablo Valley |
-| 8 | 9<br>🏠 1pm vs Redwoods | 10 | 11 | 12<br>🏆  American River College Tournament (ARC) | 13<br>🏆  American River College Tournament (ARC) | 14<br>🏆  American River College Tournament (ARC) |
+| 8 | 9<br>🏠 1pm vs Redwoods | 10 | 11 | 12 | 13<br>🏆  American River College Tournament (ARC) | 14<br>🏆  American River College Tournament (ARC) |
 | 15 | 16 | 17 | 18 | 19 | 20 | 21 |
 | 22 | 23 | 24<br>🏠 6pm vs De Anza | 25 | 26 | 27 | 28 |
 | 29 | 30 |   |   |   |   |   |
@@ -30,9 +30,9 @@
 |---|---|---|---|---|---|---|
 |   |   | 1 | 2<br>🚌 6pm @ Coalinga | 3 | 4 | 5 |
 | 6 | 7 | 8 | 9 | 10 | 11 | 12<br>🏠 3pm vs Rio Hondo |
-| 13 | 14 | 15<br>🚌 5:30pm @ Bakersfield | 16 | 17 | 18<br>🏆  Delta Tournament | 19<br>🏆  Delta Tournament |
-| 20<br>🏆  Delta Tournament | 21 | 22 | 23 | 24 | 25 | 26 |
-| 27 | 28 | 29<br>🏆  AHC Holiday Classic | 30<br>🏆  AHC Holiday Classic | 31 |   |   |
+| 13 | 14 | 15<br>🚌 5:30pm @ Bakersfield | 16 | 17 | 18<br>🏆  San Joaquin Delta Tournament | 19<br>🏆  San Joaquin Delta Tournament |
+| 20<br>🏆  San Joaquin Delta Tournament | 21 | 22 | 23 | 24 | 25 | 26 |
+| 27 | 28 | 29<br>🏆 3pm vs Santa Ana | 30<br>🏆 1pm vs Palo Verde | 31 |   |   |
 
 ## January 2027
 

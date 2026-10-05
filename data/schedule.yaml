@@ -3,7 +3,8 @@
 # This file is the single source of truth: edit it, then run `make build`.
 #
 # Poster legend: "@" = away, "Vs" = home, "*" = Western State Conference game.
-# site_confirmed: false  -> poster had no "@"/"Vs" prefix; home/away is inferred.
+# Home/away verified against cuestaathletics.com/sports/mbkb/2026-27/schedule and the 3C2A feed (2026-10-05).
+# site_confirmed: false  -> home/away not verified.
 # All times are Pacific (America/Los_Angeles). Tournaments with no time are all-day events.
 
 season: "2026-27"
@@ -17,19 +18,20 @@ games:
   - {date: 2026-10-16, time: "14:00", opponent: Porterville,        site: away, venue: porterville, type: scrimmage}
   - {date: 2026-10-23, time: "14:00", opponent: West Valley,        site: away, venue: westvalley,  type: scrimmage}
   - {date: 2026-10-29, time: "18:00", opponent: Gavilan,            site: away, venue: gavilan,     type: non-conference}
-  - {date: 2026-10-31, time: "13:00", opponent: Sequoias,           site: home, venue: cuesta,      type: non-conference, site_confirmed: false}
+  - {date: 2026-10-31, time: "13:00", opponent: Sequoias,           site: home, venue: cuesta,      type: non-conference}
 
   - {date: 2026-11-03, time: "15:00", opponent: Monterey Peninsula, site: away, venue: mpc,         type: non-conference}
   - {date: 2026-11-07, time: "15:00", opponent: Diablo Valley,      site: home, venue: cuesta,      type: non-conference}
-  - {date: 2026-11-09, time: "13:00", opponent: Redwoods,           site: home, venue: cuesta,      type: non-conference, site_confirmed: false}
-  - {date: 2026-11-12, end_date: 2026-11-14, opponent: American River College Tournament (ARC), site: away, venue: arc, type: tournament}
-  - {date: 2026-11-24, time: "18:00", opponent: De Anza,            site: home, venue: cuesta,      type: non-conference, site_confirmed: false}
+  - {date: 2026-11-09, time: "13:00", opponent: Redwoods,           site: home, venue: cuesta,      type: non-conference}
+  - {date: 2026-11-13, end_date: 2026-11-14, opponent: American River College Tournament (ARC), site: neutral, venue: arc, type: tournament, notes: "Nov 13 6:00 PM vs Feather River; also vs Shasta; Nov 14 TBA. Poster says Nov 12–14."}
+  - {date: 2026-11-24, time: "18:00", opponent: De Anza,            site: home, venue: cuesta,      type: non-conference}
 
   - {date: 2026-12-02, time: "18:00", opponent: Coalinga,           site: away, venue: coalinga,    type: non-conference}
-  - {date: 2026-12-12, time: "15:00", opponent: Rio Hondo,          site: home, venue: cuesta,      type: non-conference, site_confirmed: false}
+  - {date: 2026-12-12, time: "15:00", opponent: Rio Hondo,          site: home, venue: cuesta,      type: non-conference}
   - {date: 2026-12-15, time: "17:30", opponent: Bakersfield,        site: away, venue: bakersfield, type: non-conference}
-  - {date: 2026-12-18, end_date: 2026-12-20, opponent: Delta Tournament, site: away, venue: delta, type: tournament, site_confirmed: false}
-  - {date: 2026-12-29, end_date: 2026-12-30, opponent: AHC Holiday Classic, site: away, venue: hancock, type: tournament, site_confirmed: false}
+  - {date: 2026-12-18, end_date: 2026-12-20, opponent: San Joaquin Delta Tournament, site: neutral, venue: delta, type: tournament, notes: "Bracket/times TBA"}
+  - {date: 2026-12-29, time: "15:00", opponent: Santa Ana,          site: neutral, venue: hancock,   type: tournament, notes: "AHC Holiday Classic, day 1"}
+  - {date: 2026-12-30, time: "13:00", opponent: Palo Verde,         site: neutral, venue: hancock,   type: tournament, notes: "AHC Holiday Classic, day 2"}
 
   - {date: 2027-01-06, time: "19:00", opponent: Ventura,            site: away, venue: ventura,     type: conference, live_stats: true}
   - {date: 2027-01-09, time: "15:00", opponent: Santa Barbara,      site: home, venue: cuesta,      type: conference}
@@ -37,10 +39,10 @@ games:
   - {date: 2027-01-16, time: "15:00", opponent: Oxnard,             site: away, venue: oxnard,      type: conference}
   - {date: 2027-01-23, time: "15:00", opponent: LA Pierce,          site: away, venue: pierce,      type: conference}
   - {date: 2027-01-27, time: "19:00", opponent: Allan Hancock,      site: away, venue: hancock,     type: conference, live_stats: true}
-  - {date: 2027-01-29, time: "19:00", opponent: Ventura,            site: home, venue: cuesta,      type: conference, site_confirmed: false}
+  - {date: 2027-01-29, time: "19:00", opponent: Ventura,            site: home, venue: cuesta,      type: conference}
 
   - {date: 2027-02-03, time: "19:00", opponent: Santa Barbara,      site: away, venue: robgym,      type: conference, live_stats: true, notes: "Played at Rob Gym (UCSB), not the SBCC campus"}
   - {date: 2027-02-05, time: "19:00", opponent: Moorpark,           site: away, venue: moorpark,    type: conference}
-  - {date: 2027-02-10, time: "19:00", opponent: Oxnard,             site: home, venue: cuesta,      type: conference, site_confirmed: false}
-  - {date: 2027-02-17, time: "19:00", opponent: LA Pierce,          site: home, venue: cuesta,      type: conference, site_confirmed: false}
-  - {date: 2027-02-19, time: "19:00", opponent: Allan Hancock,      site: home, venue: cuesta,      type: conference, site_confirmed: false, notes: "Time partly obscured on poster — confirm"}
+  - {date: 2027-02-10, time: "19:00", opponent: Oxnard,             site: home, venue: cuesta,      type: conference}
+  - {date: 2027-02-17, time: "19:00", opponent: LA Pierce,          site: home, venue: cuesta,      type: conference}
+  - {date: 2027-02-19, time: "19:00", opponent: Allan Hancock,      site: home, venue: cuesta,      type: conference}

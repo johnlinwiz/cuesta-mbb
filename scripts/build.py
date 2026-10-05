@@ -111,7 +111,9 @@ def build_readme(sched, venues_cfg, drive, events, issues, today):
     out += [
         "", "## How this repo works", "",
         "- `data/schedule.yaml` is the single source of truth (transcribed from the "
-        "[@cuesta_mbb](https://www.instagram.com/cuesta_mbb/) poster). `data/venues.yaml` holds addresses.",
+        "[@cuesta_mbb](https://www.instagram.com/cuesta_mbb/) poster, verified against the "
+        "[official schedule](https://www.cuestaathletics.com/sports/mbkb/2026-27/schedule)). "
+        "`data/venues.yaml` holds addresses.",
         "- `make build` regenerates this README, `CALENDAR.md`, `venues.geojson`, and the GitHub Pages "
         "calendar + `.ics` feed in `docs/`.",
         "- `make issues` creates/updates one GitHub issue per game (the reminders), grouped into monthly milestones.",
@@ -271,7 +273,7 @@ def build_ics(sched, events):
                   f"GEO:{e.venue['lat']};{e.venue['lon']}",
                   f"DESCRIPTION:{ics_escape(e.description())}",
                   f"URL:{PAGES_URL}",
-                  f"CATEGORIES:{ics_escape(TYPE_LABEL[e.type])},{'Home' if e.site == 'home' else 'Away'}"]
+                  f"CATEGORIES:{ics_escape(TYPE_LABEL[e.type])},{e.site.title()}"]
         for trig, label in (("-P1D", "tomorrow"), ("-PT3H", "in 3 hours")):
             lines += ["BEGIN:VALARM", "ACTION:DISPLAY", f"TRIGGER:{trig}",
                       f"DESCRIPTION:{ics_escape(e.summary())} {label}", "END:VALARM"]
