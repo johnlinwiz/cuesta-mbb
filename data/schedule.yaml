@@ -9,6 +9,7 @@
 
 season: "2026-27"
 team: Cuesta College Men's Basketball
+source_url: https://www.cuestaathletics.com/sports/mbkb/2026-27/schedule
 timezone: America/Los_Angeles
 default_duration_min: 120
 notify: [johnlinwiz]             # @-mentioned in reminder comments

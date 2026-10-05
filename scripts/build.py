@@ -112,7 +112,7 @@ def build_readme(sched, venues_cfg, drive, events, issues, today):
         "", "## How this repo works", "",
         "- `data/schedule.yaml` is the single source of truth (transcribed from the "
         "[@cuesta_mbb](https://www.instagram.com/cuesta_mbb/) poster, verified against the "
-        "[official schedule](https://www.cuestaathletics.com/sports/mbkb/2026-27/schedule)). "
+        f"[official schedule]({sched['source_url']})). "
         "`data/venues.yaml` holds addresses.",
         "- `make build` regenerates this README, `CALENDAR.md`, `venues.geojson`, and the GitHub Pages "
         "calendar + `.ics` feed in `docs/`.",
@@ -187,7 +187,7 @@ def build_geojson(venues_cfg, drive, events):
 
 
 # ---------------------------------------------------------------- docs/events.json
-def build_events_json(events, issues):
+def build_events_json(sched, events, issues):
     rows = []
     for e in events:
         r = {
@@ -212,7 +212,8 @@ def build_events_json(events, issues):
             r["start"] = e.start.isoformat()
             r["end"] = e.end.isoformat()
         rows.append(r)
-    return json.dumps(rows, indent=1, ensure_ascii=False)
+    return json.dumps({"team": sched["team"], "season": sched["season"], "ics": ICS_NAME,
+                       "repo": REPO, "events": rows}, indent=1, ensure_ascii=False)
 
 
 # ---------------------------------------------------------------- .ics
@@ -290,7 +291,7 @@ def main():
     (ROOT / "CALENDAR.md").write_text(build_calendar_md(sched, events, issues, today))
     (ROOT / "venues.geojson").write_text(build_geojson(venues_cfg, drive, events) + "\n")
     (ROOT / "docs").mkdir(exist_ok=True)
-    (ROOT / "docs/events.json").write_text(build_events_json(events, issues) + "\n")
+    (ROOT / "docs/events.json").write_text(build_events_json(sched, events, issues) + "\n")
     (ROOT / "docs" / ICS_NAME).write_bytes(build_ics(sched, events).encode())
     print(f"built {len(events)} events")
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cuesta MBB 2026–27 Schedule</title>
+<title>Cuesta MBB Schedule</title>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js" integrity="sha384-B1OFx8Gy9GjPu8UbUyXbGQpzll9ubAUQ9agInFJ8NnD7nYG1u/CLR+Sqr5yifl4q" crossorigin="anonymous"></script>
 <style>
   :root { --green:#0b6e3a; --gold:#c9a227; --bg:#f6f7f6; --ink:#1d2421; --muted:#5d6b64; }
@@ -44,11 +44,11 @@
 </head>
 <body>
 <header>
-  <h1>🏀 Cuesta College Men's Basketball · 2026–27</h1>
-  <a href="cuesta-mbb-2026-27.ics">➕ Subscribe / download .ics</a>
-  <a href="https://github.com/johnlinwiz/cuesta-mbb-2026-27#readme">📄 Table view</a>
-  <a href="https://github.com/johnlinwiz/cuesta-mbb-2026-27/blob/main/venues.geojson">🗺️ Venue map</a>
-  <a href="https://github.com/johnlinwiz/cuesta-mbb-2026-27/issues">🔔 Reminders</a>
+  <h1 id="h1">🏀 Cuesta College Men's Basketball</h1>
+  <a id="l-ics" href="cuesta-mbb.ics">➕ Subscribe / download .ics</a>
+  <a id="l-readme" href="#">📄 Table view</a>
+  <a id="l-map" href="#">🗺️ Venue map</a>
+  <a id="l-issues" href="#">🔔 Reminders</a>
 </header>
 <main>
   <div id="next">Loading…</div>
@@ -60,7 +60,18 @@
   <div class="df" id="d-foot"></div></dialog>
 <script>
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-fetch("events.json").then(r => r.json()).then(events => {
+fetch("events.json").then(r => r.json()).then(data => {
+  const events = data.events, gh = `https://github.com/${data.repo}`;
+  document.title = `${data.team} ${data.season}`;
+  document.getElementById("h1").textContent = `🏀 ${data.team} · ${data.season.replace("-", "–")}`;
+  document.getElementById("l-ics").href = data.ics;
+  document.getElementById("l-readme").href = `${gh}#readme`;
+  document.getElementById("l-map").href = `${gh}/blob/main/venues.geojson`;
+  document.getElementById("l-issues").href = `${gh}/issues`;
+  // Season range = first of the first game's month .. first of the month after the last game
+  const ym = s => s.slice(0, 7), first = ym(events[0].start), lastD = new Date(events.at(-1).end);
+  const range = { start: `${first}-01`,
+                  end: new Date(Date.UTC(lastD.getUTCFullYear(), lastD.getUTCMonth() + 1, 1)).toISOString().slice(0, 10) };
   const now = new Date();
   const next = events.find(e => new Date(e.end) >= now);
   const firstDate = next ? next.start.slice(0, 10) : events[0].start.slice(0, 10);
@@ -73,8 +84,8 @@ fetch("events.json").then(r => r.json()).then(events => {
     initialDate: firstDate,
     timeZone: "America/Los_Angeles",
     headerToolbar: { left: "prev,next today", center: "title", right: "dayGridMonth,listSeason" },
-    views: { listSeason: { type: "list", visibleRange: { start: "2026-10-01", end: "2027-03-01" }, buttonText: "season list" } },
-    validRange: { start: "2026-10-01", end: "2027-03-01" },
+    views: { listSeason: { type: "list", visibleRange: range, buttonText: "season list" } },
+    validRange: range,
     height: "auto",
     eventTimeFormat: { hour: "numeric", minute: "2-digit", meridiem: "short" },
     events,

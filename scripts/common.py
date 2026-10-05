@@ -9,9 +9,9 @@ from zoneinfo import ZoneInfo
 import yaml
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-REPO = "johnlinwiz/cuesta-mbb-2026-27"
-PAGES_URL = "https://johnlinwiz.github.io/cuesta-mbb-2026-27/"
-ICS_NAME = "cuesta-mbb-2026-27.ics"
+REPO = "johnlinwiz/cuesta-mbb"
+PAGES_URL = "https://johnlinwiz.github.io/cuesta-mbb/"
+ICS_NAME = "cuesta-mbb.ics"  # stable feed URL across seasons
 TZ = ZoneInfo("America/Los_Angeles")
 
 ORIGIN_QUERY = {"pasadena": "Pasadena, CA", "slo": "San Luis Obispo, CA"}
