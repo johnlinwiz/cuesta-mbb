@@ -1,0 +1,42 @@
+name: daily reminders
+
+on:
+  schedule:
+    - cron: "0 15 * * *"   # 8:00 AM PDT / 7:00 AM PST
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["data/schedule.yaml", "data/venues.yaml", "scripts/**"]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Sync issues (on schedule edits)
+        if: github.event_name == 'push'
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: python scripts/sync_issues.py
+      - name: Post reminders / close finished games
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: python scripts/daily.py
+      - name: Rebuild docs
+        run: python scripts/build.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A README.md CALENDAR.md venues.geojson docs data/issues.json
+          git diff --cached --quiet || { git commit -m "chore: daily schedule refresh"; git push; }

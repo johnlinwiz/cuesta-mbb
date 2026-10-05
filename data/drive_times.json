@@ -1,0 +1,152 @@
+{
+  "cuesta": {
+    "pasadena": {
+      "miles": 198,
+      "minutes": 243
+    },
+    "slo": {
+      "miles": 7,
+      "minutes": 12
+    }
+  },
+  "porterville": {
+    "pasadena": {
+      "miles": 160,
+      "minutes": 186
+    },
+    "slo": {
+      "miles": 157,
+      "minutes": 196
+    }
+  },
+  "westvalley": {
+    "pasadena": {
+      "miles": 345,
+      "minutes": 391
+    },
+    "slo": {
+      "miles": 189,
+      "minutes": 222
+    }
+  },
+  "gavilan": {
+    "pasadena": {
+      "miles": 313,
+      "minutes": 351
+    },
+    "slo": {
+      "miles": 154,
+      "minutes": 181
+    }
+  },
+  "mpc": {
+    "pasadena": {
+      "miles": 322,
+      "minutes": 375
+    },
+    "slo": {
+      "miles": 144,
+      "minutes": 171
+    }
+  },
+  "arc": {
+    "pasadena": {
+      "miles": 396,
+      "minutes": 439
+    },
+    "slo": {
+      "miles": 301,
+      "minutes": 349
+    }
+  },
+  "coalinga": {
+    "pasadena": {
+      "miles": 202,
+      "minutes": 233
+    },
+    "slo": {
+      "miles": 102,
+      "minutes": 132
+    }
+  },
+  "bakersfield": {
+    "pasadena": {
+      "miles": 118,
+      "minutes": 139
+    },
+    "slo": {
+      "miles": 141,
+      "minutes": 173
+    }
+  },
+  "delta": {
+    "pasadena": {
+      "miles": 341,
+      "minutes": 378
+    },
+    "slo": {
+      "miles": 247,
+      "minutes": 287
+    }
+  },
+  "hancock": {
+    "pasadena": {
+      "miles": 160,
+      "minutes": 198
+    },
+    "slo": {
+      "miles": 33,
+      "minutes": 42
+    }
+  },
+  "ventura": {
+    "pasadena": {
+      "miles": 68,
+      "minutes": 84
+    },
+    "slo": {
+      "miles": 126,
+      "minutes": 160
+    }
+  },
+  "robgym": {
+    "pasadena": {
+      "miles": 109,
+      "minutes": 129
+    },
+    "slo": {
+      "miles": 98,
+      "minutes": 118
+    }
+  },
+  "moorpark": {
+    "pasadena": {
+      "miles": 46,
+      "minutes": 56
+    },
+    "slo": {
+      "miles": 151,
+      "minutes": 192
+    }
+  },
+  "oxnard": {
+    "pasadena": {
+      "miles": 63,
+      "minutes": 79
+    },
+    "slo": {
+      "miles": 135,
+      "minutes": 170
+    }
+  },
+  "pierce": {
+    "pasadena": {
+      "miles": 27,
+      "minutes": 35
+    },
+    "slo": {
+      "miles": 168,
+      "minutes": 207
+    }
+  }
+}

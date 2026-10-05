@@ -1,0 +1,46 @@
+# Cuesta College Men's Basketball — 2026-27 season schedule.
+# Source: @cuesta_mbb Instagram schedule poster (posted 2026-10-04).
+# This file is the single source of truth: edit it, then run `make build`.
+#
+# Poster legend: "@" = away, "Vs" = home, "*" = Western State Conference game.
+# site_confirmed: false  -> poster had no "@"/"Vs" prefix; home/away is inferred.
+# All times are Pacific (America/Los_Angeles). Tournaments with no time are all-day events.
+
+season: "2026-27"
+team: Cuesta College Men's Basketball
+timezone: America/Los_Angeles
+default_duration_min: 120
+notify: [johnlinwiz]             # @-mentioned in reminder comments
+reminder_days_before: [7, 2, 0]   # GitHub issue reminder comments (0 = game day)
+
+games:
+  - {date: 2026-10-16, time: "14:00", opponent: Porterville,        site: away, venue: porterville, type: scrimmage}
+  - {date: 2026-10-23, time: "14:00", opponent: West Valley,        site: away, venue: westvalley,  type: scrimmage}
+  - {date: 2026-10-29, time: "18:00", opponent: Gavilan,            site: away, venue: gavilan,     type: non-conference}
+  - {date: 2026-10-31, time: "13:00", opponent: Sequoias,           site: home, venue: cuesta,      type: non-conference, site_confirmed: false}
+
+  - {date: 2026-11-03, time: "15:00", opponent: Monterey Peninsula, site: away, venue: mpc,         type: non-conference}
+  - {date: 2026-11-07, time: "15:00", opponent: Diablo Valley,      site: home, venue: cuesta,      type: non-conference}
+  - {date: 2026-11-09, time: "13:00", opponent: Redwoods,           site: home, venue: cuesta,      type: non-conference, site_confirmed: false}
+  - {date: 2026-11-12, end_date: 2026-11-14, opponent: American River College Tournament (ARC), site: away, venue: arc, type: tournament}
+  - {date: 2026-11-24, time: "18:00", opponent: De Anza,            site: home, venue: cuesta,      type: non-conference, site_confirmed: false}
+
+  - {date: 2026-12-02, time: "18:00", opponent: Coalinga,           site: away, venue: coalinga,    type: non-conference}
+  - {date: 2026-12-12, time: "15:00", opponent: Rio Hondo,          site: home, venue: cuesta,      type: non-conference, site_confirmed: false}
+  - {date: 2026-12-15, time: "17:30", opponent: Bakersfield,        site: away, venue: bakersfield, type: non-conference}
+  - {date: 2026-12-18, end_date: 2026-12-20, opponent: Delta Tournament, site: away, venue: delta, type: tournament, site_confirmed: false}
+  - {date: 2026-12-29, end_date: 2026-12-30, opponent: AHC Holiday Classic, site: away, venue: hancock, type: tournament, site_confirmed: false}
+
+  - {date: 2027-01-06, time: "19:00", opponent: Ventura,            site: away, venue: ventura,     type: conference, live_stats: true}
+  - {date: 2027-01-09, time: "15:00", opponent: Santa Barbara,      site: home, venue: cuesta,      type: conference}
+  - {date: 2027-01-13, time: "19:00", opponent: Moorpark,           site: home, venue: cuesta,      type: conference}
+  - {date: 2027-01-16, time: "15:00", opponent: Oxnard,             site: away, venue: oxnard,      type: conference}
+  - {date: 2027-01-23, time: "15:00", opponent: LA Pierce,          site: away, venue: pierce,      type: conference}
+  - {date: 2027-01-27, time: "19:00", opponent: Allan Hancock,      site: away, venue: hancock,     type: conference, live_stats: true}
+  - {date: 2027-01-29, time: "19:00", opponent: Ventura,            site: home, venue: cuesta,      type: conference, site_confirmed: false}
+
+  - {date: 2027-02-03, time: "19:00", opponent: Santa Barbara,      site: away, venue: robgym,      type: conference, live_stats: true, notes: "Played at Rob Gym (UCSB), not the SBCC campus"}
+  - {date: 2027-02-05, time: "19:00", opponent: Moorpark,           site: away, venue: moorpark,    type: conference}
+  - {date: 2027-02-10, time: "19:00", opponent: Oxnard,             site: home, venue: cuesta,      type: conference, site_confirmed: false}
+  - {date: 2027-02-17, time: "19:00", opponent: LA Pierce,          site: home, venue: cuesta,      type: conference, site_confirmed: false}
+  - {date: 2027-02-19, time: "19:00", opponent: Allan Hancock,      site: home, venue: cuesta,      type: conference, site_confirmed: false, notes: "Time partly obscured on poster — confirm"}

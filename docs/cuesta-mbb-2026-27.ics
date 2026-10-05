@@ -1,0 +1,760 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//johnlinwiz/cuesta-mbb-2026-27//schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Cuesta MBB 2026-27
+X-WR-TIMEZONE:America/Los_Angeles
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:2026-10-16-porterville@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20261016T140000
+DTEND;TZID=America/Los_Angeles:20261016T160000
+SUMMARY:Cuesta MBB @ Porterville (scrimmage)
+LOCATION:Porterville College Gym\, 100 E College Ave\, Porterville\, CA 932
+ 57
+GEO:36.0472;-119.0155
+DESCRIPTION:Scrimmage — Away\nVenue: Porterville College Gym\, 100 E Coll
+ ege Ave\, Porterville\, CA 93257\nMap: https://www.google.com/maps/search/
+ ?api=1&query=Porterville+College+Gym%2C+100+E+College+Ave%2C+Porterville%2
+ C+CA+93257\nDrive from Pasadena: 3h 06m · 160 mi\nDrive from SLO: 3h 16m 
+ · 157 mi\nSeason calendar: https://johnlinwiz.github.io/cuesta-mbb-2026-2
+ 7/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Scrimmage,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB @ Porterville (scrimmage) tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB @ Porterville (scrimmage) in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-23-west-valley@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20261023T140000
+DTEND;TZID=America/Los_Angeles:20261023T160000
+SUMMARY:Cuesta MBB @ West Valley (scrimmage)
+LOCATION:West Valley College Gym\, 14000 Fruitvale Ave\, Saratoga\, CA 9507
+ 0
+GEO:37.2638;-122.0097
+DESCRIPTION:Scrimmage — Away\nVenue: West Valley College Gym\, 14000 Frui
+ tvale Ave\, Saratoga\, CA 95070\nMap: https://www.google.com/maps/search/?
+ api=1&query=West+Valley+College+Gym%2C+14000+Fruitvale+Ave%2C+Saratoga%2C+
+ CA+95070\nDrive from Pasadena: 6h 31m · 345 mi\nDrive from SLO: 3h 42m ·
+  189 mi\nSeason calendar: https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Scrimmage,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB @ West Valley (scrimmage) tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB @ West Valley (scrimmage) in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-29-gavilan@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20261029T180000
+DTEND;TZID=America/Los_Angeles:20261029T200000
+SUMMARY:Cuesta MBB @ Gavilan
+LOCATION:Gavilan College Gym\, 5055 Santa Teresa Blvd\, Gilroy\, CA 95020
+GEO:36.9721;-121.5684
+DESCRIPTION:Non-conference — Away\nVenue: Gavilan College Gym\, 5055 Sant
+ a Teresa Blvd\, Gilroy\, CA 95020\nMap: https://www.google.com/maps/search
+ /?api=1&query=Gavilan+College+Gym%2C+5055+Santa+Teresa+Blvd%2C+Gilroy%2C+C
+ A+95020\nDrive from Pasadena: 5h 51m · 313 mi\nDrive from SLO: 3h 01m · 
+ 154 mi\nSeason calendar: https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Non-conference,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB @ Gavilan tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB @ Gavilan in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-31-sequoias@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20261031T130000
+DTEND;TZID=America/Los_Angeles:20261031T150000
+SUMMARY:Cuesta MBB vs Sequoias
+LOCATION:Cuesta College Gymnasium\, Cuesta College\, Highway 1\, San Luis O
+ bispo\, CA 93405
+GEO:35.329;-120.7406
+DESCRIPTION:Non-conference — Home?\nVenue: Cuesta College Gymnasium\, Cue
+ sta College\, Highway 1\, San Luis Obispo\, CA 93405\nMap: https://www.goo
+ gle.com/maps/search/?api=1&query=Cuesta+College+Gymnasium%2C+Cuesta+Colleg
+ e%2C+Highway+1%2C+San+Luis+Obispo%2C+CA+93405\nDrive from Pasadena: 4h 03m
+  · 198 mi\nDrive from SLO: 12m · 7 mi\nHome/away inferred (no @/Vs on po
+ ster) — confirm before traveling\nSeason calendar: https://johnlinwiz.gi
+ thub.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Non-conference,Home
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB vs Sequoias tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB vs Sequoias in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-03-monterey-peninsula@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20261103T150000
+DTEND;TZID=America/Los_Angeles:20261103T170000
+SUMMARY:Cuesta MBB @ Monterey Peninsula
+LOCATION:Monterey Peninsula College Gym\, 980 Fremont St\, Monterey\, CA 93
+ 940
+GEO:36.5909;-121.8848
+DESCRIPTION:Non-conference — Away\nVenue: Monterey Peninsula College Gym\
+ , 980 Fremont St\, Monterey\, CA 93940\nMap: https://www.google.com/maps/s
+ earch/?api=1&query=Monterey+Peninsula+College+Gym%2C+980+Fremont+St%2C+Mon
+ terey%2C+CA+93940\nDrive from Pasadena: 6h 15m · 322 mi\nDrive from SLO: 
+ 2h 51m · 144 mi\nSeason calendar: https://johnlinwiz.github.io/cuesta-mbb
+ -2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Non-conference,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB @ Monterey Peninsula tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB @ Monterey Peninsula in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-07-diablo-valley@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20261107T150000
+DTEND;TZID=America/Los_Angeles:20261107T170000
+SUMMARY:Cuesta MBB vs Diablo Valley
+LOCATION:Cuesta College Gymnasium\, Cuesta College\, Highway 1\, San Luis O
+ bispo\, CA 93405
+GEO:35.329;-120.7406
+DESCRIPTION:Non-conference — Home\nVenue: Cuesta College Gymnasium\, Cues
+ ta College\, Highway 1\, San Luis Obispo\, CA 93405\nMap: https://www.goog
+ le.com/maps/search/?api=1&query=Cuesta+College+Gymnasium%2C+Cuesta+College
+ %2C+Highway+1%2C+San+Luis+Obispo%2C+CA+93405\nDrive from Pasadena: 4h 03m 
+ · 198 mi\nDrive from SLO: 12m · 7 mi\nSeason calendar: https://johnlinwi
+ z.github.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Non-conference,Home
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB vs Diablo Valley tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB vs Diablo Valley in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-09-redwoods@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20261109T130000
+DTEND;TZID=America/Los_Angeles:20261109T150000
+SUMMARY:Cuesta MBB vs Redwoods
+LOCATION:Cuesta College Gymnasium\, Cuesta College\, Highway 1\, San Luis O
+ bispo\, CA 93405
+GEO:35.329;-120.7406
+DESCRIPTION:Non-conference — Home?\nVenue: Cuesta College Gymnasium\, Cue
+ sta College\, Highway 1\, San Luis Obispo\, CA 93405\nMap: https://www.goo
+ gle.com/maps/search/?api=1&query=Cuesta+College+Gymnasium%2C+Cuesta+Colleg
+ e%2C+Highway+1%2C+San+Luis+Obispo%2C+CA+93405\nDrive from Pasadena: 4h 03m
+  · 198 mi\nDrive from SLO: 12m · 7 mi\nHome/away inferred (no @/Vs on po
+ ster) — confirm before traveling\nSeason calendar: https://johnlinwiz.gi
+ thub.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Non-conference,Home
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB vs Redwoods tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB vs Redwoods in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-12-american-river-college-tournament-arc@johnlinwiz.cuesta-mbb-
+ 2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261115
+SUMMARY:Cuesta MBB American River College Tournament (ARC)
+LOCATION:American River College Gym\, 4700 College Oak Dr\, Sacramento\, CA
+  95841
+GEO:38.6488;-121.3465
+DESCRIPTION:Tournament — Away\nVenue: American River College Gym\, 4700 C
+ ollege Oak Dr\, Sacramento\, CA 95841\nMap: https://www.google.com/maps/se
+ arch/?api=1&query=American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sac
+ ramento%2C+CA+95841\nDrive from Pasadena: 7h 19m · 396 mi\nDrive from SLO
+ : 5h 49m · 301 mi\nSeason calendar: https://johnlinwiz.github.io/cuesta-m
+ bb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Tournament,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB American River College Tournament (ARC) tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB American River College Tournament (ARC) in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-24-de-anza@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20261124T180000
+DTEND;TZID=America/Los_Angeles:20261124T200000
+SUMMARY:Cuesta MBB vs De Anza
+LOCATION:Cuesta College Gymnasium\, Cuesta College\, Highway 1\, San Luis O
+ bispo\, CA 93405
+GEO:35.329;-120.7406
+DESCRIPTION:Non-conference — Home?\nVenue: Cuesta College Gymnasium\, Cue
+ sta College\, Highway 1\, San Luis Obispo\, CA 93405\nMap: https://www.goo
+ gle.com/maps/search/?api=1&query=Cuesta+College+Gymnasium%2C+Cuesta+Colleg
+ e%2C+Highway+1%2C+San+Luis+Obispo%2C+CA+93405\nDrive from Pasadena: 4h 03m
+  · 198 mi\nDrive from SLO: 12m · 7 mi\nHome/away inferred (no @/Vs on po
+ ster) — confirm before traveling\nSeason calendar: https://johnlinwiz.gi
+ thub.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Non-conference,Home
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB vs De Anza tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB vs De Anza in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-02-coalinga@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20261202T180000
+DTEND;TZID=America/Los_Angeles:20261202T200000
+SUMMARY:Cuesta MBB @ Coalinga
+LOCATION:West Hills College Coalinga Gym\, 300 W Cherry Ln\, Coalinga\, CA 
+ 93210
+GEO:36.1492;-120.3567
+DESCRIPTION:Non-conference — Away\nVenue: West Hills College Coalinga Gym
+ \, 300 W Cherry Ln\, Coalinga\, CA 93210\nMap: https://www.google.com/maps
+ /search/?api=1&query=West+Hills+College+Coalinga+Gym%2C+300+W+Cherry+Ln%2C
+ +Coalinga%2C+CA+93210\nDrive from Pasadena: 3h 53m · 202 mi\nDrive from S
+ LO: 2h 12m · 102 mi\nSeason calendar: https://johnlinwiz.github.io/cuesta
+ -mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Non-conference,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB @ Coalinga tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB @ Coalinga in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-12-rio-hondo@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20261212T150000
+DTEND;TZID=America/Los_Angeles:20261212T170000
+SUMMARY:Cuesta MBB vs Rio Hondo
+LOCATION:Cuesta College Gymnasium\, Cuesta College\, Highway 1\, San Luis O
+ bispo\, CA 93405
+GEO:35.329;-120.7406
+DESCRIPTION:Non-conference — Home?\nVenue: Cuesta College Gymnasium\, Cue
+ sta College\, Highway 1\, San Luis Obispo\, CA 93405\nMap: https://www.goo
+ gle.com/maps/search/?api=1&query=Cuesta+College+Gymnasium%2C+Cuesta+Colleg
+ e%2C+Highway+1%2C+San+Luis+Obispo%2C+CA+93405\nDrive from Pasadena: 4h 03m
+  · 198 mi\nDrive from SLO: 12m · 7 mi\nHome/away inferred (no @/Vs on po
+ ster) — confirm before traveling\nSeason calendar: https://johnlinwiz.gi
+ thub.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Non-conference,Home
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB vs Rio Hondo tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB vs Rio Hondo in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-15-bakersfield@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20261215T173000
+DTEND;TZID=America/Los_Angeles:20261215T193000
+SUMMARY:Cuesta MBB @ Bakersfield
+LOCATION:Bakersfield College Gym\, 1801 Panorama Dr\, Bakersfield\, CA 9330
+ 5
+GEO:35.4088;-118.972
+DESCRIPTION:Non-conference — Away\nVenue: Bakersfield College Gym\, 1801 
+ Panorama Dr\, Bakersfield\, CA 93305\nMap: https://www.google.com/maps/sea
+ rch/?api=1&query=Bakersfield+College+Gym%2C+1801+Panorama+Dr%2C+Bakersfiel
+ d%2C+CA+93305\nDrive from Pasadena: 2h 19m · 118 mi\nDrive from SLO: 2h 5
+ 3m · 141 mi\nSeason calendar: https://johnlinwiz.github.io/cuesta-mbb-202
+ 6-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Non-conference,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB @ Bakersfield tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB @ Bakersfield in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-18-delta-tournament@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261221
+SUMMARY:Cuesta MBB Delta Tournament
+LOCATION:San Joaquin Delta College Gym\, 5151 Pacific Ave\, Stockton\, CA 9
+ 5207
+GEO:37.9953;-121.3193
+DESCRIPTION:Tournament — Away?\nVenue: San Joaquin Delta College Gym\, 51
+ 51 Pacific Ave\, Stockton\, CA 95207\nMap: https://www.google.com/maps/sea
+ rch/?api=1&query=San+Joaquin+Delta+College+Gym%2C+5151+Pacific+Ave%2C+Stoc
+ kton%2C+CA+95207\nDrive from Pasadena: 6h 18m · 341 mi\nDrive from SLO: 4
+ h 47m · 247 mi\nHome/away inferred (no @/Vs on poster) — confirm before
+  traveling\nSeason calendar: https://johnlinwiz.github.io/cuesta-mbb-2026-
+ 27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Tournament,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB Delta Tournament tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB Delta Tournament in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-29-ahc-holiday-classic@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;VALUE=DATE:20261229
+DTEND;VALUE=DATE:20261231
+SUMMARY:Cuesta MBB AHC Holiday Classic
+LOCATION:Allan Hancock College Gym\, 800 S College Dr\, Santa Maria\, CA 93
+ 454
+GEO:34.9433;-120.4231
+DESCRIPTION:Tournament — Away?\nVenue: Allan Hancock College Gym\, 800 S 
+ College Dr\, Santa Maria\, CA 93454\nMap: https://www.google.com/maps/sear
+ ch/?api=1&query=Allan+Hancock+College+Gym%2C+800+S+College+Dr%2C+Santa+Mar
+ ia%2C+CA+93454\nDrive from Pasadena: 3h 18m · 160 mi\nDrive from SLO: 42m
+  · 33 mi\nHome/away inferred (no @/Vs on poster) — confirm before trave
+ ling\nSeason calendar: https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:Tournament,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB AHC Holiday Classic tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB AHC Holiday Classic in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-06-ventura@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20270106T190000
+DTEND;TZID=America/Los_Angeles:20270106T210000
+SUMMARY:Cuesta MBB @ Ventura
+LOCATION:Ventura College Gym\, 4667 Telegraph Rd\, Ventura\, CA 93003
+GEO:34.2773;-119.2327
+DESCRIPTION:WSC conference — Away\nVenue: Ventura College Gym\, 4667 Tele
+ graph Rd\, Ventura\, CA 93003\nMap: https://www.google.com/maps/search/?ap
+ i=1&query=Ventura+College+Gym%2C+4667+Telegraph+Rd%2C+Ventura%2C+CA+93003\
+ nDrive from Pasadena: 1h 24m · 68 mi\nDrive from SLO: 2h 40m · 126 mi\nL
+ ive stats available\nSeason calendar: https://johnlinwiz.github.io/cuesta-
+ mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:WSC conference,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB @ Ventura tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB @ Ventura in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-09-santa-barbara@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20270109T150000
+DTEND;TZID=America/Los_Angeles:20270109T170000
+SUMMARY:Cuesta MBB vs Santa Barbara
+LOCATION:Cuesta College Gymnasium\, Cuesta College\, Highway 1\, San Luis O
+ bispo\, CA 93405
+GEO:35.329;-120.7406
+DESCRIPTION:WSC conference — Home\nVenue: Cuesta College Gymnasium\, Cues
+ ta College\, Highway 1\, San Luis Obispo\, CA 93405\nMap: https://www.goog
+ le.com/maps/search/?api=1&query=Cuesta+College+Gymnasium%2C+Cuesta+College
+ %2C+Highway+1%2C+San+Luis+Obispo%2C+CA+93405\nDrive from Pasadena: 4h 03m 
+ · 198 mi\nDrive from SLO: 12m · 7 mi\nSeason calendar: https://johnlinwi
+ z.github.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:WSC conference,Home
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB vs Santa Barbara tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB vs Santa Barbara in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-13-moorpark@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20270113T190000
+DTEND;TZID=America/Los_Angeles:20270113T210000
+SUMMARY:Cuesta MBB vs Moorpark
+LOCATION:Cuesta College Gymnasium\, Cuesta College\, Highway 1\, San Luis O
+ bispo\, CA 93405
+GEO:35.329;-120.7406
+DESCRIPTION:WSC conference — Home\nVenue: Cuesta College Gymnasium\, Cues
+ ta College\, Highway 1\, San Luis Obispo\, CA 93405\nMap: https://www.goog
+ le.com/maps/search/?api=1&query=Cuesta+College+Gymnasium%2C+Cuesta+College
+ %2C+Highway+1%2C+San+Luis+Obispo%2C+CA+93405\nDrive from Pasadena: 4h 03m 
+ · 198 mi\nDrive from SLO: 12m · 7 mi\nSeason calendar: https://johnlinwi
+ z.github.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:WSC conference,Home
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB vs Moorpark tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB vs Moorpark in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-16-oxnard@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20270116T150000
+DTEND;TZID=America/Los_Angeles:20270116T170000
+SUMMARY:Cuesta MBB @ Oxnard
+LOCATION:Oxnard College Gym\, 4000 S Rose Ave\, Oxnard\, CA 93033
+GEO:34.1657;-119.1555
+DESCRIPTION:WSC conference — Away\nVenue: Oxnard College Gym\, 4000 S Ros
+ e Ave\, Oxnard\, CA 93033\nMap: https://www.google.com/maps/search/?api=1&
+ query=Oxnard+College+Gym%2C+4000+S+Rose+Ave%2C+Oxnard%2C+CA+93033\nDrive f
+ rom Pasadena: 1h 19m · 63 mi\nDrive from SLO: 2h 50m · 135 mi\nSeason ca
+ lendar: https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:WSC conference,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB @ Oxnard tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB @ Oxnard in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-23-la-pierce@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20270123T150000
+DTEND;TZID=America/Los_Angeles:20270123T170000
+SUMMARY:Cuesta MBB @ LA Pierce
+LOCATION:Los Angeles Pierce College Gym\, 6201 Winnetka Ave\, Woodland Hill
+ s\, CA 91371
+GEO:34.1834;-118.5798
+DESCRIPTION:WSC conference — Away\nVenue: Los Angeles Pierce College Gym\
+ , 6201 Winnetka Ave\, Woodland Hills\, CA 91371\nMap: https://www.google.c
+ om/maps/search/?api=1&query=Los+Angeles+Pierce+College+Gym%2C+6201+Winnetk
+ a+Ave%2C+Woodland+Hills%2C+CA+91371\nDrive from Pasadena: 35m · 27 mi\nDr
+ ive from SLO: 3h 27m · 168 mi\nSeason calendar: https://johnlinwiz.github
+ .io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:WSC conference,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB @ LA Pierce tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB @ LA Pierce in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-27-allan-hancock@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20270127T190000
+DTEND;TZID=America/Los_Angeles:20270127T210000
+SUMMARY:Cuesta MBB @ Allan Hancock
+LOCATION:Allan Hancock College Gym\, 800 S College Dr\, Santa Maria\, CA 93
+ 454
+GEO:34.9433;-120.4231
+DESCRIPTION:WSC conference — Away\nVenue: Allan Hancock College Gym\, 800
+  S College Dr\, Santa Maria\, CA 93454\nMap: https://www.google.com/maps/s
+ earch/?api=1&query=Allan+Hancock+College+Gym%2C+800+S+College+Dr%2C+Santa+
+ Maria%2C+CA+93454\nDrive from Pasadena: 3h 18m · 160 mi\nDrive from SLO: 
+ 42m · 33 mi\nLive stats available\nSeason calendar: https://johnlinwiz.gi
+ thub.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:WSC conference,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB @ Allan Hancock tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB @ Allan Hancock in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-29-ventura@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20270129T190000
+DTEND;TZID=America/Los_Angeles:20270129T210000
+SUMMARY:Cuesta MBB vs Ventura
+LOCATION:Cuesta College Gymnasium\, Cuesta College\, Highway 1\, San Luis O
+ bispo\, CA 93405
+GEO:35.329;-120.7406
+DESCRIPTION:WSC conference — Home?\nVenue: Cuesta College Gymnasium\, Cue
+ sta College\, Highway 1\, San Luis Obispo\, CA 93405\nMap: https://www.goo
+ gle.com/maps/search/?api=1&query=Cuesta+College+Gymnasium%2C+Cuesta+Colleg
+ e%2C+Highway+1%2C+San+Luis+Obispo%2C+CA+93405\nDrive from Pasadena: 4h 03m
+  · 198 mi\nDrive from SLO: 12m · 7 mi\nHome/away inferred (no @/Vs on po
+ ster) — confirm before traveling\nSeason calendar: https://johnlinwiz.gi
+ thub.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:WSC conference,Home
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB vs Ventura tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB vs Ventura in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-03-santa-barbara@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20270203T190000
+DTEND;TZID=America/Los_Angeles:20270203T210000
+SUMMARY:Cuesta MBB @ Santa Barbara
+LOCATION:Robertson Gymnasium ("Rob Gym")\, UCSB\, Robertson Gymnasium\, Oce
+ an Rd\, Santa Barbara\, CA 93106
+GEO:34.4162;-119.8494
+DESCRIPTION:WSC conference — Away\nVenue: Robertson Gymnasium ("Rob Gym")
+ \, UCSB\, Robertson Gymnasium\, Ocean Rd\, Santa Barbara\, CA 93106\nMap: 
+ https://www.google.com/maps/search/?api=1&query=Robertson+Gymnasium+%28%22
+ Rob+Gym%22%29%2C+UCSB%2C+Robertson+Gymnasium%2C+Ocean+Rd%2C+Santa+Barbara%
+ 2C+CA+93106\nDrive from Pasadena: 2h 09m · 109 mi\nDrive from SLO: 1h 58m
+  · 98 mi\nLive stats available\nNote: Played at Rob Gym (UCSB)\, not the 
+ SBCC campus\nSeason calendar: https://johnlinwiz.github.io/cuesta-mbb-2026
+ -27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:WSC conference,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB @ Santa Barbara tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB @ Santa Barbara in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-05-moorpark@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20270205T190000
+DTEND;TZID=America/Los_Angeles:20270205T210000
+SUMMARY:Cuesta MBB @ Moorpark
+LOCATION:Moorpark College Gym\, 7075 Campus Rd\, Moorpark\, CA 93021
+GEO:34.2996;-118.8367
+DESCRIPTION:WSC conference — Away\nVenue: Moorpark College Gym\, 7075 Cam
+ pus Rd\, Moorpark\, CA 93021\nMap: https://www.google.com/maps/search/?api
+ =1&query=Moorpark+College+Gym%2C+7075+Campus+Rd%2C+Moorpark%2C+CA+93021\nD
+ rive from Pasadena: 56m · 46 mi\nDrive from SLO: 3h 12m · 151 mi\nSeason
+  calendar: https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:WSC conference,Away
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB @ Moorpark tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB @ Moorpark in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-10-oxnard@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20270210T190000
+DTEND;TZID=America/Los_Angeles:20270210T210000
+SUMMARY:Cuesta MBB vs Oxnard
+LOCATION:Cuesta College Gymnasium\, Cuesta College\, Highway 1\, San Luis O
+ bispo\, CA 93405
+GEO:35.329;-120.7406
+DESCRIPTION:WSC conference — Home?\nVenue: Cuesta College Gymnasium\, Cue
+ sta College\, Highway 1\, San Luis Obispo\, CA 93405\nMap: https://www.goo
+ gle.com/maps/search/?api=1&query=Cuesta+College+Gymnasium%2C+Cuesta+Colleg
+ e%2C+Highway+1%2C+San+Luis+Obispo%2C+CA+93405\nDrive from Pasadena: 4h 03m
+  · 198 mi\nDrive from SLO: 12m · 7 mi\nHome/away inferred (no @/Vs on po
+ ster) — confirm before traveling\nSeason calendar: https://johnlinwiz.gi
+ thub.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:WSC conference,Home
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB vs Oxnard tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB vs Oxnard in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-17-la-pierce@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20270217T190000
+DTEND;TZID=America/Los_Angeles:20270217T210000
+SUMMARY:Cuesta MBB vs LA Pierce
+LOCATION:Cuesta College Gymnasium\, Cuesta College\, Highway 1\, San Luis O
+ bispo\, CA 93405
+GEO:35.329;-120.7406
+DESCRIPTION:WSC conference — Home?\nVenue: Cuesta College Gymnasium\, Cue
+ sta College\, Highway 1\, San Luis Obispo\, CA 93405\nMap: https://www.goo
+ gle.com/maps/search/?api=1&query=Cuesta+College+Gymnasium%2C+Cuesta+Colleg
+ e%2C+Highway+1%2C+San+Luis+Obispo%2C+CA+93405\nDrive from Pasadena: 4h 03m
+  · 198 mi\nDrive from SLO: 12m · 7 mi\nHome/away inferred (no @/Vs on po
+ ster) — confirm before traveling\nSeason calendar: https://johnlinwiz.gi
+ thub.io/cuesta-mbb-2026-27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:WSC conference,Home
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB vs LA Pierce tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB vs LA Pierce in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-02-19-allan-hancock@johnlinwiz.cuesta-mbb-2026-27
+DTSTAMP:20261005T171439Z
+DTSTART;TZID=America/Los_Angeles:20270219T190000
+DTEND;TZID=America/Los_Angeles:20270219T210000
+SUMMARY:Cuesta MBB vs Allan Hancock
+LOCATION:Cuesta College Gymnasium\, Cuesta College\, Highway 1\, San Luis O
+ bispo\, CA 93405
+GEO:35.329;-120.7406
+DESCRIPTION:WSC conference — Home?\nVenue: Cuesta College Gymnasium\, Cue
+ sta College\, Highway 1\, San Luis Obispo\, CA 93405\nMap: https://www.goo
+ gle.com/maps/search/?api=1&query=Cuesta+College+Gymnasium%2C+Cuesta+Colleg
+ e%2C+Highway+1%2C+San+Luis+Obispo%2C+CA+93405\nDrive from Pasadena: 4h 03m
+  · 198 mi\nDrive from SLO: 12m · 7 mi\nNote: Time partly obscured on pos
+ ter — confirm\nHome/away inferred (no @/Vs on poster) — confirm before
+  traveling\nSeason calendar: https://johnlinwiz.github.io/cuesta-mbb-2026-
+ 27/
+URL:https://johnlinwiz.github.io/cuesta-mbb-2026-27/
+CATEGORIES:WSC conference,Home
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB vs Allan Hancock tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB vs Allan Hancock in 3 hours
+END:VALARM
+END:VEVENT
+END:VCALENDAR

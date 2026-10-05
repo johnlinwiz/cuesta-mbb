@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuesta MBB 2026–27 Schedule</title>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js" integrity="sha384-B1OFx8Gy9GjPu8UbUyXbGQpzll9ubAUQ9agInFJ8NnD7nYG1u/CLR+Sqr5yifl4q" crossorigin="anonymous"></script>
+<style>
+  :root { --green:#0b6e3a; --gold:#c9a227; --bg:#f6f7f6; --ink:#1d2421; --muted:#5d6b64; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#121614; --ink:#e7ece9; --muted:#9aa8a1; } }
+  * { box-sizing:border-box }
+  body { margin:0; font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--ink) }
+  header { background:var(--green); color:#fff; padding:14px 20px; display:flex; flex-wrap:wrap; gap:8px 20px; align-items:center }
+  header h1 { font-size:20px; margin:0; letter-spacing:.3px }
+  header a { color:#fff; opacity:.9; text-decoration:none; font-size:14px; border:1px solid #ffffff55; border-radius:16px; padding:3px 10px }
+  header a:hover { opacity:1; background:#ffffff1a }
+  main { max-width:1100px; margin:0 auto; padding:16px }
+  #next { background:#fff1; border-left:4px solid var(--gold); padding:10px 14px; margin-bottom:14px; border-radius:4px }
+  .legend { color:var(--muted); font-size:13px; margin:0 0 10px }
+  .legend span { display:inline-block; width:10px; height:10px; border-radius:2px; margin:0 4px 0 10px; vertical-align:middle }
+  #cal { background:var(--bg) }
+  .fc { --fc-border-color:#8883; --fc-page-bg-color:var(--bg); --fc-today-bg-color:#c9a2272a }
+  .fc .fc-button-primary { background:var(--green); border-color:var(--green) }
+  .fc .fc-button-primary:not(:disabled).fc-button-active { background:#084f2a; border-color:#084f2a }
+  .fc-event { cursor:pointer }
+  .fc-event.home    { --fc-event-bg-color:#0b6e3a; --fc-event-border-color:#0b6e3a }
+  .fc-event.away    { --fc-event-bg-color:#5b6670; --fc-event-border-color:#5b6670 }
+  .fc-event.tourney { --fc-event-bg-color:#c9a227; --fc-event-border-color:#c9a227; --fc-event-text-color:#1d2421 }
+  .fc-daygrid-dot-event.home .fc-daygrid-event-dot { border-color:#0b6e3a }
+  .fc-daygrid-dot-event.away .fc-daygrid-event-dot { border-color:#5b6670 }
+  dialog { border:none; border-radius:10px; padding:0; max-width:440px; width:92vw; box-shadow:0 10px 40px #0006; background:var(--bg); color:var(--ink) }
+  dialog::backdrop { background:#0007 }
+  .dh { background:var(--green); color:#fff; padding:14px 18px }
+  .dh h2 { margin:0; font-size:18px } .dh div { opacity:.85; font-size:13px }
+  .db { padding:12px 18px 4px } .db p { margin:6px 0 }
+  .db a { color:var(--green) } @media (prefers-color-scheme: dark){ .db a { color:#6fd39b } }
+  .warn { color:#b26b00; font-size:13px }
+  .df { display:flex; flex-wrap:wrap; gap:8px; padding:10px 18px 16px }
+  .df a, .df button { font:inherit; font-size:13px; border:1px solid #8885; border-radius:6px; padding:5px 10px; background:transparent; color:inherit; text-decoration:none; cursor:pointer }
+</style>
+</head>
+<body>
+<header>
+  <h1>🏀 Cuesta College Men's Basketball · 2026–27</h1>
+  <a href="cuesta-mbb-2026-27.ics">➕ Subscribe / download .ics</a>
+  <a href="https://github.com/johnlinwiz/cuesta-mbb-2026-27#readme">📄 Table view</a>
+  <a href="https://github.com/johnlinwiz/cuesta-mbb-2026-27/blob/main/venues.geojson">🗺️ Venue map</a>
+  <a href="https://github.com/johnlinwiz/cuesta-mbb-2026-27/issues">🔔 Reminders</a>
+</header>
+<main>
+  <div id="next">Loading…</div>
+  <p class="legend"><span style="background:#0b6e3a"></span>Home <span style="background:#5b6670"></span>Away <span style="background:#c9a227"></span>Tournament &nbsp;·&nbsp; * = WSC conference · times Pacific</p>
+  <div id="cal"></div>
+</main>
+<dialog id="dlg"><div class="dh"><h2 id="d-title"></h2><div id="d-sub"></div></div>
+  <div class="db" id="d-body"></div>
+  <div class="df" id="d-foot"></div></dialog>
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+fetch("events.json").then(r => r.json()).then(events => {
+  const now = new Date();
+  const next = events.find(e => new Date(e.end) >= now);
+  const firstDate = next ? next.start.slice(0, 10) : events[0].start.slice(0, 10);
+  document.getElementById("next").innerHTML = next
+    ? `<b>Next up:</b> ${esc(next.extendedProps.dateLabel)} · ${esc(next.extendedProps.time)} · <b>${esc(next.title)}</b> — <a href="${next.extendedProps.map}" target="_blank">${esc(next.extendedProps.venue)}</a>, ${esc(next.extendedProps.city)}`
+    : "Season complete.";
+  const mobile = window.matchMedia("(max-width: 640px)").matches;
+  const cal = new FullCalendar.Calendar(document.getElementById("cal"), {
+    initialView: mobile ? "listMonth" : "dayGridMonth",
+    initialDate: firstDate,
+    timeZone: "America/Los_Angeles",
+    headerToolbar: { left: "prev,next today", center: "title", right: "dayGridMonth,listSeason" },
+    views: { listSeason: { type: "list", visibleRange: { start: "2026-10-01", end: "2027-03-01" }, buttonText: "season list" } },
+    validRange: { start: "2026-10-01", end: "2027-03-01" },
+    height: "auto",
+    eventTimeFormat: { hour: "numeric", minute: "2-digit", meridiem: "short" },
+    events,
+    eventClick(info) {
+      info.jsEvent.preventDefault();
+      const p = info.event.extendedProps;
+      document.getElementById("d-title").textContent = "Cuesta " + p.matchup;
+      document.getElementById("d-sub").textContent = `${p.dateLabel} · ${p.time} · ${p.type} · ${p.site}`;
+      document.getElementById("d-body").innerHTML = `
+        <p>📍 <a href="${p.map}" target="_blank">${esc(p.venue)}</a><br><small>${esc(p.address)}</small></p>
+        <p>🚗 From Pasadena: <a href="${p.dirPasadena}" target="_blank">${esc(p.drivePasadena)}</a><br>
+           🚗 From SLO: <a href="${p.dirSlo}" target="_blank">${esc(p.driveSlo)}</a><br>
+           <small style="opacity:.7">OSRM free-flow estimate; links open live Google directions.</small></p>
+        ${p.liveStats ? "<p>📊 Live stats available</p>" : ""}
+        ${p.notes ? `<p>📝 ${esc(p.notes)}</p>` : ""}
+        ${p.confirmed ? "" : `<p class="warn">⚠️ Home/away inferred (no @/Vs on poster) — confirm before traveling.</p>`}`;
+      document.getElementById("d-foot").innerHTML = `
+        <a href="${p.gcal}" target="_blank">➕ Google Calendar</a>
+        ${p.issue ? `<a href="${p.issue}" target="_blank">🔔 Reminder issue</a>` : ""}
+        <button onclick="dlg.close()">Close</button>`;
+      dlg.showModal();
+    },
+  });
+  cal.render();
+});
+document.getElementById("dlg").addEventListener("click", e => { if (e.target.id === "dlg") e.target.close(); });
+</script>
+</body>
+</html>

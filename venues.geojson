@@ -1,0 +1,305 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cuesta College Gymnasium",
+        "address": "Cuesta College, Highway 1, San Luis Obispo, CA 93405",
+        "games": "Sat Oct 31 1:00 PM vs Sequoias; Sat Nov 7 3:00 PM vs Diablo Valley; Mon Nov 9 1:00 PM vs Redwoods; Tue Nov 24 6:00 PM vs De Anza; Sat Dec 12 3:00 PM vs Rio Hondo; Sat Jan 9 3:00 PM vs Santa Barbara; Wed Jan 13 7:00 PM vs Moorpark; Fri Jan 29 7:00 PM vs Ventura; Wed Feb 10 7:00 PM vs Oxnard; Wed Feb 17 7:00 PM vs LA Pierce; Fri Feb 19 7:00 PM vs Allan Hancock",
+        "from Pasadena": "4h 03m, 198 mi",
+        "from SLO": "12m, 7 mi",
+        "marker-color": "#0b6e3a",
+        "marker-symbol": "basketball",
+        "marker-size": "large"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.7406,
+          35.329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Porterville College Gym",
+        "address": "100 E College Ave, Porterville, CA 93257",
+        "games": "Fri Oct 16 2:00 PM @ Porterville",
+        "from Pasadena": "3h 06m, 160 mi",
+        "from SLO": "3h 16m, 157 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.0155,
+          36.0472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "West Valley College Gym",
+        "address": "14000 Fruitvale Ave, Saratoga, CA 95070",
+        "games": "Fri Oct 23 2:00 PM @ West Valley",
+        "from Pasadena": "6h 31m, 345 mi",
+        "from SLO": "3h 42m, 189 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.0097,
+          37.2638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gavilan College Gym",
+        "address": "5055 Santa Teresa Blvd, Gilroy, CA 95020",
+        "games": "Thu Oct 29 6:00 PM @ Gavilan",
+        "from Pasadena": "5h 51m, 313 mi",
+        "from SLO": "3h 01m, 154 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.5684,
+          36.9721
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Monterey Peninsula College Gym",
+        "address": "980 Fremont St, Monterey, CA 93940",
+        "games": "Tue Nov 3 3:00 PM @ Monterey Peninsula",
+        "from Pasadena": "6h 15m, 322 mi",
+        "from SLO": "2h 51m, 144 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8848,
+          36.5909
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "American River College Gym",
+        "address": "4700 College Oak Dr, Sacramento, CA 95841",
+        "games": "Thu Nov 12–Sat 14 TBA American River College Tournament (ARC)",
+        "from Pasadena": "7h 19m, 396 mi",
+        "from SLO": "5h 49m, 301 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.3465,
+          38.6488
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "West Hills College Coalinga Gym",
+        "address": "300 W Cherry Ln, Coalinga, CA 93210",
+        "games": "Wed Dec 2 6:00 PM @ Coalinga",
+        "from Pasadena": "3h 53m, 202 mi",
+        "from SLO": "2h 12m, 102 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.3567,
+          36.1492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bakersfield College Gym",
+        "address": "1801 Panorama Dr, Bakersfield, CA 93305",
+        "games": "Tue Dec 15 5:30 PM @ Bakersfield",
+        "from Pasadena": "2h 19m, 118 mi",
+        "from SLO": "2h 53m, 141 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.972,
+          35.4088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "San Joaquin Delta College Gym",
+        "address": "5151 Pacific Ave, Stockton, CA 95207",
+        "games": "Fri Dec 18–Sun 20 TBA Delta Tournament",
+        "from Pasadena": "6h 18m, 341 mi",
+        "from SLO": "4h 47m, 247 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.3193,
+          37.9953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Allan Hancock College Gym",
+        "address": "800 S College Dr, Santa Maria, CA 93454",
+        "games": "Tue Dec 29–Wed 30 TBA AHC Holiday Classic; Wed Jan 27 7:00 PM @ Allan Hancock",
+        "from Pasadena": "3h 18m, 160 mi",
+        "from SLO": "42m, 33 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.4231,
+          34.9433
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ventura College Gym",
+        "address": "4667 Telegraph Rd, Ventura, CA 93003",
+        "games": "Wed Jan 6 7:00 PM @ Ventura",
+        "from Pasadena": "1h 24m, 68 mi",
+        "from SLO": "2h 40m, 126 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.2327,
+          34.2773
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Robertson Gymnasium (\"Rob Gym\"), UCSB",
+        "address": "Robertson Gymnasium, Ocean Rd, Santa Barbara, CA 93106",
+        "games": "Wed Feb 3 7:00 PM @ Santa Barbara",
+        "from Pasadena": "2h 09m, 109 mi",
+        "from SLO": "1h 58m, 98 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.8494,
+          34.4162
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Moorpark College Gym",
+        "address": "7075 Campus Rd, Moorpark, CA 93021",
+        "games": "Fri Feb 5 7:00 PM @ Moorpark",
+        "from Pasadena": "56m, 46 mi",
+        "from SLO": "3h 12m, 151 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.8367,
+          34.2996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Oxnard College Gym",
+        "address": "4000 S Rose Ave, Oxnard, CA 93033",
+        "games": "Sat Jan 16 3:00 PM @ Oxnard",
+        "from Pasadena": "1h 19m, 63 mi",
+        "from SLO": "2h 50m, 135 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.1555,
+          34.1657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Los Angeles Pierce College Gym",
+        "address": "6201 Winnetka Ave, Woodland Hills, CA 91371",
+        "games": "Sat Jan 23 3:00 PM @ LA Pierce",
+        "from Pasadena": "35m, 27 mi",
+        "from SLO": "3h 27m, 168 mi",
+        "marker-color": "#555555",
+        "marker-symbol": "basketball",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.5798,
+          34.1834
+        ]
+      }
+    }
+  ]
+}

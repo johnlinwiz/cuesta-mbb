@@ -1,0 +1,99 @@
+# Venues for the Cuesta College MBB 2026-27 season.
+# lat/lon from OpenStreetMap Nominatim. `drive` is filled in by scripts/drive_times.py
+# (OSRM road routing) — re-run that script after editing coordinates.
+
+origins:
+  pasadena: {label: Pasadena, lat: 34.1477, lon: -118.1439}
+  slo:      {label: SLO,      lat: 35.2828, lon: -120.6596}
+
+venues:
+  cuesta:
+    name: Cuesta College Gymnasium
+    city: San Luis Obispo, CA
+    address: Cuesta College, Highway 1, San Luis Obispo, CA 93405
+    lat: 35.3290
+    lon: -120.7406
+  porterville:
+    name: Porterville College Gym
+    city: Porterville, CA
+    address: 100 E College Ave, Porterville, CA 93257
+    lat: 36.0472
+    lon: -119.0155
+  westvalley:
+    name: West Valley College Gym
+    city: Saratoga, CA
+    address: 14000 Fruitvale Ave, Saratoga, CA 95070
+    lat: 37.2638
+    lon: -122.0097
+  gavilan:
+    name: Gavilan College Gym
+    city: Gilroy, CA
+    address: 5055 Santa Teresa Blvd, Gilroy, CA 95020
+    lat: 36.9721
+    lon: -121.5684
+  mpc:
+    name: Monterey Peninsula College Gym
+    city: Monterey, CA
+    address: 980 Fremont St, Monterey, CA 93940
+    lat: 36.5909
+    lon: -121.8848
+  arc:
+    name: American River College Gym
+    city: Sacramento, CA
+    address: 4700 College Oak Dr, Sacramento, CA 95841
+    lat: 38.6488
+    lon: -121.3465
+  coalinga:
+    name: West Hills College Coalinga Gym
+    city: Coalinga, CA
+    address: 300 W Cherry Ln, Coalinga, CA 93210
+    lat: 36.1492
+    lon: -120.3567
+  bakersfield:
+    name: Bakersfield College Gym
+    city: Bakersfield, CA
+    address: 1801 Panorama Dr, Bakersfield, CA 93305
+    lat: 35.4088
+    lon: -118.9720
+  delta:
+    name: San Joaquin Delta College Gym
+    city: Stockton, CA
+    address: 5151 Pacific Ave, Stockton, CA 95207
+    lat: 37.9953
+    lon: -121.3193
+  hancock:
+    name: Allan Hancock College Gym
+    city: Santa Maria, CA
+    address: 800 S College Dr, Santa Maria, CA 93454
+    lat: 34.9433
+    lon: -120.4231
+  ventura:
+    name: Ventura College Gym
+    city: Ventura, CA
+    address: 4667 Telegraph Rd, Ventura, CA 93003
+    lat: 34.2773
+    lon: -119.2327
+  robgym:
+    name: Robertson Gymnasium ("Rob Gym"), UCSB
+    city: Santa Barbara, CA
+    address: Robertson Gymnasium, Ocean Rd, Santa Barbara, CA 93106
+    lat: 34.4162
+    lon: -119.8494
+  moorpark:
+    name: Moorpark College Gym
+    city: Moorpark, CA
+    address: 7075 Campus Rd, Moorpark, CA 93021
+    lat: 34.2996
+    lon: -118.8367
+  oxnard:
+    name: Oxnard College Gym
+    city: Oxnard, CA
+    address: 4000 S Rose Ave, Oxnard, CA 93033
+    lat: 34.1657
+    lon: -119.1555
+  pierce:
+    name: Los Angeles Pierce College Gym
+    city: Woodland Hills, CA
+    address: 6201 Winnetka Ave, Woodland Hills, CA 91371
+    lat: 34.1834
+    lon: -118.5798
