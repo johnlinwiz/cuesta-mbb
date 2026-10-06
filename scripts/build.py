@@ -225,8 +225,11 @@ def build_events_json(sched, venues_cfg, events, issues):
             r["end"] = e.end.isoformat()
         rows.append(r)
     # Coordinates let the Pages calendar compute drive times from the viewer's own location.
+    # Also ship the precomputed Pasadena/SLO drives so the Table view can show them without a route call.
     used = {e.venue_key: e.venue for e in events}
-    venues = {k: {"name": v["name"], "address": v["address"], "lat": v["lat"], "lon": v["lon"]}
+    drive_json = json.loads((ROOT / "data/drive_times.json").read_text()) if (ROOT / "data/drive_times.json").exists() else {}
+    venues = {k: {"name": v["name"], "address": v["address"], "lat": v["lat"], "lon": v["lon"],
+                  "drives": drive_json.get(k, {})}
               for k, v in used.items()}
     origins = {k: {"label": o["label"], "lat": o["lat"], "lon": o["lon"]}
                for k, o in venues_cfg["origins"].items()}

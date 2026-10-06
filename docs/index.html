@@ -45,13 +45,21 @@
   .fc-daygrid-dot-event.home .fc-daygrid-event-dot { border-color:#0b6e3a }
   .fc-daygrid-dot-event.away .fc-daygrid-event-dot { border-color:#5b6670 }
 
-  /* Upcoming trips table */
-  #trips { margin-top:22px } #trips h2 { font-size:17px; margin:0 0 8px }
-  #trips table { width:100%; border-collapse:collapse; font-size:14px }
-  #trips th, #trips td { text-align:left; padding:6px 8px; border-bottom:1px solid #8883; vertical-align:top }
-  #trips th { color:var(--muted); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.4px }
-  #trips td.num { white-space:nowrap } #trips .sub { color:var(--muted); font-size:12px }
-  @media (max-width:640px) { #trips .hide-sm { display:none } }
+  /* Mode switch */
+  .modes { display:inline-flex; gap:0; margin-left:auto; background:#ffffff22; border-radius:8px; padding:2px }
+  .modes button { background:transparent; color:#fff; border:0; padding:5px 12px; border-radius:6px; cursor:pointer; font:inherit; font-size:14px; opacity:.75 }
+  .modes button.on { background:#fff; color:var(--green); opacity:1 }
+  /* Season table / upcoming-trips table share styles */
+  .tbl { margin-top:16px } .tbl h2 { font-size:17px; margin:0 0 8px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap }
+  .tbl h2 .muted { font-size:13px; font-weight:400 }
+  .tbl table { width:100%; border-collapse:collapse; font-size:14px }
+  .tbl th, .tbl td { text-align:left; padding:7px 8px; border-bottom:1px solid #8883; vertical-align:top }
+  .tbl th { color:var(--muted); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.4px; position:sticky; top:0; background:var(--bg) }
+  .tbl td.num { white-space:nowrap } .tbl .sub { color:var(--muted); font-size:12px }
+  .tbl tr.past td { opacity:.5 } .tbl tr.row-home { background:#0b6e3a0d } .tbl tr.row-tourney { background:#c9a2270d }
+  .tbl td button.link { background:transparent; border:0; padding:0; color:var(--green); cursor:pointer; font:inherit; text-align:left }
+  @media (prefers-color-scheme: dark) { .tbl td button.link { color:#6fd39b } }
+  @media (max-width:640px) { .tbl .hide-sm { display:none } }
 
   dialog { border:none; border-radius:10px; padding:0; max-width:460px; width:92vw; box-shadow:0 10px 40px #0006; background:var(--bg); color:var(--ink) }
   dialog::backdrop { background:#0007 }
@@ -67,10 +75,14 @@
 <body>
 <header>
   <h1 id="h1">🏀 Cuesta College Men's Basketball</h1>
-  <a id="l-ics" href="cuesta-mbb.ics">➕ Subscribe / download .ics</a>
-  <a id="l-readme" href="#">📄 Table view</a>
-  <a id="l-map" href="#">🗺️ Venue map</a>
+  <nav class="modes" role="tablist" aria-label="View">
+    <button id="m-cal" class="on" role="tab">📅 Calendar</button>
+    <button id="m-tbl" role="tab">📊 Table</button>
+  </nav>
+  <a id="l-ics" href="cuesta-mbb.ics">➕ Subscribe .ics</a>
+  <a id="l-map" href="#">🗺️ Map</a>
   <a id="l-issues" href="#">🔔 Reminders</a>
+  <a id="l-readme" href="#">📄 README</a>
 </header>
 <main>
   <section id="from">
@@ -84,10 +96,20 @@
   </section>
   <div id="next">Loading…</div>
   <p class="legend"><span style="background:#0b6e3a"></span>Home <span style="background:#5b6670"></span>Away <span style="background:#c9a227"></span>Tournament &nbsp;·&nbsp; * = WSC conference · times Pacific</p>
-  <div id="cal"></div>
-  <section id="trips" hidden><h2 id="trips-h"></h2><table><thead><tr>
-    <th>Date</th><th>Game</th><th class="hide-sm">Venue</th><th>Drive</th><th>Leave by</th></tr></thead><tbody id="trips-b"></tbody></table>
-    <p class="muted">Leave-by = drive estimate + 30 min buffer. Drive links open live Google Maps directions with traffic.</p></section>
+  <section id="view-cal">
+    <div id="cal"></div>
+    <section id="trips" class="tbl" hidden><h2 id="trips-h"></h2><table><thead><tr>
+      <th>Date</th><th>Game</th><th class="hide-sm">Venue</th><th>Drive</th><th>Leave by</th></tr></thead><tbody id="trips-b"></tbody></table>
+      <p class="muted">Leave-by = drive estimate + 30 min buffer. Drive links open live Google Maps directions with traffic.</p></section>
+  </section>
+  <section id="view-tbl" class="tbl" hidden>
+    <h2>All games — <span id="tbl-origin">Pasadena &amp; SLO</span> <span class="muted">· click a row for details</span></h2>
+    <table><thead><tr>
+      <th>Date</th><th class="hide-sm">Time</th><th>Game</th><th>H/A</th>
+      <th class="hide-sm">Venue</th><th id="tbl-th-drive">🚗 Pasadena · SLO</th>
+      <th>Watch</th></tr></thead><tbody id="tbl-b"></tbody></table>
+    <p class="muted">Drive times without traffic (OSRM); run a bit long vs Google. Click a time for live directions. Set <b>Drive from</b> above to replace the Pasadena/SLO columns with your own location.</p>
+  </section>
 </main>
 <dialog id="dlg"><div class="dh"><h2 id="d-title"></h2><div id="d-sub"></div></div>
   <div class="db" id="d-body"></div>
@@ -132,15 +154,17 @@ async function setOrigin(o, { save = true } = {}) {
   }
   $("b-clear").hidden = false;
   document.querySelectorAll("#presets button").forEach(b => b.classList.toggle("on", b.dataset.key === o.key));
-  renderNext(); renderTrips();
+  renderAll();
 }
 
 function clearOrigin() {
   origin = null; drives = {}; localStorage.removeItem(STORE);
   $("from-status").textContent = ""; $("b-clear").hidden = true; $("i-addr").value = "";
   document.querySelectorAll("#presets button").forEach(b => b.classList.remove("on"));
-  renderNext(); renderTrips();
+  renderAll();
 }
+
+function renderAll() { renderNext(); renderTrips(); renderSeasonTable(); }
 
 // ---------- inputs ----------
 $("b-geo").onclick = () => {
@@ -213,6 +237,58 @@ function renderTrips() {
   $("trips").hidden = false;
 }
 
+// ---------- all-games table (mode = table) ----------
+const ICON = { home: "🏠", away: "🚌", neutral: "📍" };
+function iconFor(ev) { return ev.extendedProps.type === "Tournament" ? "🏆" : (ICON[ev.classNames[0]] || "📍"); }
+
+function fixedDriveCell(e, origin) {
+  const d = DATA.venues[e.extendedProps.venueKey]?.drives?.[origin.key];
+  if (!d) return "—";
+  const url = `https://www.google.com/maps/dir/?api=1&` + new URLSearchParams(
+    { origin: origin.gq, destination: e.extendedProps.address, travelmode: "driving" });
+  return `<a href="${url}" target="_blank">${fmtDur(d.minutes)}</a> <span class="sub">· ${d.miles} mi</span>`;
+}
+
+function renderSeasonTable() {
+  const now = new Date(), past = e => new Date(e.end) < now;
+  const originSet = !!origin;
+  const presets = Object.entries(DATA.origins).map(([k, o]) => ({ key: k, label: o.label, gq: `${o.lat},${o.lon}` }));
+  // Column header reflects current state
+  $("tbl-th-drive").innerHTML = originSet
+    ? `🚗 From ${esc(origin.label)}`
+    : `🚗 ${presets.map(p => esc(p.label)).join(" · ")}`;
+  $("tbl-origin").innerHTML = originSet ? esc(origin.label) : presets.map(p => esc(p.label)).join(" &amp; ");
+
+  const rows = DATA.events.map(e => {
+    const p = e.extendedProps;
+    const row = past(e) ? "past" : (e.classNames.includes("home") ? "row-home"
+                                 : e.classNames.includes("tourney") ? "row-tourney" : "");
+    const game = `${iconFor(e)} <button class="link" data-id="${e.id}">${esc(e.title)}</button>`
+               + (p.notes ? `<br><span class="sub">${esc(p.notes)}</span>` : "");
+    let driveCell;
+    if (originSet) {
+      const d = driveFor(p);
+      driveCell = d === null ? '<span class="sub">no route</span>'
+                : d ? `<a href="${dirUrl(origin, p.address)}" target="_blank">${fmtDur(d.min)}</a> <span class="sub">· ${d.mi} mi</span>`
+                : '<span class="sub">…</span>';
+    } else {
+      driveCell = presets.map(o => `<div><span class="sub">${esc(o.label)}:</span> ${fixedDriveCell(e, o)}</div>`).join("");
+    }
+    const watch = [p.video && `<a href="${p.video}" target="_blank">📺</a>`,
+                   p.stats ? `<a href="${p.stats}" target="_blank">📊</a>` : p.liveStats ? "📊" : ""]
+                  .filter(Boolean).join(" ");
+    return `<tr class="${row}"><td class="num">${esc(p.dateLabel)}</td>
+      <td class="num hide-sm">${esc(p.time)}</td><td>${game}</td><td>${esc(p.site)}</td>
+      <td class="hide-sm"><a href="${p.map}" target="_blank">${esc(p.venue)}</a><br><span class="sub">${esc(p.city)}</span></td>
+      <td class="num">${driveCell}</td><td class="num">${watch || "—"}</td></tr>`;
+  });
+  $("tbl-b").innerHTML = rows.join("");
+  $("tbl-b").querySelectorAll("button.link").forEach(b => b.onclick = () => {
+    const ev = DATA.events.find(e => e.id === b.dataset.id);
+    if (ev) openEvent({ ...ev, extendedProps: ev.extendedProps });
+  });
+}
+
 function openEvent(fcEvent) {
   const p = fcEvent.extendedProps;
   const ev = DATA.events.find(e => e.id === fcEvent.id);
@@ -278,7 +354,19 @@ fetch("events.json").then(r => r.json()).then(data => {
     eventClick(info) { info.jsEvent.preventDefault(); openEvent(info.event); },
   }).render();
 
-  renderNext();
+  // Mode switch: calendar <-> all-games table, synced to URL hash so it's bookmarkable.
+  const setMode = m => {
+    const tbl = m === "table";
+    $("view-cal").hidden = tbl; $("view-tbl").hidden = !tbl;
+    $("m-cal").classList.toggle("on", !tbl); $("m-tbl").classList.toggle("on", tbl);
+    history.replaceState(null, "", tbl ? "#table" : location.pathname);
+  };
+  $("m-cal").onclick = () => setMode("cal");
+  $("m-tbl").onclick = () => setMode("table");
+  setMode(location.hash === "#table" ? "table" : "cal");
+  addEventListener("hashchange", () => setMode(location.hash === "#table" ? "table" : "cal"));
+
+  renderAll();
   const saved = localStorage.getItem(STORE);
   if (saved) { try { setOrigin(JSON.parse(saved), { save: false }); } catch { localStorage.removeItem(STORE); } }
 });

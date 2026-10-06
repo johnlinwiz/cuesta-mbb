@@ -8,91 +8,241 @@
    "name": "Porterville College Gym",
    "address": "100 E College Ave, Porterville, CA 93257",
    "lat": 36.0472,
-   "lon": -119.0155
+   "lon": -119.0155,
+   "drives": {
+    "pasadena": {
+     "miles": 160,
+     "minutes": 186
+    },
+    "slo": {
+     "miles": 157,
+     "minutes": 196
+    }
+   }
   },
   "westvalley": {
    "name": "West Valley College — Bob Burton Court",
    "address": "14000 Fruitvale Ave, Saratoga, CA 95070",
    "lat": 37.2638,
-   "lon": -122.0097
+   "lon": -122.0097,
+   "drives": {
+    "pasadena": {
+     "miles": 345,
+     "minutes": 391
+    },
+    "slo": {
+     "miles": 189,
+     "minutes": 222
+    }
+   }
   },
   "gavilan": {
    "name": "Gavilan College Gym",
    "address": "5055 Santa Teresa Blvd, Gilroy, CA 95020",
    "lat": 36.9721,
-   "lon": -121.5684
+   "lon": -121.5684,
+   "drives": {
+    "pasadena": {
+     "miles": 313,
+     "minutes": 351
+    },
+    "slo": {
+     "miles": 154,
+     "minutes": 181
+    }
+   }
   },
   "cuesta": {
    "name": "Stork Gymnasium (Cuesta Gym)",
    "address": "Cuesta College, Highway 1, San Luis Obispo, CA 93405",
    "lat": 35.329,
-   "lon": -120.7406
+   "lon": -120.7406,
+   "drives": {
+    "pasadena": {
+     "miles": 198,
+     "minutes": 243
+    },
+    "slo": {
+     "miles": 7,
+     "minutes": 12
+    }
+   }
   },
   "mpc": {
    "name": "Monterey Peninsula College Gym",
    "address": "980 Fremont St, Monterey, CA 93940",
    "lat": 36.5909,
-   "lon": -121.8848
+   "lon": -121.8848,
+   "drives": {
+    "pasadena": {
+     "miles": 322,
+     "minutes": 375
+    },
+    "slo": {
+     "miles": 144,
+     "minutes": 171
+    }
+   }
   },
   "arc": {
    "name": "American River College Gym",
    "address": "4700 College Oak Dr, Sacramento, CA 95841",
    "lat": 38.6488,
-   "lon": -121.3465
+   "lon": -121.3465,
+   "drives": {
+    "pasadena": {
+     "miles": 396,
+     "minutes": 439
+    },
+    "slo": {
+     "miles": 301,
+     "minutes": 349
+    }
+   }
   },
   "coalinga": {
    "name": "West Hills College Coalinga Gym",
    "address": "300 W Cherry Ln, Coalinga, CA 93210",
    "lat": 36.1492,
-   "lon": -120.3567
+   "lon": -120.3567,
+   "drives": {
+    "pasadena": {
+     "miles": 202,
+     "minutes": 233
+    },
+    "slo": {
+     "miles": 102,
+     "minutes": 132
+    }
+   }
   },
   "bakersfield": {
    "name": "Bakersfield College Gym",
    "address": "1801 Panorama Dr, Bakersfield, CA 93305",
    "lat": 35.4088,
-   "lon": -118.972
+   "lon": -118.972,
+   "drives": {
+    "pasadena": {
+     "miles": 118,
+     "minutes": 139
+    },
+    "slo": {
+     "miles": 141,
+     "minutes": 173
+    }
+   }
   },
   "delta": {
    "name": "San Joaquin Delta College Gym",
    "address": "5151 Pacific Ave, Stockton, CA 95207",
    "lat": 37.9953,
-   "lon": -121.3193
+   "lon": -121.3193,
+   "drives": {
+    "pasadena": {
+     "miles": 341,
+     "minutes": 378
+    },
+    "slo": {
+     "miles": 247,
+     "minutes": 287
+    }
+   }
   },
   "hancock": {
    "name": "Allan Hancock College Gym",
    "address": "800 S College Dr, Santa Maria, CA 93454",
    "lat": 34.9433,
-   "lon": -120.4231
+   "lon": -120.4231,
+   "drives": {
+    "pasadena": {
+     "miles": 160,
+     "minutes": 198
+    },
+    "slo": {
+     "miles": 33,
+     "minutes": 42
+    }
+   }
   },
   "ventura": {
    "name": "Ventura College Gym",
    "address": "4667 Telegraph Rd, Ventura, CA 93003",
    "lat": 34.2773,
-   "lon": -119.2327
+   "lon": -119.2327,
+   "drives": {
+    "pasadena": {
+     "miles": 68,
+     "minutes": 84
+    },
+    "slo": {
+     "miles": 126,
+     "minutes": 160
+    }
+   }
   },
   "oxnard": {
    "name": "Oxnard College Gym",
    "address": "4000 S Rose Ave, Oxnard, CA 93033",
    "lat": 34.1657,
-   "lon": -119.1555
+   "lon": -119.1555,
+   "drives": {
+    "pasadena": {
+     "miles": 63,
+     "minutes": 79
+    },
+    "slo": {
+     "miles": 135,
+     "minutes": 170
+    }
+   }
   },
   "pierce": {
    "name": "LA Pierce College — Ken Stanley Court",
    "address": "6201 Winnetka Ave, Woodland Hills, CA 91371",
    "lat": 34.1834,
-   "lon": -118.5798
+   "lon": -118.5798,
+   "drives": {
+    "pasadena": {
+     "miles": 27,
+     "minutes": 35
+    },
+    "slo": {
+     "miles": 168,
+     "minutes": 207
+    }
+   }
   },
   "robgym": {
    "name": "Robertson Gymnasium (\"Rob Gym\"), UCSB",
    "address": "Robertson Gymnasium, Ocean Rd, Santa Barbara, CA 93106",
    "lat": 34.4162,
-   "lon": -119.8494
+   "lon": -119.8494,
+   "drives": {
+    "pasadena": {
+     "miles": 109,
+     "minutes": 129
+    },
+    "slo": {
+     "miles": 98,
+     "minutes": 118
+    }
+   }
   },
   "moorpark": {
    "name": "Moorpark College Gym",
    "address": "7075 Campus Rd, Moorpark, CA 93021",
    "lat": 34.2996,
-   "lon": -118.8367
+   "lon": -118.8367,
+   "drives": {
+    "pasadena": {
+     "miles": 46,
+     "minutes": 56
+    },
+    "slo": {
+     "miles": 151,
+     "minutes": 192
+    }
+   }
   }
  },
  "origins": {
