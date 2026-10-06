@@ -3,6 +3,110 @@
  "season": "2026-27",
  "ics": "cuesta-mbb.ics",
  "repo": "johnlinwiz/cuesta-mbb",
+ "venues": {
+  "porterville": {
+   "name": "Porterville College Gym",
+   "address": "100 E College Ave, Porterville, CA 93257",
+   "lat": 36.0472,
+   "lon": -119.0155
+  },
+  "westvalley": {
+   "name": "West Valley College — Bob Burton Court",
+   "address": "14000 Fruitvale Ave, Saratoga, CA 95070",
+   "lat": 37.2638,
+   "lon": -122.0097
+  },
+  "gavilan": {
+   "name": "Gavilan College Gym",
+   "address": "5055 Santa Teresa Blvd, Gilroy, CA 95020",
+   "lat": 36.9721,
+   "lon": -121.5684
+  },
+  "cuesta": {
+   "name": "Stork Gymnasium (Cuesta Gym)",
+   "address": "Cuesta College, Highway 1, San Luis Obispo, CA 93405",
+   "lat": 35.329,
+   "lon": -120.7406
+  },
+  "mpc": {
+   "name": "Monterey Peninsula College Gym",
+   "address": "980 Fremont St, Monterey, CA 93940",
+   "lat": 36.5909,
+   "lon": -121.8848
+  },
+  "arc": {
+   "name": "American River College Gym",
+   "address": "4700 College Oak Dr, Sacramento, CA 95841",
+   "lat": 38.6488,
+   "lon": -121.3465
+  },
+  "coalinga": {
+   "name": "West Hills College Coalinga Gym",
+   "address": "300 W Cherry Ln, Coalinga, CA 93210",
+   "lat": 36.1492,
+   "lon": -120.3567
+  },
+  "bakersfield": {
+   "name": "Bakersfield College Gym",
+   "address": "1801 Panorama Dr, Bakersfield, CA 93305",
+   "lat": 35.4088,
+   "lon": -118.972
+  },
+  "delta": {
+   "name": "San Joaquin Delta College Gym",
+   "address": "5151 Pacific Ave, Stockton, CA 95207",
+   "lat": 37.9953,
+   "lon": -121.3193
+  },
+  "hancock": {
+   "name": "Allan Hancock College Gym",
+   "address": "800 S College Dr, Santa Maria, CA 93454",
+   "lat": 34.9433,
+   "lon": -120.4231
+  },
+  "ventura": {
+   "name": "Ventura College Gym",
+   "address": "4667 Telegraph Rd, Ventura, CA 93003",
+   "lat": 34.2773,
+   "lon": -119.2327
+  },
+  "oxnard": {
+   "name": "Oxnard College Gym",
+   "address": "4000 S Rose Ave, Oxnard, CA 93033",
+   "lat": 34.1657,
+   "lon": -119.1555
+  },
+  "pierce": {
+   "name": "LA Pierce College — Ken Stanley Court",
+   "address": "6201 Winnetka Ave, Woodland Hills, CA 91371",
+   "lat": 34.1834,
+   "lon": -118.5798
+  },
+  "robgym": {
+   "name": "Robertson Gymnasium (\"Rob Gym\"), UCSB",
+   "address": "Robertson Gymnasium, Ocean Rd, Santa Barbara, CA 93106",
+   "lat": 34.4162,
+   "lon": -119.8494
+  },
+  "moorpark": {
+   "name": "Moorpark College Gym",
+   "address": "7075 Campus Rd, Moorpark, CA 93021",
+   "lat": 34.2996,
+   "lon": -118.8367
+  }
+ },
+ "origins": {
+  "pasadena": {
+   "label": "Pasadena",
+   "lat": 34.1477,
+   "lon": -118.1439
+  },
+  "slo": {
+   "label": "SLO",
+   "lat": 35.2828,
+   "lon": -120.6596
+  }
+ },
  "events": [
   {
    "id": "2026-10-16-porterville",
@@ -29,6 +133,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "porterville",
     "video": "https://www.youtube.com/@pirateathletics1149/streams",
     "videoLabel": "Host channel: YouTube · Pirate Athletics",
     "audio": null,
@@ -64,6 +169,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "westvalley",
     "video": null,
     "videoLabel": "Game stream",
     "audio": null,
@@ -99,6 +205,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "gavilan",
     "video": null,
     "videoLabel": "Game stream",
     "audio": null,
@@ -134,6 +241,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "cuesta",
     "video": "https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ",
     "videoLabel": "Host channel: YouTube · CuestaHDTV",
     "audio": null,
@@ -169,6 +277,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "mpc",
     "video": "https://www.youtube.com/@MPCMensBasketball/streams",
     "videoLabel": "Host channel: YouTube · MPC Men's Basketball",
     "audio": null,
@@ -204,6 +313,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "cuesta",
     "video": "https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ",
     "videoLabel": "Host channel: YouTube · CuestaHDTV",
     "audio": null,
@@ -239,6 +349,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "cuesta",
     "video": "https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ",
     "videoLabel": "Host channel: YouTube · CuestaHDTV",
     "audio": null,
@@ -274,6 +385,7 @@
     "liveStats": false,
     "notes": "Nov 13 6:00 PM vs Feather River; also vs Shasta; Nov 14 TBA. Poster says Nov 12–14.",
     "confirmed": true,
+    "venueKey": "arc",
     "video": "https://www.youtube.com/@arcbeavers",
     "videoLabel": "Host channel: YouTube · ARC Athletics",
     "audio": null,
@@ -309,6 +421,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "cuesta",
     "video": "https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ",
     "videoLabel": "Host channel: YouTube · CuestaHDTV",
     "audio": null,
@@ -344,6 +457,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "coalinga",
     "video": null,
     "videoLabel": "Game stream",
     "audio": null,
@@ -379,6 +493,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "cuesta",
     "video": "https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ",
     "videoLabel": "Host channel: YouTube · CuestaHDTV",
     "audio": null,
@@ -414,6 +529,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "bakersfield",
     "video": null,
     "videoLabel": "Game stream",
     "audio": null,
@@ -449,6 +565,7 @@
     "liveStats": false,
     "notes": "Bracket/times TBA",
     "confirmed": true,
+    "venueKey": "delta",
     "video": "https://www.youtube.com/@deltaathletics324",
     "videoLabel": "Host channel: YouTube · Delta Athletics",
     "audio": null,
@@ -484,6 +601,7 @@
     "liveStats": false,
     "notes": "AHC Holiday Classic, day 1",
     "confirmed": true,
+    "venueKey": "hancock",
     "video": "https://www.team1sports.com/college/?S=allanhancockcollege",
     "videoLabel": "Host channel: Team1Sports / BlueFrame",
     "audio": null,
@@ -519,6 +637,7 @@
     "liveStats": false,
     "notes": "AHC Holiday Classic, day 2",
     "confirmed": true,
+    "venueKey": "hancock",
     "video": "https://www.team1sports.com/college/?S=allanhancockcollege",
     "videoLabel": "Host channel: Team1Sports / BlueFrame",
     "audio": null,
@@ -554,6 +673,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "ventura",
     "video": "https://www.youtube.com/channel/UCwtRPgwghVQtHQBZAsTmxdQ",
     "videoLabel": "Host channel: YouTube · VC Pirate Athletics",
     "audio": null,
@@ -589,6 +709,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "cuesta",
     "video": "https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ",
     "videoLabel": "Host channel: YouTube · CuestaHDTV",
     "audio": null,
@@ -624,6 +745,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "cuesta",
     "video": "https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ",
     "videoLabel": "Host channel: YouTube · CuestaHDTV",
     "audio": null,
@@ -659,6 +781,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "oxnard",
     "video": "https://www.youtube.com/@occondors8165",
     "videoLabel": "Host channel: YouTube · OC Condors",
     "audio": null,
@@ -694,6 +817,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "pierce",
     "video": "https://www.youtube.com/@brahmasportsnetwork",
     "videoLabel": "Host channel: YouTube · Brahma Sports Network",
     "audio": null,
@@ -729,6 +853,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "hancock",
     "video": "https://www.team1sports.com/college/?S=allanhancockcollege",
     "videoLabel": "Host channel: Team1Sports / BlueFrame",
     "audio": null,
@@ -764,6 +889,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "cuesta",
     "video": "https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ",
     "videoLabel": "Host channel: YouTube · CuestaHDTV",
     "audio": null,
@@ -799,6 +925,7 @@
     "liveStats": false,
     "notes": "Played at Rob Gym (UCSB), not the SBCC campus",
     "confirmed": true,
+    "venueKey": "robgym",
     "video": "https://www.team1sports.com/college/?S=sbcc",
     "videoLabel": "Host channel: Team1Sports / BlueFrame (SBCC)",
     "audio": null,
@@ -834,6 +961,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "moorpark",
     "video": "https://fan.hudl.com/usa/ca/moorpark/organization/8690/moorpark-college",
     "videoLabel": "Host channel: Hudl · Moorpark College",
     "audio": null,
@@ -869,6 +997,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "cuesta",
     "video": "https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ",
     "videoLabel": "Host channel: YouTube · CuestaHDTV",
     "audio": null,
@@ -904,6 +1033,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "cuesta",
     "video": "https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ",
     "videoLabel": "Host channel: YouTube · CuestaHDTV",
     "audio": null,
@@ -939,6 +1069,7 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
+    "venueKey": "cuesta",
     "video": "https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ",
     "videoLabel": "Host channel: YouTube · CuestaHDTV",
     "audio": null,

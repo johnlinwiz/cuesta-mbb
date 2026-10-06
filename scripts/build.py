@@ -198,7 +198,7 @@ def build_geojson(venues_cfg, drive, events):
 
 
 # ---------------------------------------------------------------- docs/events.json
-def build_events_json(sched, events, issues):
+def build_events_json(sched, venues_cfg, events, issues):
     rows = []
     for e in events:
         r = {
@@ -212,7 +212,7 @@ def build_events_json(sched, events, issues):
                 "dirPasadena": maps_dir("pasadena", e.venue), "dirSlo": maps_dir("slo", e.venue),
                 "drivePasadena": e.drive_label("pasadena"), "driveSlo": e.drive_label("slo"),
                 "liveStats": e.live_stats, "notes": e.notes, "confirmed": e.site_confirmed,
-                "video": e.video, "videoLabel": e.video_label, "audio": e.audio, "stats": e.stats,
+                "venueKey": e.venue_key, "video": e.video, "videoLabel": e.video_label, "audio": e.audio, "stats": e.stats,
                 "gcal": e.gcal_link(),
                 "issue": f"https://github.com/{REPO}/issues/{issues[e.id]}" if e.id in issues else None,
             },
@@ -224,8 +224,15 @@ def build_events_json(sched, events, issues):
             r["start"] = e.start.isoformat()
             r["end"] = e.end.isoformat()
         rows.append(r)
+    # Coordinates let the Pages calendar compute drive times from the viewer's own location.
+    used = {e.venue_key: e.venue for e in events}
+    venues = {k: {"name": v["name"], "address": v["address"], "lat": v["lat"], "lon": v["lon"]}
+              for k, v in used.items()}
+    origins = {k: {"label": o["label"], "lat": o["lat"], "lon": o["lon"]}
+               for k, o in venues_cfg["origins"].items()}
     return json.dumps({"team": sched["team"], "season": sched["season"], "ics": ICS_NAME,
-                       "repo": REPO, "events": rows}, indent=1, ensure_ascii=False)
+                       "repo": REPO, "venues": venues, "origins": origins, "events": rows},
+                      indent=1, ensure_ascii=False)
 
 
 # ---------------------------------------------------------------- .ics
@@ -303,7 +310,7 @@ def main():
     (ROOT / "CALENDAR.md").write_text(build_calendar_md(sched, events, issues, today))
     (ROOT / "venues.geojson").write_text(build_geojson(venues_cfg, drive, events) + "\n")
     (ROOT / "docs").mkdir(exist_ok=True)
-    (ROOT / "docs/events.json").write_text(build_events_json(sched, events, issues) + "\n")
+    (ROOT / "docs/events.json").write_text(build_events_json(sched, venues_cfg, events, issues) + "\n")
     (ROOT / "docs" / ICS_NAME).write_bytes(build_ics(sched, events).encode())
     print(f"built {len(events)} events")
 

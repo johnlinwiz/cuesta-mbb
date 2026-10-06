@@ -6,8 +6,8 @@
 <title>Cuesta MBB Schedule</title>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js" integrity="sha384-B1OFx8Gy9GjPu8UbUyXbGQpzll9ubAUQ9agInFJ8NnD7nYG1u/CLR+Sqr5yifl4q" crossorigin="anonymous"></script>
 <style>
-  :root { --green:#0b6e3a; --gold:#c9a227; --bg:#f6f7f6; --ink:#1d2421; --muted:#5d6b64; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#121614; --ink:#e7ece9; --muted:#9aa8a1; } }
+  :root { --green:#0b6e3a; --gold:#c9a227; --bg:#f6f7f6; --ink:#1d2421; --muted:#5d6b64; --card:#fff; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#121614; --ink:#e7ece9; --muted:#9aa8a1; --card:#1a201d; } }
   * { box-sizing:border-box }
   body { margin:0; font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--ink) }
   header { background:var(--green); color:#fff; padding:14px 20px; display:flex; flex-wrap:wrap; gap:8px 20px; align-items:center }
@@ -15,13 +15,26 @@
   header a { color:#fff; opacity:.9; text-decoration:none; font-size:14px; border:1px solid #ffffff55; border-radius:16px; padding:3px 10px }
   header a:hover { opacity:1; background:#ffffff1a }
   main { max-width:1100px; margin:0 auto; padding:16px }
-  #next { background:#fff1; border-left:4px solid var(--gold); padding:10px 14px; margin-bottom:14px; border-radius:4px }
+  a { color:var(--green) } @media (prefers-color-scheme: dark){ a { color:#6fd39b } }
+
+  /* "Drive from" bar */
+  #from { display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:var(--card); border:1px solid #8883; border-radius:8px; padding:10px 12px; margin-bottom:12px }
+  #from b { margin-right:2px }
+  #from button, #from input { font:inherit; font-size:14px; border:1px solid #8886; border-radius:6px; padding:5px 10px; background:transparent; color:inherit }
+  #from button { cursor:pointer } #from button:hover { background:#8881 }
+  #from button.on { background:var(--green); border-color:var(--green); color:#fff }
+  #from form { display:flex; gap:6px; margin:0 } #from input { width:220px; max-width:52vw }
+  #from-status { color:var(--muted); font-size:13px }
+  #from small { flex-basis:100%; color:var(--muted); font-size:12px }
+
+  #next { background:#8881; border-left:4px solid var(--gold); padding:10px 14px; margin-bottom:14px; border-radius:4px }
   #next a { color:var(--gold) }
-  .fc-daygrid-event { white-space:normal; align-items:flex-start }
-  .fc-daygrid-event .fc-event-title { overflow:visible; white-space:normal }
   .legend { color:var(--muted); font-size:13px; margin:0 0 10px }
   .legend span { display:inline-block; width:10px; height:10px; border-radius:2px; margin:0 4px 0 10px; vertical-align:middle }
-  #cal { background:var(--bg) }
+
+  .fc a.fc-daygrid-day-number, .fc a.fc-col-header-cell-cushion, .fc a.fc-list-day-text, .fc a.fc-list-day-side-text { color:inherit; text-decoration:none }
+  .fc-daygrid-event { white-space:normal; align-items:flex-start }
+  .fc-daygrid-event .fc-event-title { overflow:visible; white-space:normal }
   .fc { --fc-border-color:#8883; --fc-page-bg-color:var(--bg); --fc-today-bg-color:#c9a2272a }
   .fc .fc-button-primary { background:var(--green); border-color:var(--green) }
   .fc .fc-button-primary:not(:disabled).fc-button-active { background:#084f2a; border-color:#084f2a }
@@ -31,12 +44,21 @@
   .fc-event.tourney { --fc-event-bg-color:#c9a227; --fc-event-border-color:#c9a227; --fc-event-text-color:#1d2421 }
   .fc-daygrid-dot-event.home .fc-daygrid-event-dot { border-color:#0b6e3a }
   .fc-daygrid-dot-event.away .fc-daygrid-event-dot { border-color:#5b6670 }
-  dialog { border:none; border-radius:10px; padding:0; max-width:440px; width:92vw; box-shadow:0 10px 40px #0006; background:var(--bg); color:var(--ink) }
+
+  /* Upcoming trips table */
+  #trips { margin-top:22px } #trips h2 { font-size:17px; margin:0 0 8px }
+  #trips table { width:100%; border-collapse:collapse; font-size:14px }
+  #trips th, #trips td { text-align:left; padding:6px 8px; border-bottom:1px solid #8883; vertical-align:top }
+  #trips th { color:var(--muted); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.4px }
+  #trips td.num { white-space:nowrap } #trips .sub { color:var(--muted); font-size:12px }
+  @media (max-width:640px) { #trips .hide-sm { display:none } }
+
+  dialog { border:none; border-radius:10px; padding:0; max-width:460px; width:92vw; box-shadow:0 10px 40px #0006; background:var(--bg); color:var(--ink) }
   dialog::backdrop { background:#0007 }
   .dh { background:var(--green); color:#fff; padding:14px 18px }
   .dh h2 { margin:0; font-size:18px } .dh div { opacity:.85; font-size:13px }
   .db { padding:12px 18px 4px } .db p { margin:6px 0 }
-  .db a { color:var(--green) } @media (prefers-color-scheme: dark){ .db a { color:#6fd39b } }
+  .muted { color:var(--muted); font-size:13px }
   .warn { color:#b26b00; font-size:13px }
   .df { display:flex; flex-wrap:wrap; gap:8px; padding:10px 18px 16px }
   .df a, .df button { font:inherit; font-size:13px; border:1px solid #8885; border-radius:6px; padding:5px 10px; background:transparent; color:inherit; text-decoration:none; cursor:pointer }
@@ -51,72 +73,216 @@
   <a id="l-issues" href="#">🔔 Reminders</a>
 </header>
 <main>
+  <section id="from">
+    <b>🚗 Drive from</b>
+    <button id="b-geo" type="button">📍 My location</button>
+    <form id="f-addr"><input id="i-addr" placeholder="City, address or ZIP" autocomplete="off" aria-label="Starting location"><button>Go</button></form>
+    <span id="presets"></span>
+    <button id="b-clear" type="button" hidden>✕</button>
+    <span id="from-status"></span>
+    <small>Your location stays in this browser. It's sent only to OpenStreetMap (address lookup) and OSRM (routing) to estimate drive times without traffic.</small>
+  </section>
   <div id="next">Loading…</div>
   <p class="legend"><span style="background:#0b6e3a"></span>Home <span style="background:#5b6670"></span>Away <span style="background:#c9a227"></span>Tournament &nbsp;·&nbsp; * = WSC conference · times Pacific</p>
   <div id="cal"></div>
+  <section id="trips" hidden><h2 id="trips-h"></h2><table><thead><tr>
+    <th>Date</th><th>Game</th><th class="hide-sm">Venue</th><th>Drive</th><th>Leave by</th></tr></thead><tbody id="trips-b"></tbody></table>
+    <p class="muted">Leave-by = drive estimate + 30 min buffer. Drive links open live Google Maps directions with traffic.</p></section>
 </main>
 <dialog id="dlg"><div class="dh"><h2 id="d-title"></h2><div id="d-sub"></div></div>
   <div class="db" id="d-body"></div>
   <div class="df" id="d-foot"></div></dialog>
 <script>
+const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const TZ = "America/Los_Angeles", BUFFER_MIN = 30, STORE = "cuesta-mbb-origin";
+const fmtDur = m => m >= 60 ? `${Math.floor(m / 60)}h ${String(m % 60).padStart(2, "0")}m` : `${m}m`;
+const fmtClock = d => d.toLocaleTimeString("en-US", { timeZone: TZ, hour: "numeric", minute: "2-digit" });
+const dirUrl = (o, address) => "https://www.google.com/maps/dir/?api=1&" + new URLSearchParams(
+  { origin: `${o.lat},${o.lon}`, destination: address, travelmode: "driving" });
+
+let DATA, origin = null, drives = {};   // drives: venueKey -> {min, mi}
+
+// ---------- routing: one OSRM table request covers every venue ----------
+async function computeDrives(o) {
+  const keys = Object.keys(DATA.venues);
+  const coords = [[o.lon, o.lat], ...keys.map(k => [DATA.venues[k].lon, DATA.venues[k].lat])]
+    .map(([x, y]) => `${(+x).toFixed(5)},${(+y).toFixed(5)}`).join(";");
+  const r = await fetch(`https://router.project-osrm.org/table/v1/driving/${coords}?sources=0&annotations=duration,distance`);
+  const j = await r.json();
+  if (j.code !== "Ok") throw new Error(j.message || j.code);
+  const out = {};
+  keys.forEach((k, i) => {
+    const s = j.durations[0][i + 1], m = j.distances[0][i + 1];
+    out[k] = s == null ? null : { min: Math.round(s / 60), mi: Math.round(m / 1609.344) };
+  });
+  return out;
+}
+
+async function setOrigin(o, { save = true } = {}) {
+  $("from-status").textContent = `Calculating drive times from ${o.label}…`;
+  try {
+    drives = await computeDrives(o);
+    origin = o;
+    if (save) localStorage.setItem(STORE, JSON.stringify(o));
+    $("from-status").textContent = `From ${o.label}`;
+  } catch (err) {
+    $("from-status").textContent = `Couldn't compute routes (${err.message}). Try again shortly.`;
+    return;
+  }
+  $("b-clear").hidden = false;
+  document.querySelectorAll("#presets button").forEach(b => b.classList.toggle("on", b.dataset.key === o.key));
+  renderNext(); renderTrips();
+}
+
+function clearOrigin() {
+  origin = null; drives = {}; localStorage.removeItem(STORE);
+  $("from-status").textContent = ""; $("b-clear").hidden = true; $("i-addr").value = "";
+  document.querySelectorAll("#presets button").forEach(b => b.classList.remove("on"));
+  renderNext(); renderTrips();
+}
+
+// ---------- inputs ----------
+$("b-geo").onclick = () => {
+  if (!navigator.geolocation) { $("from-status").textContent = "Location isn't available in this browser."; return; }
+  $("from-status").textContent = "Finding your location…";
+  navigator.geolocation.getCurrentPosition(async pos => {
+    const { latitude: lat, longitude: lon } = pos.coords;
+    let label = "your location";
+    try {   // best-effort city name for display
+      const r = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&zoom=10&lat=${lat}&lon=${lon}`);
+      const a = (await r.json()).address || {};
+      label = a.city || a.town || a.village || a.county || label;
+    } catch {}
+    setOrigin({ key: "geo", label, lat, lon });
+  }, err => { $("from-status").textContent = `Location blocked (${err.message}). Type a city instead.`; },
+  { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 });
+};
+
+$("f-addr").onsubmit = async ev => {
+  ev.preventDefault();
+  const q = $("i-addr").value.trim();
+  if (!q) return;
+  $("from-status").textContent = `Looking up “${q}”…`;
+  try {
+    const r = await fetch("https://nominatim.openstreetmap.org/search?" + new URLSearchParams({ q, format: "json", limit: 1 }));
+    const [hit] = await r.json();
+    if (!hit) { $("from-status").textContent = `Couldn't find “${q}”.`; return; }
+    const label = hit.display_name.split(",").slice(0, 2).join(",").trim();
+    setOrigin({ key: "addr", label, lat: +hit.lat, lon: +hit.lon });
+  } catch (err) { $("from-status").textContent = `Lookup failed (${err.message}).`; }
+};
+$("b-clear").onclick = clearOrigin;
+
+// ---------- rendering ----------
+function driveFor(p) { return origin ? drives[p.venueKey] : undefined; }
+function leaveBy(ev, d) {
+  if (!d || ev.allDay || d.min <= 20) return "";
+  return fmtClock(new Date(new Date(ev.start).getTime() - (d.min + BUFFER_MIN) * 60000));
+}
+function driveHtml(ev) {
+  const p = ev.extendedProps, d = driveFor(p);
+  if (!origin) return "";
+  if (d === null) return `🚗 From ${esc(origin.label)}: no driving route`;
+  const lb = leaveBy(ev, d);
+  return `🚗 From ${esc(origin.label)}: <a href="${dirUrl(origin, p.address)}" target="_blank">${fmtDur(d.min)}</a> · ${d.mi} mi` +
+         (lb ? ` → leave by <b>${lb}</b>` : "");
+}
+
+function renderNext() {
+  const now = new Date(), next = DATA.events.find(e => new Date(e.end) >= now);
+  if (!next) { $("next").textContent = "Season complete."; return; }
+  const p = next.extendedProps, dh = driveHtml(next);
+  $("next").innerHTML = `<b>Next up:</b> ${esc(p.dateLabel)} · ${esc(p.time)} · <b>${esc(next.title)}</b> — ` +
+    `<a href="${p.map}" target="_blank">${esc(p.venue)}</a>, ${esc(p.city)}` + (dh ? `<br>${dh}` : "");
+}
+
+function renderTrips() {
+  if (!origin) { $("trips").hidden = true; return; }
+  const now = new Date();
+  const rows = DATA.events.filter(e => new Date(e.end) >= now).map(e => {
+    const p = e.extendedProps, d = driveFor(p);
+    const drive = d === null ? "no route" : d ? `<a href="${dirUrl(origin, p.address)}" target="_blank">${fmtDur(d.min)}</a><br><span class="sub">${d.mi} mi</span>` : "—";
+    return `<tr><td class="num">${esc(p.dateLabel)}<br><span class="sub">${esc(p.time)}</span></td>
+      <td>${esc(e.title)}<br><span class="sub">${esc(p.site)}</span></td>
+      <td class="hide-sm"><a href="${p.map}" target="_blank">${esc(p.venue)}</a><br><span class="sub">${esc(p.city)}</span></td>
+      <td class="num">${drive}</td><td class="num">${leaveBy(e, d) || "—"}</td></tr>`;
+  });
+  $("trips-h").textContent = `Upcoming games — drive from ${origin.label}`;
+  $("trips-b").innerHTML = rows.join("");
+  $("trips").hidden = false;
+}
+
+function openEvent(fcEvent) {
+  const p = fcEvent.extendedProps;
+  const ev = DATA.events.find(e => e.id === fcEvent.id);
+  $("d-title").textContent = "Cuesta " + p.matchup;
+  $("d-sub").textContent = `${p.dateLabel} · ${p.time} · ${p.type} · ${p.site}`;
+  const mine = driveHtml(ev);
+  $("d-body").innerHTML = `
+    <p>📍 <a href="${p.map}" target="_blank">${esc(p.venue)}</a><br><small>${esc(p.address)}</small></p>
+    <p>${mine ? mine + "<br>" : ""}
+       <span class="muted">${mine ? "Also: " : "🚗 "}Pasadena <a href="${p.dirPasadena}" target="_blank">${esc(p.drivePasadena)}</a> ·
+       SLO <a href="${p.dirSlo}" target="_blank">${esc(p.driveSlo)}</a></span><br>
+       <small class="muted">${origin ? "" : "Set “Drive from” above for times from your location. "}Estimates without traffic; links open live Google directions.</small></p>
+    ${(p.video || p.audio || p.stats || p.liveStats) ? `<p>${
+        [p.video && `📺 <a href="${p.video}" target="_blank">${esc(p.videoLabel)}</a>`,
+         p.audio && `🎙️ <a href="${p.audio}" target="_blank">Listen</a>`,
+         p.stats ? `📊 <a href="${p.stats}" target="_blank">Live stats</a>` : p.liveStats ? "📊 Live stats available" : ""
+        ].filter(Boolean).join(" · ")}</p>` : ""}
+    ${p.notes ? `<p>📝 ${esc(p.notes)}</p>` : ""}
+    ${p.confirmed ? "" : `<p class="warn">⚠️ Home/away inferred (no @/Vs on poster) — confirm before traveling.</p>`}`;
+  $("d-foot").innerHTML = `
+    <a href="${p.gcal}" target="_blank">➕ Google Calendar</a>
+    ${p.video ? `<a href="${p.video}" target="_blank">📺 Watch</a>` : ""}
+    ${p.issue ? `<a href="${p.issue}" target="_blank">🔔 Reminder issue</a>` : ""}
+    <button onclick="dlg.close()">Close</button>`;
+  $("dlg").showModal();
+}
+
+// ---------- boot ----------
 fetch("events.json").then(r => r.json()).then(data => {
+  DATA = data;
   const events = data.events, gh = `https://github.com/${data.repo}`;
   document.title = `${data.team} ${data.season}`;
-  document.getElementById("h1").textContent = `🏀 ${data.team} · ${data.season.replace("-", "–")}`;
-  document.getElementById("l-ics").href = data.ics;
-  document.getElementById("l-readme").href = `${gh}#readme`;
-  document.getElementById("l-map").href = `${gh}/blob/main/venues.geojson`;
-  document.getElementById("l-issues").href = `${gh}/issues`;
+  $("h1").textContent = `🏀 ${data.team} · ${data.season.replace("-", "–")}`;
+  $("l-ics").href = data.ics;
+  $("l-readme").href = `${gh}#readme`;
+  $("l-map").href = `${gh}/blob/main/venues.geojson`;
+  $("l-issues").href = `${gh}/issues`;
+
+  // Preset origins (Pasadena, SLO) from data/venues.yaml
+  $("presets").innerHTML = Object.entries(data.origins)
+    .map(([k, o]) => `<button type="button" data-key="${k}">${esc(o.label)}</button>`).join(" ");
+  document.querySelectorAll("#presets button").forEach(b => b.onclick = () => {
+    const o = data.origins[b.dataset.key];
+    setOrigin({ key: b.dataset.key, label: o.label, lat: o.lat, lon: o.lon });
+  });
+
   // Season range = first of the first game's month .. first of the month after the last game
-  const ym = s => s.slice(0, 7), first = ym(events[0].start), lastD = new Date(events.at(-1).end);
+  const first = events[0].start.slice(0, 7), lastD = new Date(events.at(-1).end);
   const range = { start: `${first}-01`,
                   end: new Date(Date.UTC(lastD.getUTCFullYear(), lastD.getUTCMonth() + 1, 1)).toISOString().slice(0, 10) };
-  const now = new Date();
-  const next = events.find(e => new Date(e.end) >= now);
-  const firstDate = next ? next.start.slice(0, 10) : events[0].start.slice(0, 10);
-  document.getElementById("next").innerHTML = next
-    ? `<b>Next up:</b> ${esc(next.extendedProps.dateLabel)} · ${esc(next.extendedProps.time)} · <b>${esc(next.title)}</b> — <a href="${next.extendedProps.map}" target="_blank">${esc(next.extendedProps.venue)}</a>, ${esc(next.extendedProps.city)}`
-    : "Season complete.";
+  const next = events.find(e => new Date(e.end) >= new Date());
   const mobile = window.matchMedia("(max-width: 640px)").matches;
-  const cal = new FullCalendar.Calendar(document.getElementById("cal"), {
+  new FullCalendar.Calendar($("cal"), {
     initialView: mobile ? "listMonth" : "dayGridMonth",
-    initialDate: firstDate,
-    timeZone: "America/Los_Angeles",
+    initialDate: (next || events[0]).start.slice(0, 10),
+    timeZone: TZ,
     headerToolbar: { left: "prev,next today", center: "title", right: "dayGridMonth,listSeason" },
     views: { listSeason: { type: "list", visibleRange: range, buttonText: "season list" } },
     validRange: range,
     height: "auto",
     eventTimeFormat: { hour: "numeric", minute: "2-digit", meridiem: "short" },
     events,
-    eventClick(info) {
-      info.jsEvent.preventDefault();
-      const p = info.event.extendedProps;
-      document.getElementById("d-title").textContent = "Cuesta " + p.matchup;
-      document.getElementById("d-sub").textContent = `${p.dateLabel} · ${p.time} · ${p.type} · ${p.site}`;
-      document.getElementById("d-body").innerHTML = `
-        <p>📍 <a href="${p.map}" target="_blank">${esc(p.venue)}</a><br><small>${esc(p.address)}</small></p>
-        <p>🚗 From Pasadena: <a href="${p.dirPasadena}" target="_blank">${esc(p.drivePasadena)}</a><br>
-           🚗 From SLO: <a href="${p.dirSlo}" target="_blank">${esc(p.driveSlo)}</a><br>
-           <small style="opacity:.7">OSRM free-flow estimate; links open live Google directions.</small></p>
-        ${(p.video || p.audio || p.stats || p.liveStats) ? `<p>${
-            [p.video && `📺 <a href="${p.video}" target="_blank">${esc(p.videoLabel)}</a>`,
-             p.audio && `🎙️ <a href="${p.audio}" target="_blank">Listen</a>`,
-             p.stats ? `📊 <a href="${p.stats}" target="_blank">Live stats</a>` : p.liveStats ? "📊 Live stats available" : ""
-            ].filter(Boolean).join(" · ")}</p>` : ""}
-        ${p.notes ? `<p>📝 ${esc(p.notes)}</p>` : ""}
-        ${p.confirmed ? "" : `<p class="warn">⚠️ Home/away inferred (no @/Vs on poster) — confirm before traveling.</p>`}`;
-      document.getElementById("d-foot").innerHTML = `
-        <a href="${p.gcal}" target="_blank">➕ Google Calendar</a>
-        ${p.video ? `<a href="${p.video}" target="_blank">📺 Watch</a>` : ""}
-        ${p.issue ? `<a href="${p.issue}" target="_blank">🔔 Reminder issue</a>` : ""}
-        <button onclick="dlg.close()">Close</button>`;
-      dlg.showModal();
-    },
-  });
-  cal.render();
+    eventClick(info) { info.jsEvent.preventDefault(); openEvent(info.event); },
+  }).render();
+
+  renderNext();
+  const saved = localStorage.getItem(STORE);
+  if (saved) { try { setOrigin(JSON.parse(saved), { save: false }); } catch { localStorage.removeItem(STORE); } }
 });
-document.getElementById("dlg").addEventListener("click", e => { if (e.target.id === "dlg") e.target.close(); });
+$("dlg").addEventListener("click", e => { if (e.target.id === "dlg") e.target.close(); });
 </script>
 </body>
 </html>
