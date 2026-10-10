@@ -9,7 +9,7 @@
 | Sun | Mon | Tue | Wed | Thu | Fri | Sat |
 |---|---|---|---|---|---|---|
 |   |   |   |   | 1 | 2 | 3 |
-| 4 | 5 | 6 | 7 | 8 | **9** | 10 |
+| 4 | 5 | 6 | 7 | 8 | 9 | **10** |
 | 11 | 12 | 13 | 14 | 15 | 16<br>🚌 2pm [@ Porterville](https://github.com/johnlinwiz/cuesta-mbb/issues/1) [📺](https://www.youtube.com/@pirateathletics1149/streams) | 17 |
 | 18 | 19 | 20 | 21 | 22 | 23<br>🚌 2pm [@ West Valley](https://github.com/johnlinwiz/cuesta-mbb/issues/2) | 24 |
 | 25 | 26 | 27 | 28 | 29<br>🚌 6pm [@ Gavilan](https://github.com/johnlinwiz/cuesta-mbb/issues/3) | 30 | 31<br>🏠 1pm [vs Sequoias](https://github.com/johnlinwiz/cuesta-mbb/issues/4) [📺](https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ) |
