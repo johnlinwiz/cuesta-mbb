@@ -24,11 +24,11 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Porterville College Gym",
-        "address": "100 E College Ave, Porterville, CA 93257",
-        "games": "Fri Oct 16 2:00 PM @ Porterville",
-        "from Pasadena": "3h 06m, 160 mi",
-        "from SLO": "3h 16m, 157 mi",
+        "name": "Reedley College Gym",
+        "address": "995 N Reed Ave, Reedley, CA 93654",
+        "games": "Sat Oct 17 2:00 PM @ Reedley",
+        "from Pasadena": "3h 59m, 208 mi",
+        "from SLO": "3h 08m, 147 mi",
         "marker-color": "#555555",
         "marker-symbol": "basketball",
         "marker-size": "medium"
@@ -36,8 +36,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -119.0155,
-          36.0472
+          -119.4605,
+          36.6083
         ]
       }
     },
@@ -106,7 +106,7 @@
       "properties": {
         "name": "American River College Gym",
         "address": "4700 College Oak Dr, Sacramento, CA 95841",
-        "games": "Fri Nov 13–Sat 14 TBA American River College Tournament (ARC)",
+        "games": "Fri Nov 13 6:00 PM vs Feather River; Sat Nov 14 2:00 PM vs Shasta",
         "from Pasadena": "7h 19m, 396 mi",
         "from SLO": "5h 49m, 301 mi",
         "marker-color": "#555555",
@@ -148,7 +148,7 @@
         "address": "1801 Panorama Dr, Bakersfield, CA 93305",
         "games": "Tue Dec 15 5:30 PM @ Bakersfield",
         "from Pasadena": "2h 19m, 118 mi",
-        "from SLO": "2h 53m, 141 mi",
+        "from SLO": "2h 53m, 139 mi",
         "marker-color": "#555555",
         "marker-symbol": "basketball",
         "marker-size": "medium"

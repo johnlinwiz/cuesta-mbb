@@ -122,7 +122,33 @@ def main():
             n = gh.api("issues", "POST", payload)["number"]
             print(f"created #{n} {e.title()}")
         issue_map[e.id] = n
+    close_superseded(sched, events, existing, issue_map)
     (ROOT / "data/issues.json").write_text(json.dumps(issue_map, indent=2) + "\n")
+
+
+def close_superseded(sched, events, existing, issue_map):
+    """Close open issues whose event is no longer on the schedule (cancelled/moved)."""
+    current = {e.id for e in events}
+    replaced_by = {}
+    for e in events:
+        for old in e.replaces:
+            replaced_by.setdefault(old, []).append(e)
+    mentions = " ".join("@" + m for m in sched.get("notify", []))
+    for eid, n in existing.items():
+        if eid in current:
+            continue
+        iss = gh.api(f"issues/{n}")
+        if iss["state"] != "open":
+            continue
+        new = replaced_by.get(eid, [])
+        if new:
+            links = ", ".join(f"#{issue_map[x.id]} ({x.title()})" for x in new if x.id in issue_map)
+            msg = f"📅 {mentions} **Schedule change** — this event was replaced by {links}."
+        else:
+            msg = f"❌ {mentions} **Removed from the official schedule** (cancelled or moved). Closing."
+        gh.api(f"issues/{n}/comments", "POST", {"body": msg})
+        gh.api(f"issues/{n}", "PATCH", {"state": "closed", "state_reason": "not_planned"})
+        print(f"closed #{n} ({eid}) — superseded")
 
 
 if __name__ == "__main__":

@@ -4,19 +4,19 @@
  "ics": "cuesta-mbb.ics",
  "repo": "johnlinwiz/cuesta-mbb",
  "venues": {
-  "porterville": {
-   "name": "Porterville College Gym",
-   "address": "100 E College Ave, Porterville, CA 93257",
-   "lat": 36.0472,
-   "lon": -119.0155,
+  "reedley": {
+   "name": "Reedley College Gym",
+   "address": "995 N Reed Ave, Reedley, CA 93654",
+   "lat": 36.6083,
+   "lon": -119.4605,
    "drives": {
     "pasadena": {
-     "miles": 160,
-     "minutes": 186
+     "miles": 208,
+     "minutes": 239
     },
     "slo": {
-     "miles": 157,
-     "minutes": 196
+     "miles": 147,
+     "minutes": 188
     }
    }
   },
@@ -127,7 +127,7 @@
      "minutes": 139
     },
     "slo": {
-     "miles": 141,
+     "miles": 139,
      "minutes": 173
     }
    }
@@ -259,40 +259,40 @@
  },
  "events": [
   {
-   "id": "2026-10-16-porterville",
-   "title": "@ Porterville",
+   "id": "2026-10-17-reedley",
+   "title": "@ Reedley",
    "allDay": false,
    "classNames": [
     "away",
     "scrimmage"
    ],
    "extendedProps": {
-    "matchup": "@ Porterville",
+    "matchup": "@ Reedley",
     "type": "Scrimmage",
     "site": "Away",
     "time": "2:00 PM",
-    "dateLabel": "Fri Oct 16",
-    "venue": "Porterville College Gym",
-    "city": "Porterville, CA",
-    "address": "100 E College Ave, Porterville, CA 93257",
-    "map": "https://www.google.com/maps/search/?api=1&query=Porterville+College+Gym%2C+100+E+College+Ave%2C+Porterville%2C+CA+93257",
-    "dirPasadena": "https://www.google.com/maps/dir/?api=1&origin=Pasadena%2C+CA&destination=100+E+College+Ave%2C+Porterville%2C+CA+93257&travelmode=driving",
-    "dirSlo": "https://www.google.com/maps/dir/?api=1&origin=San+Luis+Obispo%2C+CA&destination=100+E+College+Ave%2C+Porterville%2C+CA+93257&travelmode=driving",
-    "drivePasadena": "3h 06m · 160 mi",
-    "driveSlo": "3h 16m · 157 mi",
+    "dateLabel": "Sat Oct 17",
+    "venue": "Reedley College Gym",
+    "city": "Reedley, CA",
+    "address": "995 N Reed Ave, Reedley, CA 93654",
+    "map": "https://www.google.com/maps/search/?api=1&query=Reedley+College+Gym%2C+995+N+Reed+Ave%2C+Reedley%2C+CA+93654",
+    "dirPasadena": "https://www.google.com/maps/dir/?api=1&origin=Pasadena%2C+CA&destination=995+N+Reed+Ave%2C+Reedley%2C+CA+93654&travelmode=driving",
+    "dirSlo": "https://www.google.com/maps/dir/?api=1&origin=San+Luis+Obispo%2C+CA&destination=995+N+Reed+Ave%2C+Reedley%2C+CA+93654&travelmode=driving",
+    "drivePasadena": "3h 59m · 208 mi",
+    "driveSlo": "3h 08m · 147 mi",
     "liveStats": false,
-    "notes": "",
+    "notes": "Replaces the Fri Oct 16 Porterville scrimmage (changed on cuestaathletics.com, seen 2026-10-16)",
     "confirmed": true,
-    "venueKey": "porterville",
-    "video": "https://www.youtube.com/@pirateathletics1149/streams",
-    "videoLabel": "Host channel: YouTube · Pirate Athletics",
+    "venueKey": "reedley",
+    "video": null,
+    "videoLabel": "Game stream",
     "audio": null,
     "stats": null,
-    "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+%40+Porterville+%28scrimmage%29&dates=20261016T140000%2F20261016T160000&ctz=America%2FLos_Angeles&location=Porterville+College+Gym%2C+100+E+College+Ave%2C+Porterville%2C+CA+93257&details=Scrimmage+%E2%80%94+Away%0AVenue%3A+Porterville+College+Gym%2C+100+E+College+Ave%2C+Porterville%2C+CA+93257%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DPorterville%2BCollege%2BGym%252C%2B100%2BE%2BCollege%2BAve%252C%2BPorterville%252C%2BCA%2B93257%0ADrive+from+Pasadena%3A+3h+06m+%C2%B7+160+mi%0ADrive+from+SLO%3A+3h+16m+%C2%B7+157+mi%0AWatch+live+%28Host+channel%3A+YouTube+%C2%B7+Pirate+Athletics%29%3A+https%3A%2F%2Fwww.youtube.com%2F%40pirateathletics1149%2Fstreams",
-    "issue": "https://github.com/johnlinwiz/cuesta-mbb/issues/1"
+    "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+%40+Reedley+%28scrimmage%29&dates=20261017T140000%2F20261017T160000&ctz=America%2FLos_Angeles&location=Reedley+College+Gym%2C+995+N+Reed+Ave%2C+Reedley%2C+CA+93654&details=Scrimmage+%E2%80%94+Away%0AVenue%3A+Reedley+College+Gym%2C+995+N+Reed+Ave%2C+Reedley%2C+CA+93654%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DReedley%2BCollege%2BGym%252C%2B995%2BN%2BReed%2BAve%252C%2BReedley%252C%2BCA%2B93654%0ADrive+from+Pasadena%3A+3h+59m+%C2%B7+208+mi%0ADrive+from+SLO%3A+3h+08m+%C2%B7+147+mi%0ANote%3A+Replaces+the+Fri+Oct+16+Porterville+scrimmage+%28changed+on+cuestaathletics.com%2C+seen+2026-10-16%29",
+    "issue": null
    },
-   "start": "2026-10-16T14:00:00-07:00",
-   "end": "2026-10-16T16:00:00-07:00"
+   "start": "2026-10-17T14:00:00-07:00",
+   "end": "2026-10-17T16:00:00-07:00"
   },
   {
    "id": "2026-10-23-west-valley",
@@ -511,19 +511,19 @@
    "end": "2026-11-09T15:00:00-08:00"
   },
   {
-   "id": "2026-11-13-american-river-college-tournament-arc",
-   "title": "American River College Tournament (ARC)",
-   "allDay": true,
+   "id": "2026-11-13-feather-river",
+   "title": "vs Feather River",
+   "allDay": false,
    "classNames": [
     "tourney",
     "tournament"
    ],
    "extendedProps": {
-    "matchup": "American River College Tournament (ARC)",
+    "matchup": "vs Feather River",
     "type": "Tournament",
     "site": "Neutral",
-    "time": "TBA",
-    "dateLabel": "Fri Nov 13–Sat 14",
+    "time": "6:00 PM",
+    "dateLabel": "Fri Nov 13",
     "venue": "American River College Gym",
     "city": "Sacramento, CA",
     "address": "4700 College Oak Dr, Sacramento, CA 95841",
@@ -533,18 +533,54 @@
     "drivePasadena": "7h 19m · 396 mi",
     "driveSlo": "5h 49m · 301 mi",
     "liveStats": false,
-    "notes": "Nov 13 6:00 PM vs Feather River; also vs Shasta; Nov 14 TBA. Poster says Nov 12–14.",
+    "notes": "American River College Tournament, day 1",
     "confirmed": true,
     "venueKey": "arc",
     "video": "https://www.youtube.com/@arcbeavers",
     "videoLabel": "Host channel: YouTube · ARC Athletics",
     "audio": null,
     "stats": null,
-    "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+American+River+College+Tournament+%28ARC%29&dates=20261113%2F20261115&ctz=America%2FLos_Angeles&location=American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841&details=Tournament+%E2%80%94+Neutral%0AVenue%3A+American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DAmerican%2BRiver%2BCollege%2BGym%252C%2B4700%2BCollege%2BOak%2BDr%252C%2BSacramento%252C%2BCA%2B95841%0ADrive+from+Pasadena%3A+7h+19m+%C2%B7+396+mi%0ADrive+from+SLO%3A+5h+49m+%C2%B7+301+mi%0AWatch+live+%28Host+channel%3A+YouTube+%C2%B7+ARC+Athletics%29%3A+https%3A%2F%2Fwww.youtube.com%2F%40arcbeavers%0ANote%3A+Nov+13+6%3A00+PM+vs+Feather+River%3B+also+vs+Shasta%3B+Nov+14+TBA.+Poster+says+Nov+12%E2%80%9314.",
-    "issue": "https://github.com/johnlinwiz/cuesta-mbb/issues/8"
+    "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+vs+Feather+River&dates=20261113T180000%2F20261113T200000&ctz=America%2FLos_Angeles&location=American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841&details=Tournament+%E2%80%94+Neutral%0AVenue%3A+American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DAmerican%2BRiver%2BCollege%2BGym%252C%2B4700%2BCollege%2BOak%2BDr%252C%2BSacramento%252C%2BCA%2B95841%0ADrive+from+Pasadena%3A+7h+19m+%C2%B7+396+mi%0ADrive+from+SLO%3A+5h+49m+%C2%B7+301+mi%0AWatch+live+%28Host+channel%3A+YouTube+%C2%B7+ARC+Athletics%29%3A+https%3A%2F%2Fwww.youtube.com%2F%40arcbeavers%0ANote%3A+American+River+College+Tournament%2C+day+1",
+    "issue": null
    },
-   "start": "2026-11-13",
-   "end": "2026-11-15"
+   "start": "2026-11-13T18:00:00-08:00",
+   "end": "2026-11-13T20:00:00-08:00"
+  },
+  {
+   "id": "2026-11-14-shasta",
+   "title": "vs Shasta",
+   "allDay": false,
+   "classNames": [
+    "tourney",
+    "tournament"
+   ],
+   "extendedProps": {
+    "matchup": "vs Shasta",
+    "type": "Tournament",
+    "site": "Neutral",
+    "time": "2:00 PM",
+    "dateLabel": "Sat Nov 14",
+    "venue": "American River College Gym",
+    "city": "Sacramento, CA",
+    "address": "4700 College Oak Dr, Sacramento, CA 95841",
+    "map": "https://www.google.com/maps/search/?api=1&query=American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841",
+    "dirPasadena": "https://www.google.com/maps/dir/?api=1&origin=Pasadena%2C+CA&destination=4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841&travelmode=driving",
+    "dirSlo": "https://www.google.com/maps/dir/?api=1&origin=San+Luis+Obispo%2C+CA&destination=4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841&travelmode=driving",
+    "drivePasadena": "7h 19m · 396 mi",
+    "driveSlo": "5h 49m · 301 mi",
+    "liveStats": false,
+    "notes": "American River College Tournament, day 2",
+    "confirmed": true,
+    "venueKey": "arc",
+    "video": "https://www.youtube.com/@arcbeavers",
+    "videoLabel": "Host channel: YouTube · ARC Athletics",
+    "audio": null,
+    "stats": null,
+    "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+vs+Shasta&dates=20261114T140000%2F20261114T160000&ctz=America%2FLos_Angeles&location=American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841&details=Tournament+%E2%80%94+Neutral%0AVenue%3A+American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DAmerican%2BRiver%2BCollege%2BGym%252C%2B4700%2BCollege%2BOak%2BDr%252C%2BSacramento%252C%2BCA%2B95841%0ADrive+from+Pasadena%3A+7h+19m+%C2%B7+396+mi%0ADrive+from+SLO%3A+5h+49m+%C2%B7+301+mi%0AWatch+live+%28Host+channel%3A+YouTube+%C2%B7+ARC+Athletics%29%3A+https%3A%2F%2Fwww.youtube.com%2F%40arcbeavers%0ANote%3A+American+River+College+Tournament%2C+day+2",
+    "issue": null
+   },
+   "start": "2026-11-14T14:00:00-08:00",
+   "end": "2026-11-14T16:00:00-08:00"
   },
   {
    "id": "2026-11-24-de-anza",
@@ -675,7 +711,7 @@
     "dirPasadena": "https://www.google.com/maps/dir/?api=1&origin=Pasadena%2C+CA&destination=1801+Panorama+Dr%2C+Bakersfield%2C+CA+93305&travelmode=driving",
     "dirSlo": "https://www.google.com/maps/dir/?api=1&origin=San+Luis+Obispo%2C+CA&destination=1801+Panorama+Dr%2C+Bakersfield%2C+CA+93305&travelmode=driving",
     "drivePasadena": "2h 19m · 118 mi",
-    "driveSlo": "2h 53m · 141 mi",
+    "driveSlo": "2h 53m · 139 mi",
     "liveStats": false,
     "notes": "",
     "confirmed": true,
@@ -684,7 +720,7 @@
     "videoLabel": "Game stream",
     "audio": null,
     "stats": "https://www.cuestaathletics.com/sports/mbkb/2026-27/boxscores/20261215_z1ox.xml",
-    "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+%40+Bakersfield&dates=20261215T173000%2F20261215T193000&ctz=America%2FLos_Angeles&location=Bakersfield+College+Gym%2C+1801+Panorama+Dr%2C+Bakersfield%2C+CA+93305&details=Non-conference+%E2%80%94+Away%0AVenue%3A+Bakersfield+College+Gym%2C+1801+Panorama+Dr%2C+Bakersfield%2C+CA+93305%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DBakersfield%2BCollege%2BGym%252C%2B1801%2BPanorama%2BDr%252C%2BBakersfield%252C%2BCA%2B93305%0ADrive+from+Pasadena%3A+2h+19m+%C2%B7+118+mi%0ADrive+from+SLO%3A+2h+53m+%C2%B7+141+mi%0ALive+stats%3A+https%3A%2F%2Fwww.cuestaathletics.com%2Fsports%2Fmbkb%2F2026-27%2Fboxscores%2F20261215_z1ox.xml",
+    "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+%40+Bakersfield&dates=20261215T173000%2F20261215T193000&ctz=America%2FLos_Angeles&location=Bakersfield+College+Gym%2C+1801+Panorama+Dr%2C+Bakersfield%2C+CA+93305&details=Non-conference+%E2%80%94+Away%0AVenue%3A+Bakersfield+College+Gym%2C+1801+Panorama+Dr%2C+Bakersfield%2C+CA+93305%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DBakersfield%2BCollege%2BGym%252C%2B1801%2BPanorama%2BDr%252C%2BBakersfield%252C%2BCA%2B93305%0ADrive+from+Pasadena%3A+2h+19m+%C2%B7+118+mi%0ADrive+from+SLO%3A+2h+53m+%C2%B7+139+mi%0ALive+stats%3A+https%3A%2F%2Fwww.cuestaathletics.com%2Fsports%2Fmbkb%2F2026-27%2Fboxscores%2F20261215_z1ox.xml",
     "issue": "https://github.com/johnlinwiz/cuesta-mbb/issues/12"
    },
    "start": "2026-12-15T17:30:00-08:00",

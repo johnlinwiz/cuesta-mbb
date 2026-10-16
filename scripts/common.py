@@ -59,6 +59,7 @@ class Event:
         self.audio = raw.get("audio")   # streaming audio-only URL
         self.stats = raw.get("stats")   # live-stats scoreboard URL
         self.notes = raw.get("notes", "")
+        self.replaces = raw.get("replaces", [])  # event ids this one supersedes
         self.venue_key = raw["venue"]
         self.venue = venues[self.venue_key]
         # Per-game stream link if posted; otherwise fall back to the host school's channel.

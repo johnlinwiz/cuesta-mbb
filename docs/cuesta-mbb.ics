@@ -25,37 +25,36 @@ RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:2026-10-16-porterville@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
-DTSTART;TZID=America/Los_Angeles:20261016T140000
-DTEND;TZID=America/Los_Angeles:20261016T160000
-SUMMARY:Cuesta MBB @ Porterville (scrimmage)
-LOCATION:Porterville College Gym\, 100 E College Ave\, Porterville\, CA 932
- 57
-GEO:36.0472;-119.0155
-DESCRIPTION:Scrimmage — Away\nVenue: Porterville College Gym\, 100 E Coll
- ege Ave\, Porterville\, CA 93257\nMap: https://www.google.com/maps/search/
- ?api=1&query=Porterville+College+Gym%2C+100+E+College+Ave%2C+Porterville%2
- C+CA+93257\nDrive from Pasadena: 3h 06m · 160 mi\nDrive from SLO: 3h 16m 
- · 157 mi\nWatch live (Host channel: YouTube · Pirate Athletics): https:/
- /www.youtube.com/@pirateathletics1149/streams\nSeason calendar: https://jo
- hnlinwiz.github.io/cuesta-mbb/
+UID:2026-10-17-reedley@johnlinwiz.cuesta-mbb
+DTSTAMP:20261016T195318Z
+DTSTART;TZID=America/Los_Angeles:20261017T140000
+DTEND;TZID=America/Los_Angeles:20261017T160000
+SUMMARY:Cuesta MBB @ Reedley (scrimmage)
+LOCATION:Reedley College Gym\, 995 N Reed Ave\, Reedley\, CA 93654
+GEO:36.6083;-119.4605
+DESCRIPTION:Scrimmage — Away\nVenue: Reedley College Gym\, 995 N Reed Ave
+ \, Reedley\, CA 93654\nMap: https://www.google.com/maps/search/?api=1&quer
+ y=Reedley+College+Gym%2C+995+N+Reed+Ave%2C+Reedley%2C+CA+93654\nDrive from
+  Pasadena: 3h 59m · 208 mi\nDrive from SLO: 3h 08m · 147 mi\nNote: Repla
+ ces the Fri Oct 16 Porterville scrimmage (changed on cuestaathletics.com\,
+  seen 2026-10-16)\nSeason calendar: https://johnlinwiz.github.io/cuesta-mb
+ b/
 URL:https://johnlinwiz.github.io/cuesta-mbb/
 CATEGORIES:Scrimmage,Away
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Cuesta MBB @ Porterville (scrimmage) tomorrow
+DESCRIPTION:Cuesta MBB @ Reedley (scrimmage) tomorrow
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Cuesta MBB @ Porterville (scrimmage) in 3 hours
+DESCRIPTION:Cuesta MBB @ Reedley (scrimmage) in 3 hours
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-23-west-valley@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20261023T140000
 DTEND;TZID=America/Los_Angeles:20261023T160000
 SUMMARY:Cuesta MBB @ West Valley (scrimmage)
@@ -83,7 +82,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-29-gavilan@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20261029T180000
 DTEND;TZID=America/Los_Angeles:20261029T200000
 SUMMARY:Cuesta MBB @ Gavilan
@@ -109,7 +108,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-31-sequoias@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20261031T130000
 DTEND;TZID=America/Los_Angeles:20261031T150000
 SUMMARY:Cuesta MBB vs Sequoias
@@ -138,7 +137,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-03-monterey-peninsula@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20261103T150000
 DTEND;TZID=America/Los_Angeles:20261103T170000
 SUMMARY:Cuesta MBB @ Monterey Peninsula
@@ -167,7 +166,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-07-diablo-valley@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20261107T150000
 DTEND;TZID=America/Los_Angeles:20261107T170000
 SUMMARY:Cuesta MBB vs Diablo Valley
@@ -196,7 +195,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-09-redwoods@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20261109T130000
 DTEND;TZID=America/Los_Angeles:20261109T150000
 SUMMARY:Cuesta MBB vs Redwoods
@@ -224,11 +223,11 @@ DESCRIPTION:Cuesta MBB vs Redwoods in 3 hours
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-11-13-american-river-college-tournament-arc@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
-DTSTART;VALUE=DATE:20261113
-DTEND;VALUE=DATE:20261115
-SUMMARY:Cuesta MBB American River College Tournament (ARC)
+UID:2026-11-13-feather-river@johnlinwiz.cuesta-mbb
+DTSTAMP:20261016T195318Z
+DTSTART;TZID=America/Los_Angeles:20261113T180000
+DTEND;TZID=America/Los_Angeles:20261113T200000
+SUMMARY:Cuesta MBB vs Feather River
 LOCATION:American River College Gym\, 4700 College Oak Dr\, Sacramento\, CA
   95841
 GEO:38.6488;-121.3465
@@ -237,25 +236,53 @@ DESCRIPTION:Tournament — Neutral\nVenue: American River College Gym\, 470
  /search/?api=1&query=American+River+College+Gym%2C+4700+College+Oak+Dr%2C+
  Sacramento%2C+CA+95841\nDrive from Pasadena: 7h 19m · 396 mi\nDrive from 
  SLO: 5h 49m · 301 mi\nWatch live (Host channel: YouTube · ARC Athletics)
- : https://www.youtube.com/@arcbeavers\nNote: Nov 13 6:00 PM vs Feather Riv
- er\; also vs Shasta\; Nov 14 TBA. Poster says Nov 12–14.\nSeason calenda
- r: https://johnlinwiz.github.io/cuesta-mbb/
+ : https://www.youtube.com/@arcbeavers\nNote: American River College Tourna
+ ment\, day 1\nSeason calendar: https://johnlinwiz.github.io/cuesta-mbb/
 URL:https://johnlinwiz.github.io/cuesta-mbb/
 CATEGORIES:Tournament,Neutral
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Cuesta MBB American River College Tournament (ARC) tomorrow
+DESCRIPTION:Cuesta MBB vs Feather River tomorrow
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Cuesta MBB American River College Tournament (ARC) in 3 hours
+DESCRIPTION:Cuesta MBB vs Feather River in 3 hours
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-14-shasta@johnlinwiz.cuesta-mbb
+DTSTAMP:20261016T195318Z
+DTSTART;TZID=America/Los_Angeles:20261114T140000
+DTEND;TZID=America/Los_Angeles:20261114T160000
+SUMMARY:Cuesta MBB vs Shasta
+LOCATION:American River College Gym\, 4700 College Oak Dr\, Sacramento\, CA
+  95841
+GEO:38.6488;-121.3465
+DESCRIPTION:Tournament — Neutral\nVenue: American River College Gym\, 470
+ 0 College Oak Dr\, Sacramento\, CA 95841\nMap: https://www.google.com/maps
+ /search/?api=1&query=American+River+College+Gym%2C+4700+College+Oak+Dr%2C+
+ Sacramento%2C+CA+95841\nDrive from Pasadena: 7h 19m · 396 mi\nDrive from 
+ SLO: 5h 49m · 301 mi\nWatch live (Host channel: YouTube · ARC Athletics)
+ : https://www.youtube.com/@arcbeavers\nNote: American River College Tourna
+ ment\, day 2\nSeason calendar: https://johnlinwiz.github.io/cuesta-mbb/
+URL:https://johnlinwiz.github.io/cuesta-mbb/
+CATEGORIES:Tournament,Neutral
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Cuesta MBB vs Shasta tomorrow
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT3H
+DESCRIPTION:Cuesta MBB vs Shasta in 3 hours
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-24-de-anza@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20261124T180000
 DTEND;TZID=America/Los_Angeles:20261124T200000
 SUMMARY:Cuesta MBB vs De Anza
@@ -284,7 +311,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-02-coalinga@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20261202T180000
 DTEND;TZID=America/Los_Angeles:20261202T200000
 SUMMARY:Cuesta MBB @ Coalinga
@@ -312,7 +339,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-12-rio-hondo@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20261212T150000
 DTEND;TZID=America/Los_Angeles:20261212T170000
 SUMMARY:Cuesta MBB vs Rio Hondo
@@ -341,7 +368,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-15-bakersfield@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20261215T173000
 DTEND;TZID=America/Los_Angeles:20261215T193000
 SUMMARY:Cuesta MBB @ Bakersfield
@@ -352,7 +379,7 @@ DESCRIPTION:Non-conference — Away\nVenue: Bakersfield College Gym\, 1801
  Panorama Dr\, Bakersfield\, CA 93305\nMap: https://www.google.com/maps/sea
  rch/?api=1&query=Bakersfield+College+Gym%2C+1801+Panorama+Dr%2C+Bakersfiel
  d%2C+CA+93305\nDrive from Pasadena: 2h 19m · 118 mi\nDrive from SLO: 2h 5
- 3m · 141 mi\nLive stats: https://www.cuestaathletics.com/sports/mbkb/2026
+ 3m · 139 mi\nLive stats: https://www.cuestaathletics.com/sports/mbkb/2026
  -27/boxscores/20261215_z1ox.xml\nSeason calendar: https://johnlinwiz.githu
  b.io/cuesta-mbb/
 URL:https://johnlinwiz.github.io/cuesta-mbb/
@@ -370,7 +397,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-18-san-joaquin-delta-tournament@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;VALUE=DATE:20261218
 DTEND;VALUE=DATE:20261221
 SUMMARY:Cuesta MBB San Joaquin Delta Tournament
@@ -399,7 +426,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-29-santa-ana@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20261229T150000
 DTEND;TZID=America/Los_Angeles:20261229T170000
 SUMMARY:Cuesta MBB vs Santa Ana
@@ -430,7 +457,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-30-palo-verde@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20261230T130000
 DTEND;TZID=America/Los_Angeles:20261230T150000
 SUMMARY:Cuesta MBB vs Palo Verde
@@ -461,7 +488,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-06-ventura@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20270106T190000
 DTEND;TZID=America/Los_Angeles:20270106T210000
 SUMMARY:Cuesta MBB @ Ventura
@@ -490,7 +517,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-09-santa-barbara@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20270109T150000
 DTEND;TZID=America/Los_Angeles:20270109T170000
 SUMMARY:Cuesta MBB vs Santa Barbara
@@ -519,7 +546,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-13-moorpark@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20270113T190000
 DTEND;TZID=America/Los_Angeles:20270113T210000
 SUMMARY:Cuesta MBB vs Moorpark
@@ -548,7 +575,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-16-oxnard@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20270116T150000
 DTEND;TZID=America/Los_Angeles:20270116T170000
 SUMMARY:Cuesta MBB @ Oxnard
@@ -575,7 +602,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-23-la-pierce@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20270123T150000
 DTEND;TZID=America/Los_Angeles:20270123T170000
 SUMMARY:Cuesta MBB @ LA Pierce
@@ -604,7 +631,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-27-allan-hancock@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20270127T190000
 DTEND;TZID=America/Los_Angeles:20270127T210000
 SUMMARY:Cuesta MBB @ Allan Hancock
@@ -634,7 +661,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-01-29-ventura@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20270129T190000
 DTEND;TZID=America/Los_Angeles:20270129T210000
 SUMMARY:Cuesta MBB vs Ventura
@@ -663,7 +690,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-03-santa-barbara@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20270203T190000
 DTEND;TZID=America/Los_Angeles:20270203T210000
 SUMMARY:Cuesta MBB @ Santa Barbara
@@ -695,7 +722,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-05-moorpark@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20270205T190000
 DTEND;TZID=America/Los_Angeles:20270205T210000
 SUMMARY:Cuesta MBB @ Moorpark
@@ -723,7 +750,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-10-oxnard@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20270210T190000
 DTEND;TZID=America/Los_Angeles:20270210T210000
 SUMMARY:Cuesta MBB vs Oxnard
@@ -752,7 +779,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-17-la-pierce@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20270217T190000
 DTEND;TZID=America/Los_Angeles:20270217T210000
 SUMMARY:Cuesta MBB vs LA Pierce
@@ -781,7 +808,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-02-19-allan-hancock@johnlinwiz.cuesta-mbb
-DTSTAMP:20261016T183153Z
+DTSTAMP:20261016T195318Z
 DTSTART;TZID=America/Los_Angeles:20270219T190000
 DTEND;TZID=America/Los_Angeles:20270219T210000
 SUMMARY:Cuesta MBB vs Allan Hancock

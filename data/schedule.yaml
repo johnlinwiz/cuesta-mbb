@@ -5,6 +5,7 @@
 # Poster legend: "@" = away, "Vs" = home, "*" = Western State Conference game.
 # Home/away verified against cuestaathletics.com/sports/mbkb/2026-27/schedule and the 3C2A feed (2026-10-05).
 # site_confirmed: false  -> home/away not verified.
+# replaces: [old-event-id] -> sync closes that old reminder issue and links it here.
 # All times are Pacific (America/Los_Angeles). Tournaments with no time are all-day events.
 
 season: "2026-27"
@@ -16,7 +17,7 @@ notify: [johnlinwiz]             # @-mentioned in reminder comments
 reminder_days_before: [7, 2, 0]   # GitHub issue reminder comments (0 = game day)
 
 games:
-  - {date: 2026-10-16, time: "14:00", opponent: Porterville,        site: away, venue: porterville, type: scrimmage}
+  - {date: 2026-10-17, time: "14:00", opponent: Reedley,            site: away, venue: reedley,     type: scrimmage, replaces: [2026-10-16-porterville], notes: "Replaces the Fri Oct 16 Porterville scrimmage (changed on cuestaathletics.com, seen 2026-10-16)"}
   - {date: 2026-10-23, time: "14:00", opponent: West Valley,        site: away, venue: westvalley,  type: scrimmage}
   - {date: 2026-10-29, time: "18:00", opponent: Gavilan,            site: away, venue: gavilan,     type: non-conference}
   - {date: 2026-10-31, time: "13:00", opponent: Sequoias,           site: home, venue: cuesta,      type: non-conference}
@@ -24,7 +25,8 @@ games:
   - {date: 2026-11-03, time: "15:00", opponent: Monterey Peninsula, site: away, venue: mpc,         type: non-conference}
   - {date: 2026-11-07, time: "15:00", opponent: Diablo Valley,      site: home, venue: cuesta,      type: non-conference}
   - {date: 2026-11-09, time: "13:00", opponent: Redwoods,           site: home, venue: cuesta,      type: non-conference}
-  - {date: 2026-11-13, end_date: 2026-11-14, opponent: American River College Tournament (ARC), site: neutral, venue: arc, type: tournament, notes: "Nov 13 6:00 PM vs Feather River; also vs Shasta; Nov 14 TBA. Poster says Nov 12–14."}
+  - {date: 2026-11-13, time: "18:00", opponent: Feather River,      site: neutral, venue: arc,       type: tournament, replaces: [2026-11-13-american-river-college-tournament-arc], notes: "American River College Tournament, day 1"}
+  - {date: 2026-11-14, time: "14:00", opponent: Shasta,             site: neutral, venue: arc,       type: tournament, replaces: [2026-11-13-american-river-college-tournament-arc], notes: "American River College Tournament, day 2"}
   - {date: 2026-11-24, time: "18:00", opponent: De Anza,            site: home, venue: cuesta,      type: non-conference}
 
   - {date: 2026-12-02, time: "18:00", opponent: Coalinga,           site: away, venue: coalinga,    type: non-conference}

@@ -19,6 +19,16 @@
       "minutes": 196
     }
   },
+  "reedley": {
+    "pasadena": {
+      "miles": 208,
+      "minutes": 239
+    },
+    "slo": {
+      "miles": 147,
+      "minutes": 188
+    }
+  },
   "westvalley": {
     "pasadena": {
       "miles": 345,
@@ -75,7 +85,7 @@
       "minutes": 139
     },
     "slo": {
-      "miles": 141,
+      "miles": 139,
       "minutes": 173
     }
   },
