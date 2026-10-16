@@ -289,7 +289,7 @@
     "audio": null,
     "stats": null,
     "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+%40+Reedley+%28scrimmage%29&dates=20261017T140000%2F20261017T160000&ctz=America%2FLos_Angeles&location=Reedley+College+Gym%2C+995+N+Reed+Ave%2C+Reedley%2C+CA+93654&details=Scrimmage+%E2%80%94+Away%0AVenue%3A+Reedley+College+Gym%2C+995+N+Reed+Ave%2C+Reedley%2C+CA+93654%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DReedley%2BCollege%2BGym%252C%2B995%2BN%2BReed%2BAve%252C%2BReedley%252C%2BCA%2B93654%0ADrive+from+Pasadena%3A+3h+59m+%C2%B7+208+mi%0ADrive+from+SLO%3A+3h+08m+%C2%B7+147+mi%0ANote%3A+Replaces+the+Fri+Oct+16+Porterville+scrimmage+%28changed+on+cuestaathletics.com%2C+seen+2026-10-16%29",
-    "issue": null
+    "issue": "https://github.com/johnlinwiz/cuesta-mbb/issues/28"
    },
    "start": "2026-10-17T14:00:00-07:00",
    "end": "2026-10-17T16:00:00-07:00"
@@ -541,7 +541,7 @@
     "audio": null,
     "stats": null,
     "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+vs+Feather+River&dates=20261113T180000%2F20261113T200000&ctz=America%2FLos_Angeles&location=American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841&details=Tournament+%E2%80%94+Neutral%0AVenue%3A+American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DAmerican%2BRiver%2BCollege%2BGym%252C%2B4700%2BCollege%2BOak%2BDr%252C%2BSacramento%252C%2BCA%2B95841%0ADrive+from+Pasadena%3A+7h+19m+%C2%B7+396+mi%0ADrive+from+SLO%3A+5h+49m+%C2%B7+301+mi%0AWatch+live+%28Host+channel%3A+YouTube+%C2%B7+ARC+Athletics%29%3A+https%3A%2F%2Fwww.youtube.com%2F%40arcbeavers%0ANote%3A+American+River+College+Tournament%2C+day+1",
-    "issue": null
+    "issue": "https://github.com/johnlinwiz/cuesta-mbb/issues/29"
    },
    "start": "2026-11-13T18:00:00-08:00",
    "end": "2026-11-13T20:00:00-08:00"
@@ -577,7 +577,7 @@
     "audio": null,
     "stats": null,
     "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+vs+Shasta&dates=20261114T140000%2F20261114T160000&ctz=America%2FLos_Angeles&location=American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841&details=Tournament+%E2%80%94+Neutral%0AVenue%3A+American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DAmerican%2BRiver%2BCollege%2BGym%252C%2B4700%2BCollege%2BOak%2BDr%252C%2BSacramento%252C%2BCA%2B95841%0ADrive+from+Pasadena%3A+7h+19m+%C2%B7+396+mi%0ADrive+from+SLO%3A+5h+49m+%C2%B7+301+mi%0AWatch+live+%28Host+channel%3A+YouTube+%C2%B7+ARC+Athletics%29%3A+https%3A%2F%2Fwww.youtube.com%2F%40arcbeavers%0ANote%3A+American+River+College+Tournament%2C+day+2",
-    "issue": null
+    "issue": "https://github.com/johnlinwiz/cuesta-mbb/issues/30"
    },
    "start": "2026-11-14T14:00:00-08:00",
    "end": "2026-11-14T16:00:00-08:00"

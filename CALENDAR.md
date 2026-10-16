@@ -10,7 +10,7 @@
 |---|---|---|---|---|---|---|
 |   |   |   |   | 1 | 2 | 3 |
 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
-| 11 | 12 | 13 | 14 | 15 | **16** | 17<br>🚌 2pm @ Reedley |
+| 11 | 12 | 13 | 14 | 15 | **16** | 17<br>🚌 2pm [@ Reedley](https://github.com/johnlinwiz/cuesta-mbb/issues/28) |
 | 18 | 19 | 20 | 21 | 22 | 23<br>🚌 2pm [@ West Valley](https://github.com/johnlinwiz/cuesta-mbb/issues/2) | 24 |
 | 25 | 26 | 27 | 28 | 29<br>🚌 6pm [@ Gavilan](https://github.com/johnlinwiz/cuesta-mbb/issues/3) | 30 | 31<br>🏠 1pm [vs Sequoias](https://github.com/johnlinwiz/cuesta-mbb/issues/4) [📺](https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ) |
 
@@ -19,7 +19,7 @@
 | Sun | Mon | Tue | Wed | Thu | Fri | Sat |
 |---|---|---|---|---|---|---|
 | 1 | 2 | 3<br>🚌 3pm [@ Monterey Peninsula](https://github.com/johnlinwiz/cuesta-mbb/issues/5) [📺](https://www.youtube.com/@MPCMensBasketball/streams) | 4 | 5 | 6 | 7<br>🏠 3pm [vs Diablo Valley](https://github.com/johnlinwiz/cuesta-mbb/issues/6) [📺](https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ) |
-| 8 | 9<br>🏠 1pm [vs Redwoods](https://github.com/johnlinwiz/cuesta-mbb/issues/7) [📺](https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ) | 10 | 11 | 12 | 13<br>🏆 6pm vs Feather River [📺](https://www.youtube.com/@arcbeavers) | 14<br>🏆 2pm vs Shasta [📺](https://www.youtube.com/@arcbeavers) |
+| 8 | 9<br>🏠 1pm [vs Redwoods](https://github.com/johnlinwiz/cuesta-mbb/issues/7) [📺](https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ) | 10 | 11 | 12 | 13<br>🏆 6pm [vs Feather River](https://github.com/johnlinwiz/cuesta-mbb/issues/29) [📺](https://www.youtube.com/@arcbeavers) | 14<br>🏆 2pm [vs Shasta](https://github.com/johnlinwiz/cuesta-mbb/issues/30) [📺](https://www.youtube.com/@arcbeavers) |
 | 15 | 16 | 17 | 18 | 19 | 20 | 21 |
 | 22 | 23 | 24<br>🏠 6pm [vs De Anza](https://github.com/johnlinwiz/cuesta-mbb/issues/9) [📺](https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ) | 25 | 26 | 27 | 28 |
 | 29 | 30 |   |   |   |   |   |
