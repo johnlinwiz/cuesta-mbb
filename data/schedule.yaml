@@ -11,6 +11,10 @@
 season: "2026-27"
 team: Cuesta College Men's Basketball
 source_url: https://www.cuestaathletics.com/sports/mbkb/2026-27/schedule
+feed_url: "https://www.cccaasports.org/sports/mbkb/2026-27/schedule?print=ical"   # official 3C2A feed, checked daily
+feed_aliases: {}                  # feed name -> our name, if they ever differ
+feed_ignore:                      # "YYYY-MM-DD Opponent" feed entries we deliberately don't track
+  - "2026-11-13 American River Tournament"   # all-day wrapper; the two timed ARC games are tracked
 timezone: America/Los_Angeles
 default_duration_min: 120
 notify: [johnlinwiz]             # @-mentioned in reminder comments
@@ -26,7 +30,7 @@ games:
   - {date: 2026-11-07, time: "15:00", opponent: Diablo Valley,      site: home, venue: cuesta,      type: non-conference}
   - {date: 2026-11-09, time: "13:00", opponent: Redwoods,           site: home, venue: cuesta,      type: non-conference}
   - {date: 2026-11-13, time: "18:00", opponent: Feather River,      site: neutral, venue: arc,       type: tournament, replaces: [2026-11-13-american-river-college-tournament-arc], notes: "American River College Tournament, day 1"}
-  - {date: 2026-11-14, time: "14:00", opponent: Shasta,             site: neutral, venue: arc,       type: tournament, replaces: [2026-11-13-american-river-college-tournament-arc], notes: "American River College Tournament, day 2"}
+  - {date: 2026-11-14, time: "13:00", opponent: Shasta,             site: neutral, venue: arc,       type: tournament, replaces: [2026-11-13-american-river-college-tournament-arc], notes: "American River College Tournament, day 2"}
   - {date: 2026-11-24, time: "18:00", opponent: De Anza,            site: home, venue: cuesta,      type: non-conference}
 
   - {date: 2026-12-02, time: "18:00", opponent: Coalinga,           site: away, venue: coalinga,    type: non-conference}

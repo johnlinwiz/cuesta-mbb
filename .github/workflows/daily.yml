@@ -29,6 +29,12 @@ jobs:
         if: github.event_name == 'push'
         env: { GH_TOKEN: "${{ github.token }}" }
         run: python scripts/sync_issues.py
+      - name: Check official schedule feed for changes
+        # Opens/updates one `schedule-drift` issue (with @mention) when the 3C2A feed
+        # disagrees with data/schedule.yaml; closes it when they agree again.
+        continue-on-error: true
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: python scripts/check_feed.py --issue
       - name: Post reminders / close finished games
         env: { GH_TOKEN: "${{ github.token }}" }
         run: python scripts/daily.py

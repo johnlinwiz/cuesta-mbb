@@ -2,13 +2,15 @@
 GH_TOKEN ?= $(shell gh auth token --user johnlinwiz 2>/dev/null)
 export GH_TOKEN
 
-.PHONY: build drive issues daily serve all
+.PHONY: build drive issues feed daily serve all
 build:            ## regenerate README, CALENDAR.md, venues.geojson, docs/
 	python3 scripts/build.py
 drive:            ## recompute drive times (OSRM) after editing venues
 	python3 scripts/drive_times.py
 issues:           ## create/update one reminder issue per game, then rebuild links
 	python3 scripts/sync_issues.py && python3 scripts/build.py
+feed:             ## compare the official 3C2A feed with schedule.yaml (prints diffs)
+	python3 scripts/check_feed.py
 daily:            ## run the reminder/close job locally
 	python3 scripts/daily.py
 serve:            ## preview the Pages calendar at http://localhost:8000

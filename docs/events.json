@@ -558,7 +558,7 @@
     "matchup": "vs Shasta",
     "type": "Tournament",
     "site": "Neutral",
-    "time": "2:00 PM",
+    "time": "1:00 PM",
     "dateLabel": "Sat Nov 14",
     "venue": "American River College Gym",
     "city": "Sacramento, CA",
@@ -576,11 +576,11 @@
     "videoLabel": "Host channel: YouTube · ARC Athletics",
     "audio": null,
     "stats": null,
-    "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+vs+Shasta&dates=20261114T140000%2F20261114T160000&ctz=America%2FLos_Angeles&location=American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841&details=Tournament+%E2%80%94+Neutral%0AVenue%3A+American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DAmerican%2BRiver%2BCollege%2BGym%252C%2B4700%2BCollege%2BOak%2BDr%252C%2BSacramento%252C%2BCA%2B95841%0ADrive+from+Pasadena%3A+7h+19m+%C2%B7+396+mi%0ADrive+from+SLO%3A+5h+49m+%C2%B7+301+mi%0AWatch+live+%28Host+channel%3A+YouTube+%C2%B7+ARC+Athletics%29%3A+https%3A%2F%2Fwww.youtube.com%2F%40arcbeavers%0ANote%3A+American+River+College+Tournament%2C+day+2",
+    "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+vs+Shasta&dates=20261114T130000%2F20261114T150000&ctz=America%2FLos_Angeles&location=American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841&details=Tournament+%E2%80%94+Neutral%0AVenue%3A+American+River+College+Gym%2C+4700+College+Oak+Dr%2C+Sacramento%2C+CA+95841%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DAmerican%2BRiver%2BCollege%2BGym%252C%2B4700%2BCollege%2BOak%2BDr%252C%2BSacramento%252C%2BCA%2B95841%0ADrive+from+Pasadena%3A+7h+19m+%C2%B7+396+mi%0ADrive+from+SLO%3A+5h+49m+%C2%B7+301+mi%0AWatch+live+%28Host+channel%3A+YouTube+%C2%B7+ARC+Athletics%29%3A+https%3A%2F%2Fwww.youtube.com%2F%40arcbeavers%0ANote%3A+American+River+College+Tournament%2C+day+2",
     "issue": "https://github.com/johnlinwiz/cuesta-mbb/issues/30"
    },
-   "start": "2026-11-14T14:00:00-08:00",
-   "end": "2026-11-14T16:00:00-08:00"
+   "start": "2026-11-14T13:00:00-08:00",
+   "end": "2026-11-14T15:00:00-08:00"
   },
   {
    "id": "2026-11-24-de-anza",
