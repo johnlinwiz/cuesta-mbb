@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cuesta MBB Schedule</title>
+<script>try{var t=localStorage.getItem("cuesta-mbb-textsize");if(t&&t!=="m")document.documentElement.dataset.ts=t}catch(e){}</script>
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -16,10 +17,16 @@
   :root { --green:#0b6e3a; --gold:#c9a227; --bg:#f6f7f6; --ink:#1d2421; --muted:#5d6b64; --card:#fff; }
   @media (prefers-color-scheme: dark) { :root { --bg:#121614; --ink:#e7ece9; --muted:#9aa8a1; --card:#1a201d; } }
   * { box-sizing:border-box }
-  body { margin:0; font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--ink) }
+  html { font-size:100%; -webkit-text-size-adjust:100%; text-size-adjust:100% }
+  html[data-ts="s"] { font-size:90% } html[data-ts="l"] { font-size:115% } html[data-ts="xl"] { font-size:130% }
+  .ts { display:inline-flex; gap:2px; background:#ffffff22; border-radius:8px; padding:2px }
+  .ts button { background:transparent; color:#fff; border:0; border-radius:6px; padding:3px 9px; cursor:pointer; font:inherit; font-weight:700; line-height:1.2 }
+  .ts button:hover { background:#ffffff22 } .ts button:disabled { opacity:.35; cursor:default }
+  .ts .ts-a1 { font-size:.8rem } .ts .ts-a2 { font-size:1.05rem }
+  body { margin:0; font:0.9375rem/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--ink) }
   header { background:var(--green); color:#fff; padding:14px 20px; display:flex; flex-wrap:wrap; gap:8px 20px; align-items:center }
-  header h1 { font-size:20px; margin:0; letter-spacing:.3px }
-  header a { color:#fff; opacity:.9; text-decoration:none; font-size:14px; border:1px solid #ffffff55; border-radius:16px; padding:3px 10px }
+  header h1 { font-size:1.25rem; margin:0; letter-spacing:.3px }
+  header a { color:#fff; opacity:.9; text-decoration:none; font-size:0.875rem; border:1px solid #ffffff55; border-radius:16px; padding:3px 10px }
   header a:hover { opacity:1; background:#ffffff1a }
   main { max-width:1100px; margin:0 auto; padding:16px }
   a { color:var(--green) } @media (prefers-color-scheme: dark){ a { color:#6fd39b } }
@@ -27,16 +34,16 @@
   /* "Drive from" bar */
   #from { display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:var(--card); border:1px solid #8883; border-radius:8px; padding:10px 12px; margin-bottom:12px }
   #from b { margin-right:2px }
-  #from button, #from input { font:inherit; font-size:14px; border:1px solid #8886; border-radius:6px; padding:5px 10px; background:transparent; color:inherit }
+  #from button, #from input { font:inherit; font-size:0.875rem; border:1px solid #8886; border-radius:6px; padding:5px 10px; background:transparent; color:inherit }
   #from button { cursor:pointer } #from button:hover { background:#8881 }
   #from button.on { background:var(--green); border-color:var(--green); color:#fff }
   #from form { display:flex; gap:6px; margin:0 } #from input { width:220px; max-width:52vw }
-  #from-status { color:var(--muted); font-size:13px }
-  #from small { flex-basis:100%; color:var(--muted); font-size:12px }
+  #from-status { color:var(--muted); font-size:0.8125rem }
+  #from small { flex-basis:100%; color:var(--muted); font-size:0.75rem }
 
   #next { background:#8881; border-left:4px solid var(--gold); padding:10px 14px; margin-bottom:14px; border-radius:4px }
   #next a { color:var(--gold) }
-  .legend { color:var(--muted); font-size:13px; margin:0 0 10px }
+  .legend { color:var(--muted); font-size:0.8125rem; margin:0 0 10px }
   .legend span { display:inline-block; width:10px; height:10px; border-radius:2px; margin:0 4px 0 10px; vertical-align:middle }
 
   .fc a.fc-daygrid-day-number, .fc a.fc-col-header-cell-cushion, .fc a.fc-list-day-text, .fc a.fc-list-day-side-text { color:inherit; text-decoration:none }
@@ -54,15 +61,15 @@
 
   /* Mode switch */
   .modes { display:inline-flex; gap:0; margin-left:auto; background:#ffffff22; border-radius:8px; padding:2px }
-  .modes button { background:transparent; color:#fff; border:0; padding:5px 12px; border-radius:6px; cursor:pointer; font:inherit; font-size:14px; opacity:.75 }
+  .modes button { background:transparent; color:#fff; border:0; padding:5px 12px; border-radius:6px; cursor:pointer; font:inherit; font-size:0.875rem; opacity:.75 }
   .modes button.on { background:#fff; color:var(--green); opacity:1 }
   /* Season table / upcoming-trips table share styles */
-  .tbl { margin-top:16px } .tbl h2 { font-size:17px; margin:0 0 8px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap }
-  .tbl h2 .muted { font-size:13px; font-weight:400 }
-  .tbl table { width:100%; border-collapse:collapse; font-size:14px }
+  .tbl { margin-top:16px } .tbl h2 { font-size:1.0625rem; margin:0 0 8px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap }
+  .tbl h2 .muted { font-size:0.8125rem; font-weight:400 }
+  .tbl table { width:100%; border-collapse:collapse; font-size:0.875rem }
   .tbl th, .tbl td { text-align:left; padding:7px 8px; border-bottom:1px solid #8883; vertical-align:top }
-  .tbl th { color:var(--muted); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.4px; position:sticky; top:0; background:var(--bg) }
-  .tbl td.num { white-space:nowrap } .tbl .sub { color:var(--muted); font-size:12px }
+  .tbl th { color:var(--muted); font-weight:600; font-size:0.75rem; text-transform:uppercase; letter-spacing:.4px; position:sticky; top:0; background:var(--bg) }
+  .tbl td.num { white-space:nowrap } .tbl .sub { color:var(--muted); font-size:0.75rem }
   .tbl tr.past td { opacity:.5 } .tbl tr.row-home { background:#0b6e3a0d } .tbl tr.row-tourney { background:#c9a2270d }
   .tbl td button.link { background:transparent; border:0; padding:0; color:var(--green); cursor:pointer; font:inherit; text-align:left }
   @media (prefers-color-scheme: dark) { .tbl td button.link { color:#6fd39b } }
@@ -74,55 +81,55 @@
     .tbl table, .tbl tbody, .tbl tr, .tbl td { display:block; width:100% }
     .tbl tr { border:1px solid #8883; border-radius:10px; margin:0 0 10px; padding:8px 12px }
     .tbl td { border:0; padding:2px 0; white-space:normal !important }
-    .tbl td.c-head { font-size:13px; color:var(--muted) }
-    .tbl td.c-game { font-size:16px; font-weight:600; padding:2px 0 4px }
+    .tbl td.c-head { font-size:0.8125rem; color:var(--muted) }
+    .tbl td.c-game { font-size:1rem; font-weight:600; padding:2px 0 4px }
     .tbl td.c-game .sub { font-weight:400 }
     .tbl td[data-label] { display:flex; gap:8px; align-items:baseline }
-    .tbl td[data-label]::before { content:attr(data-label); flex:0 0 70px; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.3px }
+    .tbl td[data-label]::before { content:attr(data-label); flex:0 0 70px; color:var(--muted); font-size:0.6875rem; text-transform:uppercase; letter-spacing:.3px }
     .tbl td[data-label] > div { display:inline } .tbl td[data-label="Drive"] { flex-wrap:wrap }
     .tbl td[data-label="Drive"] > div { flex-basis:100%; margin-left:78px } .tbl td[data-label="Drive"] > div:first-of-type { margin-left:0; flex-basis:auto }
-    .tbl td button.link { font-size:16px; font-weight:600 }
+    .tbl td button.link { font-size:1rem; font-weight:600 }
     /* Header: compact */
     header { padding:10px 12px; gap:6px 8px }
-    header h1 { font-size:16px; flex-basis:100% }
-    header a { font-size:12px; padding:2px 8px }
-    .modes { margin-left:0 } .modes button { padding:5px 10px; font-size:13px }
+    header h1 { font-size:1rem; flex-basis:100% }
+    header a { font-size:0.75rem; padding:2px 8px }
+    .modes { margin-left:0 } .modes button { padding:5px 10px; font-size:0.8125rem }
     #l-readme { display:none }
     main { padding:10px }
     #from { padding:8px 10px } #from input { flex:1; width:auto; max-width:none } #from form { flex:1 1 100% }
-    #from small { font-size:11px }
+    #from small { font-size:0.6875rem }
     /* Calendar toolbar */
-    .fc .fc-toolbar { flex-wrap:wrap; gap:6px } .fc .fc-toolbar-title { font-size:18px }
-    .fc .fc-button { padding:4px 8px; font-size:13px }
+    .fc .fc-toolbar { flex-wrap:wrap; gap:6px } .fc .fc-toolbar-title { font-size:1.125rem }
+    .fc .fc-button { padding:4px 8px; font-size:0.8125rem }
   }
 
   /* Map view */
   #view-map { display:grid; grid-template-columns:1fr 300px; gap:12px }
   #map { height:70vh; min-height:420px; border-radius:8px; border:1px solid #8883 }
-  #map-side { max-height:70vh; overflow:auto; font-size:14px }
-  #map-side h3 { font-size:15px; margin:4px 0 8px }
+  #map-side { max-height:70vh; overflow:auto; font-size:0.875rem }
+  #map-side h3 { font-size:0.9375rem; margin:4px 0 8px }
   #map-side .v { padding:8px 10px; border-radius:6px; cursor:pointer; border:1px solid transparent }
   #map-side .v:hover, #map-side .v.on { background:#8881; border-color:#8883 }
-  #map-side .v .sub { color:var(--muted); font-size:12px }
+  #map-side .v .sub { color:var(--muted); font-size:0.75rem }
   .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:middle }
-  .leaflet-popup-content { font-size:13px; line-height:1.45; margin:10px 14px }
-  .leaflet-popup-content b { font-size:14px }
+  .leaflet-popup-content { font-size:0.8125rem; line-height:1.45; margin:10px 14px }
+  .leaflet-popup-content b { font-size:0.875rem }
   .leaflet-popup-content ul { margin:6px 0; padding-left:16px }
   .leaflet-popup-content li.past { opacity:.55 }
-  .leaflet-popup-content button { font:inherit; font-size:12px; border:1px solid #8886; border-radius:5px; padding:3px 8px; background:#fff; cursor:pointer; margin:2px 4px 0 0 }
+  .leaflet-popup-content button { font:inherit; font-size:0.75rem; border:1px solid #8886; border-radius:5px; padding:3px 8px; background:#fff; cursor:pointer; margin:2px 4px 0 0 }
   .leaflet-popup-content .gl { color:#0b6e3a; cursor:pointer; text-decoration:underline }
-  #route-info { margin:6px 0 0; font-size:13px; color:var(--muted) }
+  #route-info { margin:6px 0 0; font-size:0.8125rem; color:var(--muted) }
   @media (max-width:760px) { #view-map { grid-template-columns:1fr } #map { height:58vh } #map-side { max-height:none } }
 
   dialog { border:none; border-radius:10px; padding:0; max-width:460px; width:92vw; box-shadow:0 10px 40px #0006; background:var(--bg); color:var(--ink) }
   dialog::backdrop { background:#0007 }
   .dh { background:var(--green); color:#fff; padding:14px 18px }
-  .dh h2 { margin:0; font-size:18px } .dh div { opacity:.85; font-size:13px }
+  .dh h2 { margin:0; font-size:1.125rem } .dh div { opacity:.85; font-size:0.8125rem }
   .db { padding:12px 18px 4px } .db p { margin:6px 0 }
-  .muted { color:var(--muted); font-size:13px }
-  .warn { color:#b26b00; font-size:13px }
+  .muted { color:var(--muted); font-size:0.8125rem }
+  .warn { color:#b26b00; font-size:0.8125rem }
   .df { display:flex; flex-wrap:wrap; gap:8px; padding:10px 18px 16px }
-  .df a, .df button { font:inherit; font-size:13px; border:1px solid #8885; border-radius:6px; padding:5px 10px; background:transparent; color:inherit; text-decoration:none; cursor:pointer }
+  .df a, .df button { font:inherit; font-size:0.8125rem; border:1px solid #8885; border-radius:6px; padding:5px 10px; background:transparent; color:inherit; text-decoration:none; cursor:pointer }
 </style>
 </head>
 <body>
@@ -133,6 +140,10 @@
     <button id="m-tbl" role="tab">📊 Table</button>
     <button id="m-map" role="tab">🗺️ Map</button>
   </nav>
+  <span class="ts" role="group" aria-label="Text size">
+    <button id="ts-down" class="ts-a1" type="button" aria-label="Smaller text" title="Smaller text">A−</button>
+    <button id="ts-up" class="ts-a2" type="button" aria-label="Larger text" title="Larger text">A+</button>
+  </span>
   <a id="l-ics" href="cuesta-mbb.ics">➕ Subscribe .ics</a>
   <a id="l-issues" href="#">🔔 Reminders</a>
   <a id="l-readme" href="#">📄 README</a>
@@ -503,6 +514,24 @@ function renderMap() {
   }
   if (routeLine) { routeLine.remove(); routeLine = null; $("route-info").textContent = ""; }
 }
+
+// ---------- text size (A− / A+), remembered per device ----------
+const TS = ["s", "m", "l", "xl"], TS_KEY = "cuesta-mbb-textsize";
+function applyTextSize(t) {
+  if (t === "m") delete document.documentElement.dataset.ts; else document.documentElement.dataset.ts = t;
+  try { localStorage.setItem(TS_KEY, t); } catch {}
+  const i = TS.indexOf(t);
+  $("ts-down").disabled = i <= 0; $("ts-up").disabled = i >= TS.length - 1;
+  if (typeof MAP !== "undefined" && MAP) setTimeout(() => MAP.invalidateSize(), 0);
+}
+(function initTextSize() {
+  let t = "m"; try { t = localStorage.getItem(TS_KEY) || "m"; } catch {}
+  if (!TS.includes(t)) t = "m";
+  applyTextSize(t);
+  const step = d => applyTextSize(TS[Math.min(TS.length - 1, Math.max(0, TS.indexOf(document.documentElement.dataset.ts || "m") + d))]);
+  $("ts-down").onclick = () => step(-1);
+  $("ts-up").onclick = () => step(+1);
+})();
 
 // ---------- boot ----------
 fetch("events.json").then(r => r.json()).then(data => {
