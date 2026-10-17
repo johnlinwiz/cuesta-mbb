@@ -33,7 +33,7 @@ def build_readme(sched, venues_cfg, drive, events, issues, today):
     out = [
         f"# 🏀 {sched['team']} — {sched['season']}",
         "",
-        f"**[📅 Calendar view]({PAGES_URL})** · "
+        f"**[🌐 Live schedule]({PAGES_URL})** (table · [calendar]({PAGES_URL}#calendar) · [map]({PAGES_URL}#map)) · "
         f"**[➕ Subscribe (.ics)]({PAGES_URL}{ICS_NAME})** · "
         "**[🗓️ Month grids](CALENDAR.md)** · "
         "**[🗺️ Venue map](venues.geojson)** · "
@@ -147,7 +147,7 @@ def build_calendar_md(sched, events, issues, today):
             d += dt.timedelta(days=1)
     months = sorted({(d.year, d.month) for d in by_day})
     out = [f"# 🗓️ {sched['team']} — {sched['season']} month view", "",
-           f"[⬅ README](README.md) · [📅 Interactive calendar]({PAGES_URL})", "",
+           f"[⬅ README](README.md) · [📅 Interactive calendar]({PAGES_URL}#calendar)", "",
            "🏠 home · 🚌 away · 🏆 tournament · `*` conference · ✅ played", ""]
     cal = calendar.Calendar(firstweekday=6)  # Sunday first
     for y, m in months:

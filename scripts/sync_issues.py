@@ -70,7 +70,7 @@ def body_for(e, sched):
     days = ", ".join(f"{d} days" for d in sched["reminder_days_before"] if d)
     rows += [
         f"**Add to calendar:** [Google Calendar]({e.gcal_link()}) · "
-        f"[Season .ics feed]({PAGES_URL}{ICS_NAME}) · [Calendar view]({PAGES_URL})", "",
+        f"[Season .ics feed]({PAGES_URL}{ICS_NAME}) · [Live schedule]({PAGES_URL})", "",
         f"🔔 A reminder comment is posted {days} before and on game day; this issue closes after the game.",
         "", "<sub>Drive times: OSRM free-flow estimate (no traffic). Links open live Google Maps directions.</sub>",
         "", f"<!-- event-id: {e.id} -->",

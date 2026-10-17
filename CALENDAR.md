@@ -1,6 +1,6 @@
 # 🗓️ Cuesta College Men's Basketball — 2026-27 month view
 
-[⬅ README](README.md) · [📅 Interactive calendar](https://johnlinwiz.github.io/cuesta-mbb/)
+[⬅ README](README.md) · [📅 Interactive calendar](https://johnlinwiz.github.io/cuesta-mbb/#calendar)
 
 🏠 home · 🚌 away · 🏆 tournament · `*` conference · ✅ played
 

@@ -139,8 +139,8 @@
 <header>
   <h1 id="h1">🏀 Cuesta College Men's Basketball</h1>
   <nav class="modes" role="tablist" aria-label="View">
-    <button id="m-cal" class="on" role="tab">📅 Calendar</button>
-    <button id="m-tbl" role="tab">📊 Table</button>
+    <button id="m-tbl" class="on" role="tab">📊 Table</button>
+    <button id="m-cal" role="tab">📅 Calendar</button>
     <button id="m-map" role="tab">🗺️ Map</button>
   </nav>
   <span class="ts" role="group" aria-label="Text size">
@@ -163,13 +163,13 @@
   </section>
   <div id="next">Loading…</div>
   <p class="legend"><span style="background:#0b6e3a"></span>Home <span style="background:#5b6670"></span>Away <span style="background:#c9a227"></span>Tournament &nbsp;·&nbsp; * = WSC conference · times Pacific</p>
-  <section id="view-cal">
+  <section id="view-cal" hidden>
     <div id="cal"></div>
     <section id="trips" class="tbl" hidden><h2 id="trips-h"></h2><table><thead><tr>
       <th>Date</th><th>Game</th><th>Venue</th><th>Drive</th><th>Leave by</th></tr></thead><tbody id="trips-b"></tbody></table>
       <p class="muted">Leave-by = drive estimate + 30 min buffer. Drive links open live Google Maps directions with traffic.</p></section>
   </section>
-  <section id="view-tbl" class="tbl" hidden>
+  <section id="view-tbl" class="tbl">
     <h2>All games — <span id="tbl-origin">Pasadena &amp; SLO</span> <span class="muted">· click a row for details</span></h2>
     <table><thead><tr>
       <th>Date</th><th>Time</th><th>Game</th><th>H/A</th>
@@ -196,7 +196,7 @@ const fmtClock = d => d.toLocaleTimeString("en-US", { timeZone: TZ, hour: "numer
 const dirUrl = (o, address) => "https://www.google.com/maps/dir/?api=1&" + new URLSearchParams(
   { origin: `${o.lat},${o.lon}`, destination: address, travelmode: "driving" });
 
-let DATA, origin = null, drives = {};   // drives: venueKey -> {min, mi}
+let CAL, DATA, origin = null, drives = {};   // drives: venueKey -> {min, mi}
 
 // ---------- routing: one OSRM table request covers every venue ----------
 async function computeDrives(o) {
@@ -598,7 +598,7 @@ fetch("events.json").then(r => r.json()).then(data => {
                   end: new Date(Date.UTC(lastD.getUTCFullYear(), lastD.getUTCMonth() + 1, 1)).toISOString().slice(0, 10) };
   const next = events.find(e => new Date(e.end) >= new Date());
   const mobile = window.matchMedia("(max-width: 640px)").matches;
-  new FullCalendar.Calendar($("cal"), {
+  CAL = new FullCalendar.Calendar($("cal"), {
     initialView: mobile ? "listSeason" : "dayGridMonth",
     initialDate: (next || events[0]).start.slice(0, 10),
     timeZone: TZ,
@@ -609,16 +609,18 @@ fetch("events.json").then(r => r.json()).then(data => {
     eventTimeFormat: { hour: "numeric", minute: "2-digit", meridiem: "short" },
     events,
     eventClick(info) { info.jsEvent.preventDefault(); openEvent(info.event); },
-  }).render();
+  });
+  CAL.render();
 
   // Mode switch: calendar <-> all-games table, synced to URL hash so it's bookmarkable.
   const MODES = { cal: "view-cal", table: "view-tbl", map: "view-map" };
   const BTN = { cal: "m-cal", table: "m-tbl", map: "m-map" };
-  const modeFromHash = () => ({ "#table": "table", "#map": "map" })[location.hash] || "cal";
+  const modeFromHash = () => ({ "#calendar": "cal", "#cal": "cal", "#table": "table", "#map": "map" })[location.hash] || "table";
   const setMode = m => {
     for (const k in MODES) { $(MODES[k]).hidden = k !== m; $(BTN[k]).classList.toggle("on", k === m); }
-    history.replaceState(null, "", m === "cal" ? location.pathname : `#${m}`);
+    history.replaceState(null, "", m === "table" ? location.pathname : `#${m === "cal" ? "calendar" : m}`);
     if (m === "map") showMap();
+    if (m === "cal") setTimeout(() => CAL.updateSize(), 0);   // it was laid out while hidden
   };
   for (const k in BTN) $(BTN[k]).onclick = () => setMode(k);
   setMode(modeFromHash());

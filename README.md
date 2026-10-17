@@ -1,6 +1,6 @@
 # 🏀 Cuesta College Men's Basketball — 2026-27
 
-**[📅 Calendar view](https://johnlinwiz.github.io/cuesta-mbb/)** · **[➕ Subscribe (.ics)](https://johnlinwiz.github.io/cuesta-mbb/cuesta-mbb.ics)** · **[🗓️ Month grids](CALENDAR.md)** · **[🗺️ Venue map](venues.geojson)** · **[🔔 Reminders](https://github.com/johnlinwiz/cuesta-mbb/issues)**
+**[🌐 Live schedule](https://johnlinwiz.github.io/cuesta-mbb/)** (table · [calendar](https://johnlinwiz.github.io/cuesta-mbb/#calendar) · [map](https://johnlinwiz.github.io/cuesta-mbb/#map)) · **[➕ Subscribe (.ics)](https://johnlinwiz.github.io/cuesta-mbb/cuesta-mbb.ics)** · **[🗓️ Month grids](CALENDAR.md)** · **[🗺️ Venue map](venues.geojson)** · **[🔔 Reminders](https://github.com/johnlinwiz/cuesta-mbb/issues)**
 
 > **Next up (today):** Sat Oct 17 · 2:00 PM · @ Reedley · (scrimmage) — [Reedley College Gym](https://www.google.com/maps/search/?api=1&query=Reedley+College+Gym%2C+995+N+Reed+Ave%2C+Reedley%2C+CA+93654), Reedley, CA  
 > 🚗 Pasadena [3h 59m](https://www.google.com/maps/dir/?api=1&origin=Pasadena%2C+CA&destination=995+N+Reed+Ave%2C+Reedley%2C+CA+93654&travelmode=driving) · 208 mi · SLO [3h 08m](https://www.google.com/maps/dir/?api=1&origin=San+Luis+Obispo%2C+CA&destination=995+N+Reed+Ave%2C+Reedley%2C+CA+93654&travelmode=driving) · 147 mi
