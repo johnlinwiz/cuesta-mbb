@@ -66,7 +66,35 @@
   .tbl tr.past td { opacity:.5 } .tbl tr.row-home { background:#0b6e3a0d } .tbl tr.row-tourney { background:#c9a2270d }
   .tbl td button.link { background:transparent; border:0; padding:0; color:var(--green); cursor:pointer; font:inherit; text-align:left }
   @media (prefers-color-scheme: dark) { .tbl td button.link { color:#6fd39b } }
-  @media (max-width:640px) { .tbl .hide-sm { display:none } }
+  .m-only { display:none }
+  @media (max-width:640px) {
+    /* Phones: each table row becomes a card */
+    .m-only { display:inline } .d-only { display:none !important }
+    .tbl thead { display:none }
+    .tbl table, .tbl tbody, .tbl tr, .tbl td { display:block; width:100% }
+    .tbl tr { border:1px solid #8883; border-radius:10px; margin:0 0 10px; padding:8px 12px }
+    .tbl td { border:0; padding:2px 0; white-space:normal !important }
+    .tbl td.c-head { font-size:13px; color:var(--muted) }
+    .tbl td.c-game { font-size:16px; font-weight:600; padding:2px 0 4px }
+    .tbl td.c-game .sub { font-weight:400 }
+    .tbl td[data-label] { display:flex; gap:8px; align-items:baseline }
+    .tbl td[data-label]::before { content:attr(data-label); flex:0 0 70px; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.3px }
+    .tbl td[data-label] > div { display:inline } .tbl td[data-label="Drive"] { flex-wrap:wrap }
+    .tbl td[data-label="Drive"] > div { flex-basis:100%; margin-left:78px } .tbl td[data-label="Drive"] > div:first-of-type { margin-left:0; flex-basis:auto }
+    .tbl td button.link { font-size:16px; font-weight:600 }
+    /* Header: compact */
+    header { padding:10px 12px; gap:6px 8px }
+    header h1 { font-size:16px; flex-basis:100% }
+    header a { font-size:12px; padding:2px 8px }
+    .modes { margin-left:0 } .modes button { padding:5px 10px; font-size:13px }
+    #l-readme { display:none }
+    main { padding:10px }
+    #from { padding:8px 10px } #from input { flex:1; width:auto; max-width:none } #from form { flex:1 1 100% }
+    #from small { font-size:11px }
+    /* Calendar toolbar */
+    .fc .fc-toolbar { flex-wrap:wrap; gap:6px } .fc .fc-toolbar-title { font-size:18px }
+    .fc .fc-button { padding:4px 8px; font-size:13px }
+  }
 
   /* Map view */
   #view-map { display:grid; grid-template-columns:1fr 300px; gap:12px }
@@ -124,14 +152,14 @@
   <section id="view-cal">
     <div id="cal"></div>
     <section id="trips" class="tbl" hidden><h2 id="trips-h"></h2><table><thead><tr>
-      <th>Date</th><th>Game</th><th class="hide-sm">Venue</th><th>Drive</th><th>Leave by</th></tr></thead><tbody id="trips-b"></tbody></table>
+      <th>Date</th><th>Game</th><th>Venue</th><th>Drive</th><th>Leave by</th></tr></thead><tbody id="trips-b"></tbody></table>
       <p class="muted">Leave-by = drive estimate + 30 min buffer. Drive links open live Google Maps directions with traffic.</p></section>
   </section>
   <section id="view-tbl" class="tbl" hidden>
     <h2>All games — <span id="tbl-origin">Pasadena &amp; SLO</span> <span class="muted">· click a row for details</span></h2>
     <table><thead><tr>
-      <th>Date</th><th class="hide-sm">Time</th><th>Game</th><th>H/A</th>
-      <th class="hide-sm">Venue</th><th id="tbl-th-drive">🚗 Pasadena · SLO</th>
+      <th>Date</th><th>Time</th><th>Game</th><th>H/A</th>
+      <th>Venue</th><th id="tbl-th-drive">🚗 Pasadena · SLO</th>
       <th>Watch</th></tr></thead><tbody id="tbl-b"></tbody></table>
     <p class="muted">Drive times without traffic (OSRM); run a bit long vs Google. Click a time for live directions. Set <b>Drive from</b> above to replace the Pasadena/SLO columns with your own location.</p>
   </section>
@@ -256,11 +284,11 @@ function renderTrips() {
   const now = new Date();
   const rows = DATA.events.filter(e => new Date(e.end) >= now).map(e => {
     const p = e.extendedProps, d = driveFor(p);
-    const drive = d === null ? "no route" : d ? `<a href="${dirUrl(origin, p.address)}" target="_blank">${fmtDur(d.min)}</a><br><span class="sub">${d.mi} mi</span>` : "—";
-    return `<tr><td class="num">${esc(p.dateLabel)}<br><span class="sub">${esc(p.time)}</span></td>
-      <td>${esc(e.title)}<br><span class="sub">${esc(p.site)}</span></td>
-      <td class="hide-sm"><a href="${p.map}" target="_blank">${esc(p.venue)}</a><br><span class="sub">${esc(p.city)}</span></td>
-      <td class="num">${drive}</td><td class="num">${leaveBy(e, d) || "—"}</td></tr>`;
+    const drive = d === null ? "no route" : d ? `<a href="${dirUrl(origin, p.address)}" target="_blank">${fmtDur(d.min)}</a> <span class="sub">${d.mi} mi</span>` : "—";
+    return `<tr><td class="num c-head">${esc(p.dateLabel)} <span class="sub">${esc(p.time)}</span></td>
+      <td class="c-game">${esc(e.title)} <span class="sub">${esc(p.site)}</span></td>
+      <td data-label="Venue"><a href="${p.map}" target="_blank">${esc(p.venue)}</a> <span class="sub">${esc(p.city)}</span></td>
+      <td class="num" data-label="Drive">${drive}</td><td class="num" data-label="Leave by">${leaveBy(e, d) || "—"}</td></tr>`;
   });
   $("trips-h").textContent = `Upcoming games — drive from ${origin.label}`;
   $("trips-b").innerHTML = rows.join("");
@@ -307,10 +335,10 @@ function renderSeasonTable() {
     const watch = [p.video && `<a href="${p.video}" target="_blank">📺</a>`,
                    p.stats ? `<a href="${p.stats}" target="_blank">📊</a>` : p.liveStats ? "📊" : ""]
                   .filter(Boolean).join(" ");
-    return `<tr class="${row}"><td class="num">${esc(p.dateLabel)}</td>
-      <td class="num hide-sm">${esc(p.time)}</td><td>${game}</td><td>${esc(p.site)}</td>
-      <td class="hide-sm"><a href="${p.map}" target="_blank">${esc(p.venue)}</a><br><span class="sub">${esc(p.city)}</span></td>
-      <td class="num">${driveCell}</td><td class="num">${watch || "—"}</td></tr>`;
+    return `<tr class="${row}"><td class="num c-head">${esc(p.dateLabel)}<span class="m-only"> · ${esc(p.time)} · ${esc(p.site)}</span></td>
+      <td class="num d-only">${esc(p.time)}</td><td class="c-game">${game}</td><td class="d-only">${esc(p.site)}</td>
+      <td data-label="Venue"><a href="${p.map}" target="_blank">${esc(p.venue)}</a><br class="d-only"><span class="sub"> ${esc(p.city)}</span></td>
+      <td class="num" data-label="Drive">${driveCell}</td><td class="num" data-label="Watch">${watch || "—"}</td></tr>`;
   });
   $("tbl-b").innerHTML = rows.join("");
   $("tbl-b").querySelectorAll("button.link").forEach(b => b.onclick = () => {
@@ -501,7 +529,7 @@ fetch("events.json").then(r => r.json()).then(data => {
   const next = events.find(e => new Date(e.end) >= new Date());
   const mobile = window.matchMedia("(max-width: 640px)").matches;
   new FullCalendar.Calendar($("cal"), {
-    initialView: mobile ? "listMonth" : "dayGridMonth",
+    initialView: mobile ? "listSeason" : "dayGridMonth",
     initialDate: (next || events[0]).start.slice(0, 10),
     timeZone: TZ,
     headerToolbar: { left: "prev,next today", center: "title", right: "dayGridMonth,listSeason" },
