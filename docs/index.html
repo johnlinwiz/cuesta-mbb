@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cuesta MBB Schedule</title>
-<script>try{var t=localStorage.getItem("cuesta-mbb-textsize");if(t&&t!=="m")document.documentElement.dataset.ts=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("cuesta-mbb-textsize"),o={s:90,m:100,l:115,xl:130};t=o[t]||parseFloat(t);if(t>=80&&t<=160&&t!==100)document.documentElement.style.fontSize=t+"%"}catch(e){}</script>
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -18,10 +18,13 @@
   @media (prefers-color-scheme: dark) { :root { --bg:#121614; --ink:#e7ece9; --muted:#9aa8a1; --card:#1a201d; } }
   * { box-sizing:border-box }
   html { font-size:100%; -webkit-text-size-adjust:100%; text-size-adjust:100% }
-  html[data-ts="s"] { font-size:90% } html[data-ts="l"] { font-size:115% } html[data-ts="xl"] { font-size:130% }
   .ts { display:inline-flex; gap:2px; background:#ffffff22; border-radius:8px; padding:2px }
   .ts button { background:transparent; color:#fff; border:0; border-radius:6px; padding:3px 9px; cursor:pointer; font:inherit; font-weight:700; line-height:1.2 }
   .ts button:hover { background:#ffffff22 } .ts button:disabled { opacity:.35; cursor:default }
+  #ts-badge { position:fixed; left:50%; top:18%; transform:translateX(-50%); z-index:9999; background:#0b6e3aee; color:#fff;
+    font:700 1.1rem/1 -apple-system,BlinkMacSystemFont,sans-serif; padding:10px 16px; border-radius:999px; box-shadow:0 6px 20px #0006;
+    pointer-events:none; opacity:0; transition:opacity .25s }
+  #ts-badge.on { opacity:1 }
   .ts .ts-a1 { font-size:.8rem } .ts .ts-a2 { font-size:1.05rem }
   body { margin:0; font:0.9375rem/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--ink) }
   header { background:var(--green); color:#fff; padding:14px 20px; display:flex; flex-wrap:wrap; gap:8px 20px; align-items:center }
@@ -180,6 +183,7 @@
       <p class="muted">🟢 home · ⚫ away · 🟡 tournament/neutral. Marker size = number of games. Click a venue for games, drive time and route.</p></aside>
   </section>
 </main>
+<div id="ts-badge" aria-live="polite"></div>
 <dialog id="dlg"><div class="dh"><h2 id="d-title"></h2><div id="d-sub"></div></div>
   <div class="db" id="d-body"></div>
   <div class="df" id="d-foot"></div></dialog>
@@ -515,22 +519,59 @@ function renderMap() {
   if (routeLine) { routeLine.remove(); routeLine = null; $("route-info").textContent = ""; }
 }
 
-// ---------- text size (A− / A+), remembered per device ----------
-const TS = ["s", "m", "l", "xl"], TS_KEY = "cuesta-mbb-textsize";
-function applyTextSize(t) {
-  if (t === "m") delete document.documentElement.dataset.ts; else document.documentElement.dataset.ts = t;
-  try { localStorage.setItem(TS_KEY, t); } catch {}
-  const i = TS.indexOf(t);
-  $("ts-down").disabled = i <= 0; $("ts-up").disabled = i >= TS.length - 1;
+// ---------- text size: A− / A+ presets and two-finger pinch, remembered per device ----------
+const TS_KEY = "cuesta-mbb-textsize", TS_PRESETS = [90, 100, 115, 130], TS_MIN = 80, TS_MAX = 160;
+let textPct = 100, badgeTimer = null;
+const clampPct = v => Math.round(Math.min(TS_MAX, Math.max(TS_MIN, v)));
+
+function showBadge(pct) {
+  const b = $("ts-badge"); b.textContent = `Text ${pct}%`; b.classList.add("on");
+  clearTimeout(badgeTimer); badgeTimer = setTimeout(() => b.classList.remove("on"), 900);
+}
+function setTextSize(pct, { save = true, badge = false } = {}) {
+  textPct = clampPct(pct);
+  document.documentElement.style.fontSize = textPct === 100 ? "" : `${textPct}%`;
+  $("ts-down").disabled = textPct <= TS_PRESETS[0];
+  $("ts-up").disabled = textPct >= TS_PRESETS.at(-1);
+  if (save) { try { localStorage.setItem(TS_KEY, String(textPct)); } catch {} }
+  if (badge) showBadge(textPct);
   if (typeof MAP !== "undefined" && MAP) setTimeout(() => MAP.invalidateSize(), 0);
 }
 (function initTextSize() {
-  let t = "m"; try { t = localStorage.getItem(TS_KEY) || "m"; } catch {}
-  if (!TS.includes(t)) t = "m";
-  applyTextSize(t);
-  const step = d => applyTextSize(TS[Math.min(TS.length - 1, Math.max(0, TS.indexOf(document.documentElement.dataset.ts || "m") + d))]);
-  $("ts-down").onclick = () => step(-1);
-  $("ts-up").onclick = () => step(+1);
+  let v = 100;
+  try { const raw = localStorage.getItem(TS_KEY); v = ({ s: 90, m: 100, l: 115, xl: 130 })[raw] || parseFloat(raw) || 100; } catch {}
+  setTextSize(v, { save: false });
+  // Buttons jump to the next preset in that direction, from wherever a pinch left it.
+  $("ts-down").onclick = () => setTextSize([...TS_PRESETS].reverse().find(p => p < textPct) ?? TS_PRESETS[0], { badge: true });
+  $("ts-up").onclick = () => setTextSize(TS_PRESETS.find(p => p > textPct) ?? TS_PRESETS.at(-1), { badge: true });
+
+  // Two-finger pinch anywhere except the map = text size (re-wrapping), instead of page magnification.
+  const inMap = t => t && t.closest && t.closest("#map, .leaflet-container");
+  const dist = ts => Math.hypot(ts[0].clientX - ts[1].clientX, ts[0].clientY - ts[1].clientY);
+  let pinch = null, raf = 0;
+  document.addEventListener("touchstart", e => {
+    if (e.touches.length === 2 && !inMap(e.target)) pinch = { d0: dist(e.touches), p0: textPct, target: textPct };
+  }, { passive: true });
+  document.addEventListener("touchmove", e => {
+    if (!pinch || e.touches.length !== 2) return;
+    e.preventDefault();                       // stop the browser's own pinch-zoom here
+    pinch.target = pinch.p0 * (dist(e.touches) / pinch.d0);
+    if (!raf) raf = requestAnimationFrame(() => {   // at most one re-layout per frame
+      raf = 0; if (pinch) setTextSize(pinch.target, { save: false, badge: true });
+    });
+  }, { passive: false });
+  const endPinch = e => {
+    if (pinch && e.touches.length < 2) {
+      cancelAnimationFrame(raf); raf = 0;
+      const final = pinch.target; pinch = null;
+      setTextSize(final, { badge: true });         // apply + save exactly where the fingers stopped
+    }
+  };
+  document.addEventListener("touchend", endPinch, { passive: true });
+  document.addEventListener("touchcancel", endPinch, { passive: true });
+  // iOS Safari zooms via its own gesture events; block those too (outside the map) so only text resizes.
+  for (const ev of ["gesturestart", "gesturechange"])
+    document.addEventListener(ev, e => { if (!inMap(e.target)) e.preventDefault(); }, { passive: false });
 })();
 
 // ---------- boot ----------
