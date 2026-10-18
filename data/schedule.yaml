@@ -11,7 +11,8 @@
 season: "2026-27"
 team: Cuesta College Men's Basketball
 source_url: https://www.cuestaathletics.com/sports/mbkb/2026-27/schedule
-feed_url: "https://www.cccaasports.org/sports/mbkb/2026-27/schedule?print=ical"   # official 3C2A feed, checked daily
+feed_url: "https://www.cccaasports.org/sports/mbkb/2026-27/schedule?print=ical"
+results_fallback_url: "https://www.cccaasports.org/sports/mbkb/2026-27/teams/cuesta?view=schedule"   # used when the team site blocks GitHub   # official 3C2A feed, checked daily
 feed_aliases: {}                  # feed name -> our name, if they ever differ
 feed_ignore:                      # "YYYY-MM-DD Opponent" feed entries we deliberately don't track
   - "2026-11-13 American River Tournament"   # all-day wrapper; the two timed ARC games are tracked
