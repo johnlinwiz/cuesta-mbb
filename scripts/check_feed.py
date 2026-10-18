@@ -50,6 +50,9 @@ def parse_feed(text, team="Cuesta"):
         if "Men's Basketball" not in summary or team not in summary:
             continue
         title = re.sub(r"^\(Men's Basketball\)\s*", "", summary)
+        score = re.search(r"\s*\((\d+)-(\d+)\)\s*$", title)      # finals: "Oxnard at Cuesta (62-78)", title order
+        if score:
+            title = title[:score.start()]
         m = re.match(rf"^{team} at (.+)$", title) or re.match(rf"^(.+) at {team}$", title) \
             or re.match(rf"^(.+) vs\.? {team}$", title) or re.match(rf"^{team} vs\.? (.+)$", title)
         if not m:
@@ -67,7 +70,14 @@ def parse_feed(text, team="Cuesta"):
         desc = field("DESCRIPTION").replace("\\,", ",").replace("\\n", " ")
         if re.search(r"\b(postponed|cancel+ed)\b", desc, re.I):
             status = status or "CANCELLED"
-        out.append({"date": d, "time": t, "opponent": opp, "site": site, "status": status, "title": title})
+        row = {"date": d, "time": t, "opponent": opp, "site": site, "status": status, "title": title}
+        if score:
+            a, b = int(score.group(1)), int(score.group(2))
+            us, them = (a, b) if title.startswith(team) else (b, a)
+            row.update(us=us, them=them, final="Final" in desc, forfeit="Forfeit" in desc)
+            if field("URL"):
+                row["boxscore"] = field("URL")
+        out.append(row)
     return out
 
 

@@ -20,7 +20,7 @@ import subprocess
 import sys
 from urllib.parse import urljoin
 
-from check_feed import norm
+from check_feed import fetch_feed, norm, parse_feed
 from common import ROOT, load
 
 UA = "Mozilla/5.0 (compatible; cuesta-mbb-schedule; +https://github.com/johnlinwiz/cuesta-mbb)"
@@ -104,9 +104,43 @@ def parse_league_page(page, base_url, season):
     return out
 
 
+def feed_rows(sched):
+    """Final scores from the league iCal feed (same feed check_feed.py uses; reachable from runners)."""
+    url = sched["feed_url"]
+    host = re.match(r"https?://[^/]+", url).group(0)
+    rows = []
+    for f in parse_feed(fetch_feed(url)):
+        if "us" not in f:
+            continue
+        us, them = f["us"], f["them"]
+        o = "W" if us > them else "L" if us < them else "T"
+        row = {"date": f["date"], "opponent": f["opponent"], "site": f["site"], "status": "Final",
+               "raw": f"{o}, {max(us, them)}-{min(us, them)}", "forfeit": f.get("forfeit", False)}
+        if f.get("boxscore"):
+            row["boxscore"] = urljoin(host + "/", f["boxscore"])
+        rows.append(row)
+    return rows
+
+
 def get_rows(sched):
-    """Official athletics page first (has recap links); league game log as fallback."""
+    """League iCal feed first; then team-site HTML (adds recap links) or league game log."""
     errors = []
+    try:
+        rows = feed_rows(sched)
+        try:   # best-effort enrichment: recap links only exist on the team site (often blocked in CI)
+            html_rows = parse_page(fetch(sched["source_url"]), sched["source_url"])
+            extra = {(r["date"], r["opponent"]): r for r in html_rows}
+            for r in rows:
+                h = extra.get((r["date"], r["opponent"]))
+                if h:
+                    for k in ("recap", "boxscore"):
+                        if h.get(k):
+                            r[k] = h[k]
+            return rows, "league iCal + team site"
+        except Exception as err:
+            return rows, f"league iCal (team site unavailable: {err})"
+    except Exception as err:
+        errors.append(str(err))
     try:
         return parse_page(fetch(sched["source_url"]), sched["source_url"]), "team site"
     except Exception as err:
@@ -128,7 +162,7 @@ def to_result(row, raw=None):
     o, us, them = parsed
     out = {"outcome": o, "us": us, "them": them, "score": f"{us}-{them}", "raw": raw,
            "status": row.get("status") or "Final"}
-    if us + them <= 2 and not row.get("boxscore"):   # Presto records forfeits as 2-0 / 1-0
+    if row.get("forfeit") or (us + them <= 2 and not row.get("boxscore")):   # Presto records forfeits as 2-0
         out["forfeit"] = True
     if "(OT" in raw.upper() or " OT" in raw.upper():
         out["ot"] = re.search(r"\(?(\d?OT)\)?", raw.upper()).group(1)
@@ -139,6 +173,14 @@ def to_result(row, raw=None):
 
 
 def main():
+    if "--feed" in sys.argv:   # validate the iCal path against another season's feed
+        url = sys.argv[sys.argv.index("--feed") + 1]
+        rows = feed_rows({"feed_url": url})
+        print(f"{len(rows)} scored games in feed")
+        for r in rows:
+            o, us, them = parse_score(r["raw"])
+            print(f"  {r['date']} {r['site']:7} {r['opponent']:<28} {o} {us}-{them}{'  FORFEIT' if r['forfeit'] else ''}{'  [box]' if r.get('boxscore') else ''}")
+        return 0
     if "--url" in sys.argv:
         url = sys.argv[sys.argv.index("--url") + 1]
         if "cccaasports" in url:
