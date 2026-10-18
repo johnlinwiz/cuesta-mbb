@@ -17,10 +17,15 @@
   :root { --green:#0b6e3a; --gold:#c9a227; --bg:#f6f7f6; --ink:#1d2421; --muted:#5d6b64; --card:#fff; }
   @media (prefers-color-scheme: dark) { :root { --bg:#121614; --ink:#e7ece9; --muted:#9aa8a1; --card:#1a201d; } }
   * { box-sizing:border-box }
+  [hidden] { display:none !important }   /* author display rules (e.g. #view-map grid) must not override hidden */
   html { font-size:100%; -webkit-text-size-adjust:100%; text-size-adjust:100% }
   .ts { display:inline-flex; gap:2px; background:#ffffff22; border-radius:8px; padding:2px }
   .ts button { background:transparent; color:#fff; border:0; border-radius:6px; padding:3px 9px; cursor:pointer; font:inherit; font-weight:700; line-height:1.2 }
   .ts button:hover { background:#ffffff22 } .ts button:disabled { opacity:.35; cursor:default }
+  .res { display:inline-block; font-weight:700; border-radius:5px; padding:0 6px; margin:2px 6px 0 0; font-size:.8125rem; white-space:nowrap }
+  .res.W { background:#1f8f4e33; color:#1f8f4e } .res.L { background:#c0392b2e; color:#c0392b } .res.T { background:#8883 }
+  @media (prefers-color-scheme: dark) { .res.W { color:#6fd39b } .res.L { color:#ff8a7a } }
+  .res-links a { font-size:.75rem; margin-right:6px }
   #ts-badge { position:fixed; left:50%; top:18%; transform:translateX(-50%); z-index:9999; background:#0b6e3aee; color:#fff;
     font:700 1.1rem/1 -apple-system,BlinkMacSystemFont,sans-serif; padding:10px 16px; border-radius:999px; box-shadow:0 6px 20px #0006;
     pointer-events:none; opacity:0; transition:opacity .25s }
@@ -73,7 +78,7 @@
   .tbl th, .tbl td { text-align:left; padding:7px 8px; border-bottom:1px solid #8883; vertical-align:top }
   .tbl th { color:var(--muted); font-weight:600; font-size:0.75rem; text-transform:uppercase; letter-spacing:.4px; position:sticky; top:0; background:var(--bg) }
   .tbl td.num { white-space:nowrap } .tbl .sub { color:var(--muted); font-size:0.75rem }
-  .tbl tr.past td { opacity:.5 } .tbl tr.row-home { background:#0b6e3a0d } .tbl tr.row-tourney { background:#c9a2270d }
+  .tbl tr.past td:not(.c-game) { opacity:.5 } .tbl tr.past td.c-game > button.link { opacity:.6 } .tbl tr.row-home { background:#0b6e3a0d } .tbl tr.row-tourney { background:#c9a2270d }
   .tbl td button.link { background:transparent; border:0; padding:0; color:var(--green); cursor:pointer; font:inherit; text-align:left }
   @media (prefers-color-scheme: dark) { .tbl td button.link { color:#6fd39b } }
   .m-only { display:none }
@@ -271,6 +276,18 @@ $("f-addr").onsubmit = async ev => {
 };
 $("b-clear").onclick = clearOrigin;
 
+// ---------- results ----------
+function resultChips(p, { links = true } = {}) {
+  const rs = p.results || [];
+  if (!rs.length) return "";
+  return rs.map(r => {
+    const who = r.opponent ? `vs ${esc(r.opponent)} ` : "";
+    const l = links ? [r.boxscore && `<a href="${r.boxscore}" target="_blank">box</a>`, r.recap && `<a href="${r.recap}" target="_blank">recap</a>`]
+                       .filter(Boolean).join("") : "";
+    return `<span class="res ${r.outcome}">${who}${esc(r.label)}</span>${l ? `<span class="res-links">${l}</span>` : ""}`;
+  }).join("");
+}
+
 // ---------- rendering ----------
 function driveFor(p) { return origin ? drives[p.venueKey] : undefined; }
 function leaveBy(ev, d) {
@@ -288,9 +305,10 @@ function driveHtml(ev) {
 
 function renderNext() {
   const now = new Date(), next = DATA.events.find(e => new Date(e.end) >= now);
-  if (!next) { $("next").textContent = "Season complete."; return; }
+  const rec = DATA.record ? `<b>Record:</b> ${esc(DATA.record)}<br>` : "";
+  if (!next) { $("next").innerHTML = rec + "Season complete."; return; }
   const p = next.extendedProps, dh = driveHtml(next);
-  $("next").innerHTML = `<b>Next up:</b> ${esc(p.dateLabel)} · ${esc(p.time)} · <b>${esc(next.title)}</b> — ` +
+  $("next").innerHTML = rec + `<b>Next up:</b> ${esc(p.dateLabel)} · ${esc(p.time)} · <b>${esc(next.title)}</b> — ` +
     `<a href="${p.map}" target="_blank">${esc(p.venue)}</a>, ${esc(p.city)}` + (dh ? `<br>${dh}` : "");
 }
 
@@ -336,7 +354,8 @@ function renderSeasonTable() {
     const p = e.extendedProps;
     const row = past(e) ? "past" : (e.classNames.includes("home") ? "row-home"
                                  : e.classNames.includes("tourney") ? "row-tourney" : "");
-    const game = `${iconFor(e)} <button class="link" data-id="${e.id}">${esc(e.title)}</button>`
+    const chips = resultChips(p, { links: false });
+    const game = `${iconFor(e)} <button class="link" data-id="${e.id}">${esc(e.title)}</button>` + (chips ? `<br>${chips}` : "")
                + (p.notes ? `<br><span class="sub">${esc(p.notes)}</span>` : "");
     let driveCell;
     if (originSet) {
@@ -347,7 +366,9 @@ function renderSeasonTable() {
     } else {
       driveCell = presets.map(o => `<div><span class="sub">${esc(o.label)}:</span> ${fixedDriveCell(e, o)}</div>`).join("");
     }
-    const watch = [p.video && `<a href="${p.video}" target="_blank">📺</a>`,
+    const r0 = (p.results || []).find(r => r.boxscore || r.recap);
+    const watch = past(e) ? [r0?.boxscore && `<a href="${r0.boxscore}" target="_blank">box</a>`, r0?.recap && `<a href="${r0.recap}" target="_blank">recap</a>`].filter(Boolean).join(" ") :
+                  [p.video && `<a href="${p.video}" target="_blank">📺</a>`,
                    p.stats ? `<a href="${p.stats}" target="_blank">📊</a>` : p.liveStats ? "📊" : ""]
                   .filter(Boolean).join(" ");
     return `<tr class="${row}"><td class="num c-head">${esc(p.dateLabel)}<span class="m-only"> · ${esc(p.time)} · ${esc(p.site)}</span></td>
@@ -368,7 +389,8 @@ function openEvent(fcEvent) {
   $("d-title").textContent = "Cuesta " + p.matchup;
   $("d-sub").textContent = `${p.dateLabel} · ${p.time} · ${p.type} · ${p.site}`;
   const mine = driveHtml(ev);
-  $("d-body").innerHTML = `
+  const rc = resultChips(p);
+  $("d-body").innerHTML = (rc ? `<p>🏁 ${rc}</p>` : "") + `
     <p>📍 <a href="${p.map}" target="_blank">${esc(p.venue)}</a><br><small>${esc(p.address)}</small></p>
     <p>${mine ? mine + "<br>" : ""}
        <span class="muted">${mine ? "Also: " : "🚗 "}Pasadena <a href="${p.dirPasadena}" target="_blank">${esc(p.drivePasadena)}</a> ·
@@ -405,7 +427,8 @@ function venuePopup(key) {
   const v = DATA.venues[key], now = new Date();
   const games = venueGames(key).map(e => {
     const p = e.extendedProps;
-    return `<li class="${new Date(e.end) < now ? "past" : ""}"><span class="gl" data-id="${e.id}">${esc(p.dateLabel)} · ${esc(p.time)} · ${esc(e.title)}</span></li>`;
+    const rc = resultChips(p, { links: false });
+    return `<li class="${new Date(e.end) < now ? "past" : ""}"><span class="gl" data-id="${e.id}">${esc(p.dateLabel)} · ${esc(p.time)} · ${esc(e.title)}</span>${rc ? " " + rc : ""}</li>`;
   }).join("");
   let drive;
   if (origin) {
@@ -607,7 +630,10 @@ fetch("events.json").then(r => r.json()).then(data => {
     validRange: range,
     height: "auto",
     eventTimeFormat: { hour: "numeric", minute: "2-digit", meridiem: "short" },
-    events,
+    events: events.map(e => {
+      const rs = e.extendedProps.results || [];
+      return rs.length ? { ...e, title: `${e.title} · ${rs.map(r => r.label).join(", ")}` } : e;
+    }),
     eventClick(info) { info.jsEvent.preventDefault(); openEvent(info.event); },
   });
   CAL.render();

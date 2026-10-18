@@ -6,6 +6,7 @@ import datetime as dt
 import json
 
 from common import (ICS_NAME, PAGES_URL, REPO, ROOT, TYPE_LABEL, fmt_dur, load, load_issue_map,
+                    record_label, result_games, result_label,
                     maps_dir, maps_place, today_pt)
 
 ICON = {"home": "🏠", "away": "🚌", "neutral": "📍"}
@@ -40,6 +41,9 @@ def build_readme(sched, venues_cfg, drive, events, issues, today):
         f"**[🔔 Reminders](https://github.com/{REPO}/issues)**",
         "",
     ]
+    rec = record_label(events)
+    if rec:
+        out += [f"**Record: {rec}**", ""]
     if upcoming:
         n = upcoming[0]
         days = (n.date - today).days
@@ -68,8 +72,13 @@ def build_readme(sched, venues_cfg, drive, events, issues, today):
                     "|---|---|---|---|---|---|---|---|"]
         done = "✅ " if e.end_date < today else ""
         game = f"{icon(e)} **{e.matchup}**{e.conf_star}"
+        for g in result_games(e):
+            who = f"vs {g['opponent']} " if g.get("opponent") else ""
+            badge = {"W": "🟢", "L": "🔴"}.get(g["outcome"], "⚪")
+            links = "".join(f" · [{lbl}]({g[k]})" for k, lbl in (("boxscore", "box"), ("recap", "recap")) if g.get(k))
+            game += f"<br>{badge} {who}**{result_label(g)}**{links}"
         watch = []
-        if e.video:
+        if e.video and e.end_date >= today:
             watch.append(f"[📺 watch]({e.video})" + ("" if e.video_is_channel else " (game)"))
         if e.audio:
             watch.append(f"[🎙️ audio]({e.audio})")
@@ -167,8 +176,9 @@ def build_calendar_md(sched, events, issues, today):
                     if n:
                         name = f"[{name}](https://github.com/{REPO}/issues/{n})"
                     done = "✅" if e.end_date < today else ""
-                    live = f" [📺]({e.video})" if e.video else ""
-                    txt += f"<br>{done}{icon(e)} {t} {name}{live}"
+                    live = f" [📺]({e.video})" if e.video and e.end_date >= today else ""
+                    res = " · ".join(f"**{result_label(g, short=True)}**" for g in result_games(e))
+                    txt += f"<br>{done}{icon(e)} {res or t} {name}{live}"
                 cells.append(txt)
             out.append("| " + " | ".join(cells) + " |")
         out.append("")
@@ -214,6 +224,8 @@ def build_events_json(sched, venues_cfg, events, issues):
                 "dirPasadena": maps_dir("pasadena", e.venue), "dirSlo": maps_dir("slo", e.venue),
                 "drivePasadena": e.drive_label("pasadena"), "driveSlo": e.drive_label("slo"),
                 "liveStats": e.live_stats, "notes": e.notes, "confirmed": e.site_confirmed,
+                "results": [{"label": result_label(g), "outcome": g["outcome"], "opponent": g.get("opponent"),
+                             "boxscore": g.get("boxscore"), "recap": g.get("recap")} for g in result_games(e)],
                 "venueKey": e.venue_key, "video": e.video, "videoLabel": e.video_label, "audio": e.audio, "stats": e.stats,
                 "gcal": e.gcal_link(),
                 "issue": f"https://github.com/{REPO}/issues/{issues[e.id]}" if e.id in issues else None,
@@ -236,6 +248,7 @@ def build_events_json(sched, venues_cfg, events, issues):
     origins = {k: {"label": o["label"], "lat": o["lat"], "lon": o["lon"]}
                for k, o in venues_cfg["origins"].items()}
     return json.dumps({"team": sched["team"], "season": sched["season"], "ics": ICS_NAME,
+                       "record": record_label(events),
                        "repo": REPO, "venues": venues, "origins": origins, "events": rows},
                       indent=1, ensure_ascii=False)
 

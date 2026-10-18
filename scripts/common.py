@@ -60,6 +60,7 @@ class Event:
         self.stats = raw.get("stats")   # live-stats scoreboard URL
         self.notes = raw.get("notes", "")
         self.replaces = raw.get("replaces", [])  # event ids this one supersedes
+        self.result = None                       # filled from data/results.json by load()
         self.venue_key = raw["venue"]
         self.venue = venues[self.venue_key]
         # Per-game stream link if posted; otherwise fall back to the host school's channel.
@@ -118,6 +119,8 @@ class Event:
         s = f"Cuesta MBB {self.matchup}"
         if self.type == "scrimmage":
             s += " (scrimmage)"
+        if self.result and "outcome" in self.result:
+            s += f" — {result_label(self.result)}"
         return s
 
     def drive_label(self, origin):
@@ -150,6 +153,9 @@ class Event:
             lines.append(f"Live stats: {self.stats}")
         elif self.live_stats:
             lines.append("Live stats available")
+        for g in result_games(self):
+            who = f" vs {g['opponent']}" if g.get("opponent") else ""
+            lines.append(f"Final{who}: {result_label(g)}" + (f" · Box score: {g['boxscore']}" if g.get("boxscore") else ""))
         if self.notes:
             lines.append(f"Note: {self.notes}")
         if not self.site_confirmed:
@@ -159,12 +165,53 @@ class Event:
         return "\n".join(lines)
 
 
+def result_label(r, short=False):
+    """{'outcome':'W','us':78,'them':65} -> 'W 78-65' (or 'W (forfeit)')."""
+    if not r or "outcome" not in r:
+        return ""
+    if r.get("forfeit"):
+        return f"{r['outcome']} (forfeit)" if not short else f"{r['outcome']} FF"
+    s = f"{r['outcome']} {r['us']}-{r['them']}"
+    return s + (f" ({r['ot']})" if r.get("ot") else "")
+
+
+def result_games(e):
+    """List of individual scored results for an event (tournaments can have several)."""
+    r = e.result or {}
+    return r["games"] if "games" in r else ([r] if "outcome" in r else [])
+
+
+def season_record(events):
+    """(wins, losses, conf_wins, conf_losses) — scrimmages excluded."""
+    w = l = cw = cl = 0
+    for e in events:
+        if e.type == "scrimmage":
+            continue
+        for g in result_games(e):
+            if g["outcome"] == "W":
+                w += 1; cw += e.type == "conference"
+            elif g["outcome"] == "L":
+                l += 1; cl += e.type == "conference"
+    return w, l, cw, cl
+
+
+def record_label(events):
+    w, l, cw, cl = season_record(events)
+    if not (w or l):
+        return ""
+    return f"{w}-{l}" + (f" (WSC {cw}-{cl})" if cw or cl else "")
+
+
 def load():
     sched = yaml.safe_load((ROOT / "data/schedule.yaml").read_text())
     venues_cfg = yaml.safe_load((ROOT / "data/venues.yaml").read_text())
     drive_path = ROOT / "data/drive_times.json"
     drive = json.loads(drive_path.read_text()) if drive_path.exists() else {}
     events = [Event(g, venues_cfg["venues"], drive, sched) for g in sched["games"]]
+    res_path = ROOT / "data/results.json"
+    results = json.loads(res_path.read_text()) if res_path.exists() else {}
+    for e in events:
+        e.result = results.get(e.id)
     events.sort(key=lambda e: (e.date, e.start or dt.datetime.min.replace(tzinfo=TZ)))
     return sched, venues_cfg, drive, events
 

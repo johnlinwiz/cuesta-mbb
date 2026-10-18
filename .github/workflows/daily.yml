@@ -29,6 +29,9 @@ jobs:
         if: github.event_name == 'push'
         env: { GH_TOKEN: "${{ github.token }}" }
         run: python scripts/sync_issues.py
+      - name: Fetch final scores from the official schedule page
+        continue-on-error: true
+        run: python scripts/fetch_results.py
       - name: Check official schedule feed for changes
         # Opens/updates one `schedule-drift` issue (with @mention) when the 3C2A feed
         # disagrees with data/schedule.yaml; closes it when they agree again.
@@ -44,5 +47,5 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A README.md CALENDAR.md venues.geojson docs data/issues.json
+          git add -A README.md CALENDAR.md venues.geojson docs data/issues.json data/results.json
           git diff --cached --quiet || { git commit -m "chore: daily schedule refresh"; git push; }

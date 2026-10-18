@@ -8,7 +8,8 @@ import datetime as dt
 import sys
 
 import gh
-from common import fmt_dur, load, load_issue_map, maps_dir, maps_place, today_pt
+from common import (fmt_dur, load, load_issue_map, maps_dir, maps_place, record_label, result_games,
+                    result_label, today_pt)
 
 BUFFER_MIN = 30  # arrive this long before tip-off
 
@@ -49,6 +50,18 @@ def reminder_body(e, days, mentions):
     return "\n".join(lines)
 
 
+def result_body(e, games, mentions, record):
+    lines = []
+    for g in games:
+        icon = {"W": "🟢", "L": "🔴"}.get(g["outcome"], "⚪")
+        who = f" vs {g['opponent']}" if g.get("opponent") else ""
+        links = " · ".join(f"[{lbl}]({g[k]})" for k, lbl in (("boxscore", "Box score"), ("recap", "Recap")) if g.get(k))
+        lines.append(f"{icon} **Final{who}: Cuesta {result_label(g)}**" + (f" — {links}" if links else ""))
+    head = f"🏁 {' '.join('@' + m for m in mentions)} Cuesta {e.matchup}{e.conf_star}"
+    tail = [f"", f"Season record: **{record}**"] if record and e.type != "scrimmage" else []
+    return "\n".join([head, "", *lines, *tail, "", "<!-- result -->"])
+
+
 def main():
     sched, _, _, events = load()
     issues = load_issue_map()
@@ -66,10 +79,19 @@ def main():
                 gh.api(f"issues/{n}/comments", "POST", {"body": reminder_body(e, days, mentions)})
                 print(f"#{n}: posted {days}d reminder")
         if e.end_date < today:
+            games = result_games(e)
             iss = gh.api(f"issues/{n}")
+            comments = None
+            if games:   # post the final score once (scores often land after the issue already closed)
+                comments = gh.api(f"issues/{n}/comments?per_page=100")
+                if not any("<!-- result -->" in (c.get("body") or "") for c in comments):
+                    gh.api(f"issues/{n}/comments", "POST", {"body": result_body(e, games, mentions, record_label(events))})
+                    print(f"#{n}: posted result")
             if iss["state"] == "open":
-                gh.api(f"issues/{n}/comments", "POST",
-                       {"body": "🏁 Game day has passed — closing. Add the final score here if you have it."})
+                if not games:
+                    gh.api(f"issues/{n}/comments", "POST", {"body":
+                           "🏁 Game day has passed — closing. The final score will be added here once it's posted "
+                           "(scrimmages usually aren't scored; add `result: \"W 70-62\"` in schedule.yaml if you know it)."})
                 gh.api(f"issues/{n}", "PATCH", {"state": "closed", "state_reason": "completed"})
                 print(f"#{n}: closed")
     return 0
