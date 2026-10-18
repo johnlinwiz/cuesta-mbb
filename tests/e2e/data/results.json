@@ -1,0 +1,8 @@
+{
+  "2026-10-29-gavilan": {"outcome": "L", "us": 68, "them": 75, "score": "68-75", "raw": "L, 75-68", "status": "Final",
+                         "boxscore": "https://example.test/box/gavilan"},
+  "2026-10-31-sequoias": {"outcome": "W", "us": 81, "them": 74, "score": "81-74", "raw": "W, 81-74", "status": "Final - OT",
+                          "ot": "OT", "boxscore": "https://example.test/box/sequoias", "recap": "https://example.test/recap/sequoias"},
+  "2026-11-03-monterey-peninsula": {"outcome": "W", "us": 2, "them": 0, "score": "2-0", "raw": "W, 2-0", "status": "Final",
+                                    "forfeit": true}
+}

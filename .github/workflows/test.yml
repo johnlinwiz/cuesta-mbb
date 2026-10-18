@@ -1,0 +1,28 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install -r requirements-dev.txt
+      - name: Unit tests (saved 2025-26 pages and feeds, no network)
+        run: python -m pytest tests/unit -q
+      - name: Install headless Chromium
+        run: python -m playwright install --with-deps chromium
+      - name: Browser tests (docs/index.html; CDN, OpenStreetMap and OSRM faked)
+        run: python -m pytest tests/e2e -q

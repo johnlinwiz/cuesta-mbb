@@ -2,7 +2,11 @@
 GH_TOKEN ?= $(shell gh auth token --user johnlinwiz 2>/dev/null)
 export GH_TOKEN
 
-.PHONY: build drive issues feed results daily serve all
+# Tests use .venv if it exists (make dev creates it); otherwise whatever python3 is.
+PY ?= $(if $(wildcard .venv/bin/python),.venv/bin/python,python3)
+PYBOOT ?= $(shell command -v python3.12 || command -v python3.13 || command -v python3.14 || echo python3)
+
+.PHONY: build drive issues feed results daily serve all dev test e2e test-all
 build:            ## regenerate README, CALENDAR.md, venues.geojson, docs/
 	python3 scripts/build.py
 drive:            ## recompute drive times (OSRM) after editing venues
@@ -18,3 +22,10 @@ daily:            ## run the reminder/close job locally
 serve:            ## preview the Pages calendar at http://localhost:8000
 	cd docs && python3 -m http.server 8000
 all: drive issues
+dev:              ## create .venv with the test tools + headless Chromium
+	$(PYBOOT) -m venv .venv && .venv/bin/pip install -q -r requirements-dev.txt && .venv/bin/python -m playwright install chromium
+test:             ## unit tests (offline, saved 2025-26 pages)
+	$(PY) -m pytest tests/unit -q
+e2e:              ## browser tests of docs/index.html (headless Chromium, network faked)
+	$(PY) -m pytest tests/e2e -q
+test-all: test e2e

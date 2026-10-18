@@ -1,0 +1,49 @@
+# Last season (2025-26) as this repo would have tracked it -- used by the unit tests only.
+# Built from the saved league feed (league.ics): every game listed individually with its feed
+# tip-off time. (tests/unit/test_results.py swaps the two Kris Kringle Tournament games for one
+# all-day multi-day event to exercise tournament grouping.)
+# The Hartnell scrimmage result is MADE UP to exercise manual `result:` overrides.
+season: "2025-26"
+team: Cuesta College Men's Basketball
+source_url: https://www.cuestaathletics.com/sports/mbkb/2025-26/schedule
+feed_url: "https://www.cccaasports.org/sports/mbkb/2025-26/schedule?print=ical"
+results_fallback_url: "https://www.cccaasports.org/sports/mbkb/2025-26/teams/cuesta?view=schedule"
+feed_aliases: {}
+feed_ignore: []
+timezone: America/Los_Angeles
+default_duration_min: 120
+notify: [johnlinwiz]
+reminder_days_before: [7, 2, 0]
+
+games:
+  - {date: 2025-09-27, end_date: 2025-09-28, opponent: NorCal Fall JUCO Jamboree, site: away, venue: away, type: scrimmage}
+  - {date: 2025-10-04, time: "13:00", opponent: Bakersfield, site: away, venue: away, type: scrimmage}
+  - {date: 2025-10-24, time: "14:00", opponent: Hartnell, site: away, venue: away, type: scrimmage, result: "W 70-62"}
+  - {date: 2025-11-04, time: "18:00", opponent: De Anza, site: away, venue: away, type: non-conference}
+  - {date: 2025-11-07, time: "19:00", opponent: Mendocino, site: home, venue: cuesta, type: non-conference}
+  - {date: 2025-11-08, time: "15:00", opponent: Sequoias, site: home, venue: cuesta, type: non-conference}
+  - {date: 2025-11-12, time: "17:00", opponent: Foothill, site: away, venue: away, type: non-conference}
+  - {date: 2025-11-13, time: "18:00", opponent: San Mateo, site: away, venue: away, type: non-conference}
+  - {date: 2025-11-14, time: "13:00", opponent: San Joaquin Delta, site: neutral, venue: neutral, type: tournament}
+  - {date: 2025-12-03, time: "18:00", opponent: Coalinga, site: home, venue: cuesta, type: non-conference}
+  - {date: 2025-12-06, time: "14:00", opponent: Chabot, site: home, venue: cuesta, type: non-conference}
+  - {date: 2025-12-11, time: "15:00", opponent: LA Valley, site: neutral, venue: neutral, type: tournament}
+  - {date: 2025-12-12, time: "13:00", opponent: El Camino, site: away, venue: away, type: non-conference}
+  - {date: 2025-12-13, time: "13:00", opponent: Oxnard, site: neutral, venue: neutral, type: tournament}
+  - {date: 2025-12-19, time: "18:00", opponent: Redwoods, site: neutral, venue: neutral, type: tournament, notes: "Kris Kringle Tournament"}
+  - {date: 2025-12-20, time: "18:00", opponent: Foothill, site: neutral, venue: neutral, type: tournament, notes: "Kris Kringle Tournament"}
+  - {date: 2025-12-29, time: "15:00", opponent: Cypress, site: neutral, venue: neutral, type: tournament}
+  - {date: 2025-12-30, time: "13:00", opponent: Shasta, site: neutral, venue: neutral, type: tournament}
+  - {date: 2026-01-03, time: "13:00", opponent: Redwoods, site: away, venue: away, type: non-conference}
+  - {date: 2026-01-10, time: "13:00", opponent: Allan Hancock, site: home, venue: cuesta, type: conference}
+  - {date: 2026-01-14, time: "17:00", opponent: Moorpark, site: away, venue: away, type: conference}
+  - {date: 2026-01-17, time: "13:00", opponent: Oxnard, site: home, venue: cuesta, type: conference}
+  - {date: 2026-01-21, time: "17:00", opponent: Ventura, site: away, venue: away, type: conference}
+  - {date: 2026-01-24, time: "15:00", opponent: LA Pierce, site: away, venue: away, type: conference}
+  - {date: 2026-01-28, time: "17:00", opponent: Santa Barbara, site: home, venue: cuesta, type: conference}
+  - {date: 2026-02-04, time: "17:00", opponent: Allan Hancock, site: away, venue: away, type: conference}
+  - {date: 2026-02-07, time: "13:00", opponent: Moorpark, site: home, venue: cuesta, type: conference}
+  - {date: 2026-02-11, time: "17:00", opponent: Oxnard, site: away, venue: away, type: conference}
+  - {date: 2026-02-14, time: "13:00", opponent: Ventura, site: home, venue: cuesta, type: conference}
+  - {date: 2026-02-18, time: "17:00", opponent: LA Pierce, site: home, venue: cuesta, type: conference}
+  - {date: 2026-02-20, time: "17:00", opponent: Santa Barbara, site: away, venue: away, type: conference}

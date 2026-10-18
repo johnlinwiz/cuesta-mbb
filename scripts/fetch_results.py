@@ -115,7 +115,8 @@ def feed_rows(sched):
         us, them = f["us"], f["them"]
         o = "W" if us > them else "L" if us < them else "T"
         row = {"date": f["date"], "opponent": f["opponent"], "site": f["site"], "status": "Final",
-               "raw": f"{o}, {max(us, them)}-{min(us, them)}", "forfeit": f.get("forfeit", False)}
+               "raw": f"{o}, {max(us, them)}-{min(us, them)}" + (f" ({f['ot']})" if f.get("ot") else ""),
+               "forfeit": f.get("forfeit", False)}
         if f.get("boxscore"):
             row["boxscore"] = urljoin(host + "/", f["boxscore"])
         rows.append(row)
@@ -164,8 +165,10 @@ def to_result(row, raw=None):
            "status": row.get("status") or "Final"}
     if row.get("forfeit") or (us + them <= 2 and not row.get("boxscore")):   # Presto records forfeits as 2-0
         out["forfeit"] = True
-    if "(OT" in raw.upper() or " OT" in raw.upper():
-        out["ot"] = re.search(r"\(?(\d?OT)\)?", raw.upper()).group(1)
+    # OT is in the score text ("W 81-74 (OT)", "(2OT)") or, on Presto pages, only the status ("Final - OT")
+    ot = re.search(r"\b(\d?OT)\b", f"{raw} {row.get('status') or ''}".upper())
+    if ot:
+        out["ot"] = ot.group(1)
     for k in ("boxscore", "recap"):
         if row.get(k):
             out[k] = row[k]
@@ -210,17 +213,20 @@ def main():
     results = {}
     if rows is not None:
         by_key = {(r["date"], norm(r["opponent"], aliases)): r for r in rows}
+        # Games tracked as their own single-day event never also count toward a tournament range.
+        single = {(e.date, norm(e.opponent, aliases)) for e in events if e.end_date == e.date}
         for e in events:
-            r = by_key.get((e.date, norm(e.opponent, aliases)))
-            if r and (res := to_result(r)):
-                results[e.id] = res
-            elif e.end_date > e.date:   # multi-day tournament: collect any scored games in its range
+            if e.end_date > e.date:   # multi-day tournament: collect every scored game in its range
+                # (checked first: "Redwoods Tournament" must not grab just the day-1 game vs Redwoods)
                 games = []
                 for row in rows:
-                    if e.date <= row["date"] <= e.end_date and (res := to_result(row)):
+                    if (e.date <= row["date"] <= e.end_date and (row["date"], norm(row["opponent"], aliases)) not in single
+                            and (res := to_result(row))):
                         games.append({"date": row["date"].isoformat(), "opponent": row["opponent"], **res})
                 if games:
                     results[e.id] = {"games": games}
+            elif (r := by_key.get((e.date, norm(e.opponent, aliases)))) and (res := to_result(r)):
+                results[e.id] = res
     else:
         results = {k: v for k, v in prev.items() if not v.get("manual")}
 

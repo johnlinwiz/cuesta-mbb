@@ -74,7 +74,9 @@ def parse_feed(text, team="Cuesta"):
         if score:
             a, b = int(score.group(1)), int(score.group(2))
             us, them = (a, b) if title.startswith(team) else (b, a)
-            row.update(us=us, them=them, final="Final" in desc, forfeit="Forfeit" in desc)
+            ot = re.search(r"\bFinal\s*-\s*(\d?OT)\b", desc, re.I)   # "…\, Final - OT\, 61-70"
+            row.update(us=us, them=them, final="Final" in desc, forfeit="Forfeit" in desc,
+                       ot=ot.group(1).upper() if ot else None)
             if field("URL"):
                 row["boxscore"] = field("URL")
         out.append(row)

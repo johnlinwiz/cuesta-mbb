@@ -1,0 +1,26 @@
+# Minimal venues for the 2025-26 unit-test schedule (real addresses don't matter to the tests).
+origins:
+  pasadena: {label: Pasadena, lat: 34.1477, lon: -118.1439}
+  slo:      {label: SLO,      lat: 35.2828, lon: -120.6596}
+
+venues:
+  cuesta:
+    name: Stork Gymnasium (Cuesta Gym)
+    city: San Luis Obispo, CA
+    address: Cuesta College, Highway 1, San Luis Obispo, CA 93405
+    lat: 35.3290
+    lon: -120.7406
+    stream: https://www.youtube.com/channel/UCJ5AEH02wtWXIUFAgVMspnQ
+    stream_label: "YouTube · CuestaHDTV"
+  away:
+    name: Opponent Gym; Main Court
+    city: Somewhere, CA
+    address: 1 College Way, Somewhere, CA 90000
+    lat: 36.0
+    lon: -120.0
+  neutral:
+    name: Tournament Host Gym
+    city: Elsewhere, CA
+    address: 2 Tourney Rd, Elsewhere, CA 90001
+    lat: 37.0
+    lon: -121.0

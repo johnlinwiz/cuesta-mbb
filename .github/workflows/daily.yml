@@ -24,7 +24,13 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - run: pip install pyyaml
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install -r requirements-dev.txt
+      - name: Unit tests
+        # Parsers/generators must pass against last season's saved pages before this job
+        # fetches anything, comments on issues, or commits to the Pages site.
+        run: python -m pytest tests/unit -q
       - name: Sync issues (on schedule edits)
         if: github.event_name == 'push'
         env: { GH_TOKEN: "${{ github.token }}" }
