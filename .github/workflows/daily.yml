@@ -2,7 +2,11 @@ name: daily reminders
 
 on:
   schedule:
-    - cron: "0 15 * * *"   # 8:00 AM PDT / 7:00 AM PST
+    # GitHub delays scheduled runs by up to a few hours (worst on the hour), so run early and
+    # twice at off-minutes. Every step is idempotent (hidden markers), so the 2nd run is a no-op
+    # unless the 1st was skipped or something changed overnight.
+    - cron: "17 11 * * *"   # ~4:17 AM PDT / 3:17 AM PST
+    - cron: "47 13 * * *"   # ~6:47 AM PDT / 5:47 AM PST
   workflow_dispatch:
   push:
     branches: [main]
@@ -20,8 +24,8 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: pip install -r requirements-dev.txt
