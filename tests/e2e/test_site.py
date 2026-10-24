@@ -40,7 +40,32 @@ def test_url_hash_picks_the_view(make_page, hash, mode):
     if mode == "map":
         expect(page.locator("#map .leaflet-interactive").first).to_be_attached()
     if mode == "cal":
-        expect(page.locator("#cal .fc-event").first).to_be_visible()
+        expect(page.locator("#cal .cmbb-ev").first).to_be_visible()      # our eventClass hook (v7 has no .fc-event)
+
+
+@pytest.mark.parametrize("mobile", [False, True])
+def test_no_runtime_errors_switching_views(make_page, mobile):
+    """Real timers (frozen=False): Playwright's fake clock swallows errors thrown in setTimeout
+    callbacks, which hid 'CAL.updateSize is not a function' after the FullCalendar 7 upgrade."""
+    page, _ = make_page(mobile=mobile, hash="#calendar", frozen=False)
+    for btn in ("#m-tbl", "#m-map", "#m-cal", "#m-tbl", "#m-cal"):
+        page.click(btn)
+        page.wait_for_timeout(150)          # let deferred work (resize, map invalidate) run
+    page.wait_for_timeout(300)
+    assert page.errors == [], page.errors
+
+
+@pytest.mark.parametrize("scheme", ["light", "dark"])
+def test_calendar_theme_follows_os_and_uses_cuesta_green(make_page, scheme):
+    """FullCalendar 7 puts data-color-scheme on #cal itself; our palette overrides must match it
+    (a descendant selector silently left the buttons slate-grey)."""
+    page, _ = make_page(mobile=False, hash="#calendar")
+    page.emulate_media(color_scheme=scheme)
+    page.reload()
+    page.wait_for_selector("#cal .cmbb-ev")
+    assert page.get_attribute("#cal", "data-color-scheme") == scheme
+    bg = page.evaluate("getComputedStyle(document.querySelector('#cal button')).backgroundColor")
+    assert bg == "rgb(11, 110, 58)", bg
 
 
 # ---------------------------------------------------------------- phone layout
@@ -217,8 +242,8 @@ def test_details_dialog_shows_result(make_page):
 
 def test_calendar_titles_carry_results(make_page):
     page, _ = make_page(mobile=False, hash="#calendar")
-    page.click("#cal .fc-prev-button")                                      # opens on November; go to October
-    expect(page.locator("#cal .fc-event", has_text="W 81-74 (OT)")).to_be_visible()
+    page.locator("#cal").get_by_role("button", name=re.compile(r"prev", re.I)).click()   # opens on November; go to October
+    expect(page.locator("#cal .cmbb-ev", has_text="W 81-74 (OT)")).to_be_visible()
 
 
 # ---------------------------------------------------------------- the vendored copies stay honest

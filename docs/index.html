@@ -12,7 +12,12 @@
 <meta name="theme-color" content="#0b6e3a">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js" integrity="sha384-B1OFx8Gy9GjPu8UbUyXbGQpzll9ubAUQ9agInFJ8NnD7nYG1u/CLR+Sqr5yifl4q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/skeleton.css" integrity="sha384-nPOQjfUBQBIb+rykJWTxCEAN5gcDzNJYcpPoztB2BwdSLmpeO8v0z804USczrwTI" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/themes/classic/theme.css" integrity="sha384-2aGV/VuChm9mQlrfCUhYe/ImdZfZ2Tg0Mjlzv1A37x/ggD+8cSR+3kd11Z0+S1KO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/themes/classic/palette.css" integrity="sha384-0awbN7leMDXzyw9bchwFr3H6OMf5Nt1nJF6kyOm3IAsLFa0qH3Rh4G5u8wfC5b+A" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/temporal-polyfill@1.0.6/global.js" integrity="sha384-zyBvsFrNePdEEVrakk0KQmhzY0/BV1+G7KFPzXt7h7yfuzloJDAwRlMuUCW02i76" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/all/global.js" integrity="sha384-xAUsqAQjUb3c4Y2mwpJVPVaQCSYgVFUWzHDz1JMeV1fwOrf+TP52KRNTE6s0qrzX" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/themes/classic/global.js" integrity="sha384-VOg50A1kluzgdYaX7vRPE+n6BxxKi4mJi9Ike5F79NFDb+dH52GLt1HDPIBztplX" crossorigin="anonymous"></script>
 <style>
   :root { --green:#0b6e3a; --gold:#c9a227; --bg:#f6f7f6; --ink:#1d2421; --muted:#5d6b64; --card:#fff; }
   @media (prefers-color-scheme: dark) { :root { --bg:#121614; --ink:#e7ece9; --muted:#9aa8a1; --card:#1a201d; } }
@@ -54,19 +59,14 @@
   .legend { color:var(--muted); font-size:0.8125rem; margin:0 0 10px }
   .legend span { display:inline-block; width:10px; height:10px; border-radius:2px; margin:0 4px 0 10px; vertical-align:middle }
 
-  .fc a.fc-daygrid-day-number, .fc a.fc-col-header-cell-cushion, .fc a.fc-list-day-text, .fc a.fc-list-day-side-text { color:inherit; text-decoration:none }
-  .fc-daygrid-event { white-space:normal; align-items:flex-start }
-  .fc-daygrid-event .fc-event-title { overflow:visible; white-space:normal }
-  .fc { --fc-border-color:#8883; --fc-page-bg-color:var(--bg); --fc-today-bg-color:#c9a2272a }
-  .fc .fc-button-primary { background:var(--green); border-color:var(--green) }
-  .fc .fc-button-primary:not(:disabled).fc-button-active { background:#084f2a; border-color:#084f2a }
-  .fc-event { cursor:pointer }
-  .fc-event.home    { --fc-event-bg-color:#0b6e3a; --fc-event-border-color:#0b6e3a }
-  .fc-event.away    { --fc-event-bg-color:#5b6670; --fc-event-border-color:#5b6670 }
-  .fc-event.tourney { --fc-event-bg-color:#c9a227; --fc-event-border-color:#c9a227; --fc-event-text-color:#1d2421 }
-  .fc-daygrid-dot-event.home .fc-daygrid-event-dot { border-color:#0b6e3a }
-  .fc-daygrid-dot-event.away .fc-daygrid-event-dot { border-color:#5b6670 }
-
+  /* FullCalendar 7 (classic theme): recolour through its palette variables, light + dark */
+  #cal[data-color-scheme] {   /* FullCalendar puts the attribute on #cal itself */
+    --fc-classic-button:#0b6e3a; --fc-classic-button-border:#0b6e3a;
+    --fc-classic-button-strong:#084f2a; --fc-classic-button-strong-border:#063d20;
+    --fc-classic-button-outline:#0b6e3a80; --fc-classic-primary:#0b6e3a;
+    --fc-classic-today:#c9a2272e; --fc-classic-background:var(--bg);
+  }
+  #cal .cmbb-ev { cursor:pointer; white-space:normal }
   /* Mode switch */
   .modes { display:inline-flex; gap:0; margin-left:auto; background:#ffffff22; border-radius:8px; padding:2px }
   .modes button { background:transparent; color:#fff; border:0; padding:5px 12px; border-radius:6px; cursor:pointer; font:inherit; font-size:0.875rem; opacity:.75 }
@@ -107,8 +107,6 @@
     #from { padding:8px 10px } #from input { flex:1; width:auto; max-width:none } #from form { flex:1 1 100% }
     #from small { font-size:0.6875rem }
     /* Calendar toolbar */
-    .fc .fc-toolbar { flex-wrap:wrap; gap:6px } .fc .fc-toolbar-title { font-size:1.125rem }
-    .fc .fc-button { padding:4px 8px; font-size:0.8125rem }
   }
 
   /* Map view */
@@ -621,7 +619,11 @@ fetch("events.json").then(r => r.json()).then(data => {
                   end: new Date(Date.UTC(lastD.getUTCFullYear(), lastD.getUTCMonth() + 1, 1)).toISOString().slice(0, 10) };
   const next = events.find(e => new Date(e.end) >= new Date());
   const mobile = window.matchMedia("(max-width: 640px)").matches;
+  const darkMq = window.matchMedia("(prefers-color-scheme: dark)");
+  const EV_COLOR = { home: ["#0b6e3a", "#ffffff"], away: ["#5b6670", "#ffffff"], tourney: ["#c9a227", "#1d2421"], neutral: ["#5b6670", "#ffffff"] };
   CAL = new FullCalendar.Calendar($("cal"), {
+    colorScheme: darkMq.matches ? "dark" : "light",
+    eventClass: "cmbb-ev",
     initialView: mobile ? "listSeason" : "dayGridMonth",
     initialDate: (next || events[0]).start.slice(0, 10),
     timeZone: TZ,
@@ -632,11 +634,14 @@ fetch("events.json").then(r => r.json()).then(data => {
     eventTimeFormat: { hour: "numeric", minute: "2-digit", meridiem: "short" },
     events: events.map(e => {
       const rs = e.extendedProps.results || [];
-      return rs.length ? { ...e, title: `${e.title} · ${rs.map(r => r.label).join(", ")}` } : e;
+      const [color, contrastColor] = EV_COLOR[e.classNames[0]] || EV_COLOR.away;
+      return { ...e, color, contrastColor, className: e.classNames.join(" "),
+               title: rs.length ? `${e.title} · ${rs.map(r => r.label).join(", ")}` : e.title };
     }),
     eventClick(info) { info.jsEvent.preventDefault(); openEvent(info.event); },
   });
   CAL.render();
+  darkMq.addEventListener("change", ev => CAL.setOption("colorScheme", ev.matches ? "dark" : "light"));
 
   // Mode switch: calendar <-> all-games table, synced to URL hash so it's bookmarkable.
   const MODES = { cal: "view-cal", table: "view-tbl", map: "view-map" };
@@ -646,7 +651,7 @@ fetch("events.json").then(r => r.json()).then(data => {
     for (const k in MODES) { $(MODES[k]).hidden = k !== m; $(BTN[k]).classList.toggle("on", k === m); }
     history.replaceState(null, "", m === "table" ? location.pathname : `#${m === "cal" ? "calendar" : m}`);
     if (m === "map") showMap();
-    if (m === "cal") setTimeout(() => CAL.updateSize(), 0);   // it was laid out while hidden
+    if (m === "cal" && CAL?.updateSize) setTimeout(() => CAL.updateSize(), 0);   // v6 needed this after being hidden; v7 resizes itself
   };
   for (const k in BTN) $(BTN[k]).onclick = () => setMode(k);
   setMode(modeFromHash());

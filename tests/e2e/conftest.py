@@ -26,8 +26,12 @@ FROZEN_NOW = "2026-11-05T12:00:00-08:00"
 CDN = {
     "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js": ("leaflet.js", "application/javascript"),
     "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css": ("leaflet.css", "text/css"),
-    "https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js": ("fullcalendar.global.min.js",
-                                                                             "application/javascript"),
+    "https://cdn.jsdelivr.net/npm/temporal-polyfill@1.0.6/global.js": ("temporal-polyfill.global.js", "application/javascript"),
+    "https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/all/global.js": ("fullcalendar7.all.global.js", "application/javascript"),
+    "https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/themes/classic/global.js": ("fullcalendar7.classic.global.js", "application/javascript"),
+    "https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/skeleton.css": ("fullcalendar7.skeleton.css", "text/css"),
+    "https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/themes/classic/theme.css": ("fullcalendar7.classic.theme.css", "text/css"),
+    "https://cdn.jsdelivr.net/npm/fullcalendar@7.1.3/themes/classic/palette.css": ("fullcalendar7.classic.palette.css", "text/css"),
 }
 PNG_1PX = base64.b64decode(
     "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=")
@@ -133,10 +137,14 @@ class Net:
 
 @pytest.fixture
 def make_page(browser, site_url, events_json):
-    """make_page(mobile=True, text_size=None, hash="") -> (page, net). Fails the test on errors."""
+    """make_page(mobile=True, text_size=None, hash="", frozen=True) -> (page, net). Fails the test on errors.
+
+    frozen=True pins the clock to FROZEN_NOW via Playwright's fake clock. That clock also fakes
+    setTimeout, and errors thrown inside faked timer callbacks never reach "pageerror" - so tests
+    that hunt for runtime errors must use frozen=False (real timers)."""
     contexts, nets = [], []
 
-    def make(mobile=True, text_size=None, hash=""):
+    def make(mobile=True, text_size=None, hash="", frozen=True):
         ctx = browser.new_context(**(MOBILE if mobile else DESKTOP), timezone_id="America/Los_Angeles",
                                   locale="en-US", service_workers="block")
         contexts.append(ctx)
@@ -147,7 +155,8 @@ def make_page(browser, site_url, events_json):
         page = ctx.new_page()
         page.errors = []
         page.on("pageerror", lambda exc: page.errors.append(str(exc)))
-        page.clock.set_fixed_time(FROZEN_NOW)
+        if frozen:
+            page.clock.set_fixed_time(FROZEN_NOW)
         page.goto(site_url + hash)
         page.wait_for_function("document.querySelector('#next') && !/Loading/.test(document.querySelector('#next').textContent)")
         return page, net
