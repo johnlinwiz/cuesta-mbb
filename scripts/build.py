@@ -30,7 +30,8 @@ def drive_cell(e, origin):
 
 # ---------------------------------------------------------------- README.md
 def build_readme(sched, venues_cfg, drive, events, issues, today):
-    upcoming = [e for e in events if e.end_date >= today]
+    # A game that already has a final score is done, even if it was today.
+    upcoming = [e for e in events if e.end_date >= today and not (e.end_date == today and result_games(e))]
     out = [
         f"# 🏀 {sched['team']} — {sched['season']}",
         "",

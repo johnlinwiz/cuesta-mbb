@@ -2,7 +2,7 @@
  "team": "Cuesta College Men's Basketball",
  "season": "2026-27",
  "ics": "cuesta-mbb.ics",
- "record": "",
+ "record": "1-0",
  "repo": "johnlinwiz/cuesta-mbb",
  "venues": {
   "reedley": {
@@ -358,13 +358,21 @@
     "liveStats": false,
     "notes": "",
     "confirmed": true,
-    "results": [],
+    "results": [
+     {
+      "label": "W 93-53",
+      "outcome": "W",
+      "opponent": null,
+      "boxscore": "https://www.cccaasports.org/links/qjxbsa",
+      "recap": null
+     }
+    ],
     "venueKey": "gavilan",
     "video": null,
     "videoLabel": "Game stream",
     "audio": null,
     "stats": null,
-    "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+%40+Gavilan&dates=20261029T180000%2F20261029T200000&ctz=America%2FLos_Angeles&location=Gavilan+College+Gym%2C+5055+Santa+Teresa+Blvd%2C+Gilroy%2C+CA+95020&details=Non-conference+%E2%80%94+Away%0AVenue%3A+Gavilan+College+Gym%2C+5055+Santa+Teresa+Blvd%2C+Gilroy%2C+CA+95020%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DGavilan%2BCollege%2BGym%252C%2B5055%2BSanta%2BTeresa%2BBlvd%252C%2BGilroy%252C%2BCA%2B95020%0ADrive+from+Pasadena%3A+5h+51m+%C2%B7+313+mi%0ADrive+from+SLO%3A+3h+01m+%C2%B7+154+mi",
+    "gcal": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cuesta+MBB+%40+Gavilan+%E2%80%94+W+93-53&dates=20261029T180000%2F20261029T200000&ctz=America%2FLos_Angeles&location=Gavilan+College+Gym%2C+5055+Santa+Teresa+Blvd%2C+Gilroy%2C+CA+95020&details=Non-conference+%E2%80%94+Away%0AVenue%3A+Gavilan+College+Gym%2C+5055+Santa+Teresa+Blvd%2C+Gilroy%2C+CA+95020%0AMap%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3DGavilan%2BCollege%2BGym%252C%2B5055%2BSanta%2BTeresa%2BBlvd%252C%2BGilroy%252C%2BCA%2B95020%0ADrive+from+Pasadena%3A+5h+51m+%C2%B7+313+mi%0ADrive+from+SLO%3A+3h+01m+%C2%B7+154+mi%0AFinal%3A+W+93-53+%C2%B7+Box+score%3A+https%3A%2F%2Fwww.cccaasports.org%2Flinks%2Fqjxbsa",
     "issue": "https://github.com/johnlinwiz/cuesta-mbb/issues/3"
    },
    "start": "2026-10-29T18:00:00-07:00",
